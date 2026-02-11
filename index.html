@@ -8,46 +8,72 @@
     <script src="https://unpkg.com/lightweight-charts@4.1.1/dist/lightweight-charts.standalone.production.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Outfit', 'Padauk', sans-serif; background-color: #0b0f19; color: #e2e8f0; }
+        body { font-family: 'Outfit', 'Padauk', sans-serif; background-color: #000000; color: #f5f5f7; }
+        
+        /* Apple-style Glassmorphism */
         .glass-card {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(28, 28, 30, 0.65);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
         }
-        .neon-text { text-shadow: 0 0 10px rgba(99, 102, 241, 0.5); }
-        .ticker-move { animation: ticker 30s linear infinite; }
+
+        /* Apple Border Glow */
+        .apple-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 113, 227, 0.4);
+            border-color: rgba(0, 113, 227, 0.5);
+            transform: scale(1.01);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Apple Button */
+        .apple-btn {
+            background: rgba(0, 113, 227, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+        }
+        .apple-btn:hover {
+            background: rgba(0, 122, 255, 1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+        }
+
+        .neon-text { text-shadow: 0 0 15px rgba(0, 113, 227, 0.6); }
+        .ticker-move { animation: ticker 35s linear infinite; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0b0f19; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        
+        /* Custom Scrollbar (Invisible/Apple-like) */
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
     <!-- Navbar & Marquee -->
-    <nav class="fixed top-0 w-full z-50 glass-card border-b border-gray-800">
+    <nav class="fixed top-0 w-full z-50 bg-[#000000]/70 backdrop-blur-xl border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white">S</div>
-                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 neon-text">
-                        Stuxnet Trade Intel
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="w-6 h-6 invert opacity-90">
+                    <span class="text-lg font-semibold tracking-tight text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                        Stuxnet Pro
                     </span>
                 </div>
-                <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
-                    <a href="#" class="hover:text-white transition">Crypto</a>
-                    <a href="#" class="hover:text-white transition">Forex</a>
-                    <a href="#" class="hover:text-white transition">Commodities</a>
-                    <a href="#" class="hover:text-white transition">AI Analysis</a>
+                <div class="hidden md:flex space-x-8 text-[13px] tracking-wide text-gray-300 font-medium">
+                    <a href="#" class="hover:text-white transition ease-out duration-300">Crypto</a>
+                    <a href="#" class="hover:text-white transition ease-out duration-300">Stocks</a>
+                    <a href="#" class="hover:text-white transition ease-out duration-300">Commodities</a>
+                    <a href="#" class="hover:text-white transition ease-out duration-300">AI Intelligence</a>
                 </div>
                 <div class="flex items-center gap-4">
-                     <div id="yangon-weather" class="text-xs text-blue-300 bg-blue-900/20 px-3 py-1 rounded-full border border-blue-500/30 flex items-center gap-2">
-                        <span>🌦️ YGN: Loading...</span>
+                     <div id="yangon-weather" class="text-[11px] font-medium text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20 flex items-center gap-2 backdrop-blur-md">
+                        <span>🌦️ YGN</span>
                     </div>
-                    <button class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-lg shadow-blue-500/20">
-                        Connect Wallet
+                    <button class="apple-btn text-white px-5 py-1.5 text-xs font-medium tracking-wide">
+                        Connect ID
                     </button>
                 </div>
             </div>
@@ -66,46 +92,69 @@
         <!-- Top Stats Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- BTC Card -->
-            <div class="glass-card p-5 rounded-2xl hover:scale-[1.02] transition duration-300">
-                <div class="flex justify-between items-start">
+            <div class="glass-card p-6 apple-glow cursor-default relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent pointer-events-none"></div>
+                <div class="flex justify-between items-start z-10 relative">
                     <div>
-                        <p class="text-sm text-gray-400">Bitcoin (BTC)</p>
-                        <h3 class="text-2xl font-bold text-white mt-1" id="price-btc">Wait...</h3>
+                        <p class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Bitcoin</p>
+                        <h3 class="text-3xl font-medium tracking-tight text-white transition-all duration-300" id="price-btc">Wait...</h3>
                     </div>
-                    <span class="text-green-400 bg-green-900/20 px-2 py-1 rounded text-xs font-mono live-indicator">● Live</span>
+                    <div class="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    </div>
+                </div>
+                <div class="mt-4 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-[10px] text-green-400 font-medium tracking-wide">MARKET OPEN</span>
                 </div>
             </div>
+
             <!-- ETH Card -->
-            <div class="glass-card p-5 rounded-2xl hover:scale-[1.02] transition duration-300">
-                <div class="flex justify-between items-start">
+            <div class="glass-card p-6 apple-glow cursor-default relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent pointer-events-none"></div>
+                <div class="flex justify-between items-start z-10 relative">
                     <div>
-                        <p class="text-sm text-gray-400">Ethereum (ETH)</p>
-                        <h3 class="text-2xl font-bold text-white mt-1" id="price-eth">Wait...</h3>
+                        <p class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Ethereum</p>
+                        <h3 class="text-3xl font-medium tracking-tight text-white transition-all duration-300" id="price-eth">Wait...</h3>
                     </div>
-                    <span class="text-green-400 bg-green-900/20 px-2 py-1 rounded text-xs font-mono live-indicator">● Live</span>
+                    <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
+                         <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 12l10 10 10-10L12 2zm0 4.2L17.8 11 12 16.8 6.2 11 12 6.2z"/></svg>
+                    </div>
+                </div>
+                <div class="mt-4 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-[10px] text-green-400 font-medium tracking-wide">MARKET OPEN</span>
                 </div>
             </div>
+
             <!-- Gold Card -->
-            <div class="glass-card p-5 rounded-2xl hover:scale-[1.02] transition duration-300">
-                <div class="flex justify-between items-start">
+            <div class="glass-card p-6 apple-glow cursor-default relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent pointer-events-none"></div>
+                <div class="flex justify-between items-start z-10 relative">
                     <div>
-                        <p class="text-sm text-gray-400">Gold (XAU)</p>
-                        <h3 class="text-2xl font-bold text-yellow-400 mt-1" id="price-gold">$5,049.20</h3>
+                        <p class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Gold (XAU)</p>
+                        <h3 class="text-3xl font-medium tracking-tight text-yellow-100 transition-all duration-300" id="price-gold">$2,654.20</h3>
                     </div>
-                    <span class="text-gray-400 text-xs mt-1">oz</span>
+                    <span class="text-[10px] font-mono text-yellow-500/80 border border-yellow-500/20 px-2 py-0.5 rounded-full">OZ</span>
                 </div>
-                <div class="mt-2 text-xs text-gray-500">Global Spot Market</div>
+                <div class="mt-4 text-[10px] text-gray-500 flex items-center gap-1">
+                    Global Spot Market
+                </div>
             </div>
+
             <!-- Oil Card -->
-            <div class="glass-card p-5 rounded-2xl hover:scale-[1.02] transition duration-300">
-                <div class="flex justify-between items-start">
+            <div class="glass-card p-6 apple-glow cursor-default relative overflow-hidden group">
+                 <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent pointer-events-none"></div>
+                <div class="flex justify-between items-start z-10 relative">
                     <div>
-                        <p class="text-sm text-gray-400">Crude Oil (WTI)</p>
-                        <h3 class="text-2xl font-bold text-orange-400 mt-1" id="price-oil">$90.45</h3>
+                        <p class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Crude Oil</p>
+                        <h3 class="text-3xl font-medium tracking-tight text-red-100 transition-all duration-300" id="price-oil">$78.45</h3>
                     </div>
-                    <span class="text-red-400 bg-red-900/20 px-2 py-1 rounded text-xs font-mono">-0.4%</span>
+                     <span class="text-[10px] font-mono text-red-500/80 border border-red-500/20 px-2 py-0.5 rounded-full">WTI</span>
                 </div>
-                <div class="mt-2 text-xs text-gray-500">Energy Futures</div>
+                 <div class="mt-4 text-[10px] text-gray-500 flex items-center gap-1">
+                    Energy Futures
+                </div>
             </div>
         </div>
 
@@ -300,36 +349,43 @@
         }
         connectWebSocket();
 
-        // Simulate Gold/Oil Ticker with Flash
-        let lastGold = 5049.20;
-        let lastOil = 90.45;
+        // Simulate Gold/Oil Ticker with Flash (Corrected Base Prices)
+        // Gold Base: ~2650, Oil Base: ~78
+        let lastGold = 2654.20;
+        let lastOil = 78.45;
 
         setInterval(() => {
-            const goldNow = (5049.20 + (Math.random() - 0.5) * 5).toFixed(2);
-            const oilNow = (90.45 + (Math.random() - 0.5) * 0.8).toFixed(2);
+            const goldNow = (2654.20 + (Math.random() - 0.5) * 2).toFixed(2);
+            const oilNow = (78.45 + (Math.random() - 0.5) * 0.3).toFixed(2);
 
             const elGold = document.getElementById('price-gold');
             const elOil = document.getElementById('price-oil');
 
             // Gold Flash
             if(goldNow > lastGold) {
-                elGold.className = "text-2xl font-bold mt-1 text-green-400 transition duration-300";
+                elGold.className = "text-3xl font-medium tracking-tight text-green-400 transition-all duration-300";
             } else {
-                elGold.className = "text-2xl font-bold mt-1 text-red-500 transition duration-300";
+                elGold.className = "text-3xl font-medium tracking-tight text-red-400 transition-all duration-300";
             }
+            // Reset color after flash
+            setTimeout(() => elGold.className = "text-3xl font-medium tracking-tight text-yellow-100 transition-all duration-500", 600);
+            
             lastGold = goldNow;
             elGold.innerText = `$${goldNow}`;
 
             // Oil Flash
             if(oilNow > lastOil) {
-                elOil.className = "text-2xl font-bold mt-1 text-green-400 transition duration-300";
+                elOil.className = "text-3xl font-medium tracking-tight text-green-400 transition-all duration-300";
             } else {
-                elOil.className = "text-2xl font-bold mt-1 text-red-500 transition duration-300";
+                elOil.className = "text-3xl font-medium tracking-tight text-red-400 transition-all duration-300";
             }
+             // Reset color after flash
+            setTimeout(() => elOil.className = "text-3xl font-medium tracking-tight text-red-100 transition-all duration-500", 600);
+
             lastOil = oilNow;
             elOil.innerText = `$${oilNow}`;
 
-        }, 2000);
+        }, 3000);
 
         // --- 3. Yangon Weather Fetch ---
         async function fetchWeather() {
