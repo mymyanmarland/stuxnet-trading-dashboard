@@ -1,25 +1,8 @@
 {
-  "timestamp": "2026-02-12T04:09:00+06:30",
-  "title": "Bitcoin (BTC) Market Overview",
-  "summary": "Bitcoin သည် $70,000 ခုခံမှုအဆင့်တွင် ငြင်းပယ်ခံရပြီးနောက် $60,000 ဝန်းကျင်သို့ ကျဆင်းနိုင်ခြေရှိနေသည်။ လက်ရှိတွင် ဈေးကွက်အေးစက်နေပြီး ဝယ်လိုအားနည်းပါးနေကာ အရောင်းဖိအားများနေသည်။",
-  "prediction": "ကျဆင်းနိုင်ခြေရှိ (Bearish)",
-  "support": "$60,000 - $66,000",
-  "resistance": "$70,000",
-  "news": [
-    {
-      "tag": "Market Analysis",
-      "time": "2026-02-11T21:15:00Z",
-      "text": "Bitcoin အနာဂတ်ဈေးကွက်အချက်အလက်များအရ $60,000 ဝန်းကျင်သို့ ထပ်မံကျဆင်းနိုင်ခြေရှိကြောင်း တွေ့ရှိရသည်။"
-    },
-    {
-      "tag": "Price Prediction",
-      "time": "2026-02-11T20:20:00Z",
-      "text": "Bitcoin နှင့် အခြားအကြွေစေ့များသည် ဈေးကွက်ကျဆင်းပြီးနောက် ဈေးနှုန်းတည်ငြိမ်ရန် ကြိုးစားနေဆဲဖြစ်သည်။"
-    },
-    {
-      "tag": "Market Update",
-      "time": "2026-02-11T19:16:00Z",
-      "text": "ဝယ်လိုအားနည်းပါးမှုနှင့် ရင်းနှီးမြှုပ်နှံသူများ၏ စိတ်ဝင်စားမှုလျော့နည်းလာခြင်းကြောင့် Bitcoin ဈေးနှုန်း ပြန်လည်ကျဆင်းနေသည်။"
-    }
-  ]
+  "timestamp": "2026-02-12T04:27:00+06:30",
+  "title": "BTC/USD Market Update",
+  "summary": "Bitcoin is currently trading at $67,815, showing consolidation below the $69,000 resistance. Market sentiment remains cautiously bullish as traders watch for a breakout or rejection.",
+  "prediction": "If $66,500 holds, expect a retest of $69,000. A daily close below $65,000 invalidates the bullish trend and could trigger a correction to $62,000.",
+  "support": "$66,200 / $64,800",
+  "resistance": "$69,500 / $71,200"
 }
