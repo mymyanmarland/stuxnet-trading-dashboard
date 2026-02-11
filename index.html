@@ -5,26 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stuxnet Trading Intelligence 🚀</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lightweight-charts@4.1.1/dist/lightweight-charts.standalone.production.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #0b0f19; color: #e2e8f0; }
+        body { font-family: 'Outfit', 'Padauk', sans-serif; background-color: #0b0f19; color: #e2e8f0; }
         .glass-card {
             background: rgba(17, 24, 39, 0.7);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
-        .neon-text {
-            text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
-        }
-        .ticker-move {
-            animation: ticker 20s linear infinite;
-        }
-        @keyframes ticker {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
+        .neon-text { text-shadow: 0 0 10px rgba(99, 102, 241, 0.5); }
+        .ticker-move { animation: ticker 30s linear infinite; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #0b0f19; }
@@ -62,7 +55,7 @@
         <!-- Live Ticker -->
         <div class="h-8 bg-black/40 flex items-center overflow-hidden border-t border-gray-800">
             <div class="whitespace-nowrap ticker-move text-xs font-mono text-gray-400" id="marquee-ticker">
-                BTC: Loading... • ETH: Loading... • GOLD: $2,650 • OIL: $78.20 • SOL: Loading...
+                BTC: Loading... • ETH: Loading... • GOLD: $5,049 • OIL: $90.20 • SOL: Loading...
             </div>
         </div>
     </nav>
@@ -97,7 +90,7 @@
                 <div class="flex justify-between items-start">
                     <div>
                         <p class="text-sm text-gray-400">Gold (XAU)</p>
-                        <h3 class="text-2xl font-bold text-yellow-400 mt-1" id="price-gold">$2,654.20</h3>
+                        <h3 class="text-2xl font-bold text-yellow-400 mt-1" id="price-gold">$5,049.20</h3>
                     </div>
                     <span class="text-gray-400 text-xs mt-1">oz</span>
                 </div>
@@ -108,7 +101,7 @@
                 <div class="flex justify-between items-start">
                     <div>
                         <p class="text-sm text-gray-400">Crude Oil (WTI)</p>
-                        <h3 class="text-2xl font-bold text-orange-400 mt-1" id="price-oil">$78.45</h3>
+                        <h3 class="text-2xl font-bold text-orange-400 mt-1" id="price-oil">$90.45</h3>
                     </div>
                     <span class="text-red-400 bg-red-900/20 px-2 py-1 rounded text-xs font-mono">-0.4%</span>
                 </div>
@@ -124,7 +117,8 @@
                     <button class="px-3 py-1 bg-blue-600 text-xs rounded hover:bg-blue-500 text-white font-semibold">BTC/USD</button>
                     <span class="px-3 py-1 bg-gray-800 text-xs rounded text-gray-400">1H Candle</span>
                 </div>
-                <div id="trading-chart" class="w-full h-full rounded-xl overflow-hidden bg-gray-900"></div>
+                <!-- Explicit height/width for chart container -->
+                <div id="trading-chart" class="w-full h-full rounded-xl overflow-hidden bg-gray-900" style="min-height: 500px;"></div>
             </div>
 
             <!-- AI Insights Panel (1 col) -->
@@ -141,7 +135,7 @@
                         <div class="h-2 bg-gray-700 rounded col-span-2"></div>
                         <div class="h-2 bg-gray-700 rounded col-span-1"></div>
                         <div class="h-20 bg-gray-800 rounded-lg"></div>
-                        <p class="text-xs text-gray-500 text-center">Connecting to Brain...</p>
+                        <p class="text-xs text-gray-500 text-center">Analysing Market...</p>
                     </div>
                 </div>
 
@@ -188,136 +182,105 @@
     </main>
 
     <script>
-        // --- 1. TradingView Lightweight Chart Setup ---
-        // Ensure container exists before creating chart
-        const chartContainer = document.getElementById('trading-chart');
-        let chart;
-        let candleSeries;
-        
-        try {
+        // --- 1. TradingView Lightweight Chart (Robust Setup) ---
+        window.onload = function() {
+            const chartContainer = document.getElementById('trading-chart');
             if (window.LightweightCharts) {
-                chart = LightweightCharts.createChart(chartContainer, {
+                const chart = LightweightCharts.createChart(chartContainer, {
                     layout: { background: { type: 'solid', color: '#111827' }, textColor: '#d1d5db' },
                     grid: { vertLines: { color: '#1f2937' }, horzLines: { color: '#1f2937' } },
-                    crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+                    width: chartContainer.clientWidth,
+                    height: chartContainer.clientHeight || 500,
                     rightPriceScale: { borderColor: '#374151' },
                     timeScale: { borderColor: '#374151' },
                 });
 
-                candleSeries = chart.addCandlestickSeries({
+                const candleSeries = chart.addCandlestickSeries({
                     upColor: '#22c55e', downColor: '#ef4444', borderUpColor: '#22c55e', borderDownColor: '#ef4444',
                     wickUpColor: '#22c55e', wickDownColor: '#ef4444',
                 });
 
-                // Generate Mock Data for Chart Initialization
+                // Generate Mock Data (2026 Prices)
                 function generateData() {
                     let data = [];
-                    let time = Math.floor(Date.now() / 1000) - (100 * 3600); // 100 hours ago
-                    let open = 98000;
-                    for (let i = 0; i < 100; i++) {
-                        let close = open + (Math.random() - 0.5) * 500;
-                        let high = Math.max(open, close) + Math.random() * 200;
-                        let low = Math.min(open, close) - Math.random() * 200;
+                    let time = Math.floor(Date.now() / 1000) - (200 * 3600);
+                    let open = 98000; 
+                    for (let i = 0; i < 200; i++) {
+                        let close = open + (Math.random() - 0.5) * 800;
+                        let high = Math.max(open, close) + Math.random() * 300;
+                        let low = Math.min(open, close) - Math.random() * 300;
                         data.push({ time: time + i * 3600, open, high, low, close });
                         open = close;
                     }
                     return data;
                 }
                 candleSeries.setData(generateData());
-                
-                // Handle Window Resize
-                window.addEventListener('resize', () => {
-                    chart.resize(chartContainer.clientWidth, chartContainer.clientHeight);
-                });
-            } else {
-                chartContainer.innerHTML = "<p class='text-red-500 text-center mt-20'>Chart Library Failed to Load</p>";
-            }
-        } catch(e) {
-            console.error("Chart Error:", e);
-        }
 
-        // --- 2. Live Price Updates (Binance WebSocket) ---
-        // Using a more robust connection logic
+                // Auto Resize
+                new ResizeObserver(entries => {
+                    if (entries.length === 0 || entries[0].target !== chartContainer) { return; }
+                    const newRect = entries[0].contentRect;
+                    chart.applyOptions({ height: newRect.height, width: newRect.width });
+                }).observe(chartContainer);
+            } else {
+                chartContainer.innerHTML = "<p class='text-red-500 p-10 text-center'>Chart Library Failed to Load. Please Refresh.</p>";
+            }
+        };
+
+        // --- 2. Live Price Updates (Binance + Simulation) ---
         function connectWebSocket() {
             const ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade/ethusdt@trade');
-            
-            ws.onopen = () => {
-                console.log("Binance WS Connected");
-                document.getElementById('price-btc').innerText = "Waiting...";
-            };
-
             ws.onmessage = (event) => {
                 const data = JSON.parse(event.data);
                 const price = parseFloat(data.p).toFixed(2);
-                
                 if (data.s === 'BTCUSDT') {
                     const el = document.getElementById('price-btc');
-                    if(el) {
-                        el.innerText = `$${price}`;
-                        el.classList.add('text-white');
-                        // Flash effect could be added here
-                    }
-                    document.title = `$${price} BTC | Stuxnet Intel`;
-                    
-                    // Update ticker
-                    const ticker = document.getElementById('marquee-ticker');
-                    if(ticker && ticker.innerText.includes("Loading")) {
-                        ticker.innerText = `BTC: $${price} • ETH: ... • GOLD: $2,654 • OIL: $78.45`;
-                    }
-
+                    if(el) { el.innerText = `$${price}`; el.classList.add('text-white'); }
+                    document.title = `$${price} BTC`;
                 } else if (data.s === 'ETHUSDT') {
                     const el = document.getElementById('price-eth');
                     if(el) el.innerText = `$${price}`;
                 }
             };
-
-            ws.onerror = (err) => {
-                console.error("WS Error:", err);
-            };
-            
-            ws.onclose = () => {
-                console.log("WS Closed, reconnecting...");
-                setTimeout(connectWebSocket, 5000);
-            };
+            ws.onclose = () => setTimeout(connectWebSocket, 5000);
         }
         connectWebSocket();
+
+        // Simulate Gold/Oil Ticker
+        setInterval(() => {
+            const goldBase = 5049.20;
+            const oilBase = 90.45;
+            
+            const goldNow = (goldBase + (Math.random() - 0.5) * 2).toFixed(2);
+            const oilNow = (oilBase + (Math.random() - 0.5) * 0.5).toFixed(2);
+
+            document.getElementById('price-gold').innerText = `$${goldNow}`;
+            document.getElementById('price-oil').innerText = `$${oilNow}`;
+        }, 3000);
 
         // --- 3. Yangon Weather Fetch ---
         async function fetchWeather() {
             try {
-                // Using Open-Meteo (Free, No Key)
                 const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=16.8053&longitude=96.1561&current_weather=true');
                 if(!res.ok) throw new Error("Weather API failed");
                 const data = await res.json();
-                const temp = data.current_weather.temperature;
-                const weatherCode = data.current_weather.weathercode;
-                
-                let icon = "🌤️";
-                if(weatherCode > 50) icon = "🌧️";
-                if(weatherCode > 80) icon = "⛈️";
-
-                document.getElementById('yangon-weather').innerHTML = `${icon} YGN: ${temp}°C`;
+                document.getElementById('yangon-weather').innerHTML = `🌤️ YGN: ${data.current_weather.temperature}°C`;
             } catch (e) {
-                console.error("Weather error", e);
                 document.getElementById('yangon-weather').innerHTML = `🌤️ YGN: N/A`;
             }
         }
         fetchWeather();
 
-        // --- 4. Load AI Analysis (Robust Fetch) ---
+        // --- 4. Load AI Analysis (Burmese Support) ---
         async function loadAIAnalysis() {
-            const feed = document.getElementById('ai-analysis-feed');
             try {
-                // Try fetching from the same domain first (relative path) to avoid CORS if possible, or fallback to absolute
-                // GitHub Pages sometimes caches aggressively. 
-                // We add a timestamp to bust cache.
-                const url = `data/ai_analysis.json?t=${Date.now()}`;
-                
+                // Use relative path to avoid CORS issues on same domain
+                const url = `data/ai_analysis.json?t=${Date.now()}`; 
                 const res = await fetch(url);
-                if (!res.ok) throw new Error("JSON not found or network error");
-                
+                if (!res.ok) throw new Error("JSON not found");
                 const data = await res.json();
                 
+                const feed = document.getElementById('ai-analysis-feed');
                 feed.innerHTML = `
                     <div class="bg-blue-900/20 border border-blue-500/30 p-3 rounded-lg mb-3 animate-in fade-in duration-500">
                         <div class="flex justify-between items-center mb-1">
@@ -325,7 +288,7 @@
                             <span class="text-[10px] text-gray-400">${new Date(data.timestamp).toLocaleTimeString()}</span>
                         </div>
                         <h4 class="font-bold text-white text-sm mb-1">${data.title}</h4>
-                        <p class="text-xs text-gray-300 leading-relaxed">${data.summary}</p>
+                        <p class="text-xs text-gray-300 leading-relaxed font-[Padauk]">${data.summary}</p>
                     </div>
                     <div class="space-y-2">
                         <div class="text-xs text-gray-400 font-mono">
@@ -336,21 +299,10 @@
                     </div>
                 `;
             } catch (e) {
-                console.log("AI Analysis load failed:", e);
-                // Only show placeholder if empty
-                if (!feed.innerHTML.includes("LATEST SIGNAL")) {
-                     feed.innerHTML = `
-                        <div class="bg-gray-800/50 p-4 rounded text-center">
-                            <p class="text-xs text-gray-400">Waiting for AI Brain Sync...</p>
-                            <p class="text-[10px] text-gray-600 mt-1">System is initializing.</p>
-                        </div>`;
-                }
+                console.log("Analysis Wait Loop...");
             }
         }
-        
-        // Initial load
         loadAIAnalysis();
-        // Periodic refresh every 30s
         setInterval(loadAIAnalysis, 30000);
 
     </script>
