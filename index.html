@@ -200,15 +200,15 @@
                     wickUpColor: '#22c55e', wickDownColor: '#ef4444',
                 });
 
-                // Generate Mock Data (2026 Prices)
+                // Generate Mock Data (Realistic $66k range)
                 function generateData() {
                     let data = [];
                     let time = Math.floor(Date.now() / 1000) - (200 * 3600);
-                    let open = 98000; 
+                    let open = 66500; 
                     for (let i = 0; i < 200; i++) {
-                        let close = open + (Math.random() - 0.5) * 800;
-                        let high = Math.max(open, close) + Math.random() * 300;
-                        let low = Math.min(open, close) - Math.random() * 300;
+                        let close = open + (Math.random() - 0.5) * 400;
+                        let high = Math.max(open, close) + Math.random() * 200;
+                        let low = Math.min(open, close) - Math.random() * 200;
                         data.push({ time: time + i * 3600, open, high, low, close });
                         open = close;
                     }
