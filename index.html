@@ -256,6 +256,7 @@
                 document.getElementById('yangon-weather').innerHTML = `🌤️ YGN: ${temp}°C`;
             } catch (e) {
                 console.error("Weather error", e);
+                document.getElementById('yangon-weather').innerHTML = `🌤️ YGN: N/A`;
             }
         }
         fetchWeather();
@@ -263,7 +264,9 @@
         // --- 4. Load AI Analysis (from JSON file) ---
         async function loadAIAnalysis() {
             try {
-                const res = await fetch('./data/ai_analysis.json');
+                // GitHub Pages path adjustment
+                const res = await fetch('https://mymyanmarland.github.io/stuxnet-trading-dashboard/data/ai_analysis.json');
+                if (!res.ok) throw new Error("JSON not found");
                 const data = await res.json();
                 const feed = document.getElementById('ai-analysis-feed');
                 
@@ -285,8 +288,16 @@
                     </div>
                 `;
             } catch (e) {
-                // If file doesn't exist yet, show placeholder
-                document.getElementById('ai-analysis-feed').innerHTML = `<p class="text-xs text-gray-500 text-center mt-10">Waiting for Ko Paing's first analysis...</p>`;
+                // Placeholder if fetch fails
+                console.log("AI Analysis load failed, showing placeholder.");
+                const feed = document.getElementById('ai-analysis-feed');
+                if (feed.innerHTML.trim() === "" || feed.innerHTML.includes("Loading")) {
+                     feed.innerHTML = `
+                        <div class="bg-gray-800/50 p-4 rounded text-center">
+                            <p class="text-xs text-gray-400">Waiting for first AI update...</p>
+                            <p class="text-[10px] text-gray-600 mt-1">Check back in 30s</p>
+                        </div>`;
+                }
             }
         }
         loadAIAnalysis();
