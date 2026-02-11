@@ -457,32 +457,42 @@
                         </div>
                     </div>
                     
-                    <!-- NEWS INJECTION -->
-                    <script>
                         // Helper to inject news
                         function injectNews(newsArray) {
                             const newsFeed = document.getElementById('news-feed');
-                            if(!newsArray || newsArray.length === 0) return;
+                            // Ensure container exists
+                            if(!newsFeed) return;
+                            
+                            // If newsArray is missing or empty, show fallback
+                            if(!newsArray || newsArray.length === 0) {
+                                newsFeed.innerHTML = '<p class="text-center text-gray-500 text-sm mt-10">သတင်းများ ရယူနေပါသည်...</p>';
+                                return;
+                            }
                             
                             let html = '';
                             newsArray.forEach((item, index) => {
                                 let colorClass = "text-blue-400 bg-blue-500/10";
-                                if(item.tag === "ETHEREUM") colorClass = "text-purple-400 bg-purple-500/10";
-                                if(item.tag === "MARKET") colorClass = "text-yellow-400 bg-yellow-500/10";
+                                if(item.tag === "ETHEREUM" || item.tag === "ETH") colorClass = "text-purple-400 bg-purple-500/10";
+                                if(item.tag === "MARKET" || item.tag === "General") colorClass = "text-yellow-400 bg-yellow-500/10";
                                 
                                 html += `
-                                <div class="news-card p-5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition cursor-pointer group mb-3" style="animation-delay: ${index * 0.1}s">
-                                    <div class="flex justify-between items-center mb-3">
+                                <div class="news-card p-5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition cursor-pointer group mb-3 animate-in slide-in-from-bottom-2 duration-500" style="animation-delay: ${index * 0.1}s">
+                                    <div class="flex justify-between items-center mb-2">
                                         <span class="text-[11px] font-bold tracking-wider ${colorClass} px-2 py-0.5 rounded uppercase">${item.tag}</span>
-                                        <span class="text-[11px] text-gray-500 font-[Padauk]">${item.time}</span>
+                                        <span class="text-[11px] text-gray-400 font-[Padauk]">${item.time}</span>
                                     </div>
-                                    <h4 class="text-base font-medium text-gray-100 leading-normal group-hover:text-blue-400 transition font-[Padauk]">${item.text}</h4>
+                                    <h4 class="text-base font-medium text-gray-100 leading-snug group-hover:text-blue-400 transition font-[Padauk]">${item.text}</h4>
                                 </div>`;
                             });
                             newsFeed.innerHTML = html;
                         }
-                        if(data.news) injectNews(data.news);
-                    </script>
+
+                        // Call injectNews if data exists
+                        if(data && data.news) {
+                            injectNews(data.news);
+                        } else {
+                            console.log("No news data found in JSON");
+                        }
                 `;
             } catch (e) {
                 console.log("Analysis Wait Loop...");
