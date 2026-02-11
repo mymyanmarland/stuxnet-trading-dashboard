@@ -436,8 +436,10 @@
                 const data = await res.json();
                 
                 // --- INJECT NEWS ---
-                if(data.news) {
-                    injectNews(data.news);
+                if(data.news && Array.isArray(data.news)) {
+                    await injectNews(data.news);
+                } else {
+                    console.error("Invalid news format:", data.news);
                 }
 
                 // --- INJECT AI INSIGHTS ---
@@ -467,19 +469,12 @@
                     </div>
                     
                         // Helper to inject news
-                        function injectNews(newsArray) {
+                        async function injectNews(newsArray) {
                             const newsFeed = document.getElementById('news-feed');
                             if(!newsFeed) return;
-                            
-                            // Log for debugging
-                            console.log("Injecting news:", newsArray);
 
                             if(!newsArray || newsArray.length === 0) {
-                                newsFeed.innerHTML = `
-                                    <div class="p-5 text-center text-gray-500 text-sm bg-white/5 rounded-xl border border-white/5 font-[Padauk]">
-                                        <p>သတင်းများ ခေတ္တမရရှိနိုင်ပါ (No News)</p>
-                                        <p class="text-xs mt-1 text-gray-600">Please check back in 1 min.</p>
-                                    </div>`;
+                                newsFeed.innerHTML = '<p class="text-center text-gray-500 font-[Padauk]">သတင်းများ မရှိသေးပါ (No News)</p>';
                                 return;
                             }
                             
@@ -490,7 +485,7 @@
                                 if(item.tag === "MARKET" || item.tag === "General") colorClass = "text-yellow-400 bg-yellow-500/10";
                                 
                                 html += `
-                                <div class="news-card p-5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition cursor-pointer group mb-3 animate-in fade-in zoom-in duration-500" style="animation-delay: ${index * 0.15}s">
+                                <div class="news-card p-5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition cursor-pointer group mb-3" style="animation-delay: ${index * 0.15}s">
                                     <div class="flex justify-between items-center mb-2">
                                         <span class="text-[10px] font-bold tracking-wider ${colorClass} px-2 py-0.5 rounded uppercase font-sans">${item.tag}</span>
                                         <span class="text-[10px] text-gray-400 font-[Padauk]">${item.time}</span>
