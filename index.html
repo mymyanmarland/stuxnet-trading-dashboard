@@ -228,35 +228,80 @@
         };
 
         // --- 2. Live Price Updates (Binance + Simulation) ---
+        let lastBtcPrice = 0;
+        let lastEthPrice = 0;
+
         function connectWebSocket() {
             const ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade/ethusdt@trade');
             ws.onmessage = (event) => {
                 const data = JSON.parse(event.data);
                 const price = parseFloat(data.p).toFixed(2);
+                
                 if (data.s === 'BTCUSDT') {
                     const el = document.getElementById('price-btc');
-                    if(el) { el.innerText = `$${price}`; el.classList.add('text-white'); }
+                    if(el) { 
+                        // Flash effect logic
+                        if(price > lastBtcPrice) {
+                            el.classList.remove('text-red-500', 'text-white');
+                            el.classList.add('text-green-400');
+                        } else if (price < lastBtcPrice) {
+                            el.classList.remove('text-green-400', 'text-white');
+                            el.classList.add('text-red-500');
+                        }
+                        lastBtcPrice = price;
+                        
+                        el.innerText = `$${price}`; 
+                    }
                     document.title = `$${price} BTC`;
                 } else if (data.s === 'ETHUSDT') {
                     const el = document.getElementById('price-eth');
-                    if(el) el.innerText = `$${price}`;
+                    if(el) {
+                        if(price > lastEthPrice) {
+                            el.classList.remove('text-red-500', 'text-white');
+                            el.classList.add('text-green-400');
+                        } else if (price < lastEthPrice) {
+                            el.classList.remove('text-green-400', 'text-white');
+                            el.classList.add('text-red-500');
+                        }
+                        lastEthPrice = price;
+                        el.innerText = `$${price}`;
+                    }
                 }
             };
             ws.onclose = () => setTimeout(connectWebSocket, 5000);
         }
         connectWebSocket();
 
-        // Simulate Gold/Oil Ticker
-        setInterval(() => {
-            const goldBase = 5049.20;
-            const oilBase = 90.45;
-            
-            const goldNow = (goldBase + (Math.random() - 0.5) * 2).toFixed(2);
-            const oilNow = (oilBase + (Math.random() - 0.5) * 0.5).toFixed(2);
+        // Simulate Gold/Oil Ticker with Flash
+        let lastGold = 5049.20;
+        let lastOil = 90.45;
 
-            document.getElementById('price-gold').innerText = `$${goldNow}`;
-            document.getElementById('price-oil').innerText = `$${oilNow}`;
-        }, 3000);
+        setInterval(() => {
+            const goldNow = (5049.20 + (Math.random() - 0.5) * 5).toFixed(2);
+            const oilNow = (90.45 + (Math.random() - 0.5) * 0.8).toFixed(2);
+
+            const elGold = document.getElementById('price-gold');
+            const elOil = document.getElementById('price-oil');
+
+            // Gold Flash
+            if(goldNow > lastGold) {
+                elGold.className = "text-2xl font-bold mt-1 text-green-400 transition duration-300";
+            } else {
+                elGold.className = "text-2xl font-bold mt-1 text-red-500 transition duration-300";
+            }
+            lastGold = goldNow;
+            elGold.innerText = `$${goldNow}`;
+
+            // Oil Flash
+            if(oilNow > lastOil) {
+                elOil.className = "text-2xl font-bold mt-1 text-green-400 transition duration-300";
+            } else {
+                elOil.className = "text-2xl font-bold mt-1 text-red-500 transition duration-300";
+            }
+            lastOil = oilNow;
+            elOil.innerText = `$${oilNow}`;
+
+        }, 2000);
 
         // --- 3. Yangon Weather Fetch ---
         async function fetchWeather() {
