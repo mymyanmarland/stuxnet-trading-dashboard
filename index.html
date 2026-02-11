@@ -257,132 +257,37 @@
     </main>
 
     <script>
-        // --- 1. TradingView Lightweight Chart (Robust Setup) ---
-        let candleSeries; // Declare globally
-
-        window.onload = function() {
-            const chartContainer = document.getElementById('trading-chart');
-            if (window.LightweightCharts) {
-                const chart = LightweightCharts.createChart(chartContainer, {
-                    layout: { background: { type: 'solid', color: '#111827' }, textColor: '#d1d5db' },
-                    grid: { vertLines: { color: '#1f2937' }, horzLines: { color: '#1f2937' } },
-                    width: chartContainer.clientWidth,
-                    height: chartContainer.clientHeight || 500,
-                    rightPriceScale: { borderColor: '#374151' },
-                    timeScale: { borderColor: '#374151' },
-                });
-
-                candleSeries = chart.addCandlestickSeries({
-                    upColor: '#22c55e', downColor: '#ef4444', borderUpColor: '#22c55e', borderDownColor: '#ef4444',
-                    wickUpColor: '#22c55e', wickDownColor: '#ef4444',
-                });
-
-                // Generate Mock Data (Realistic $66k range)
-                function generateData() {
-                    let data = [];
-                    let time = Math.floor(Date.now() / 1000) - (200 * 3600);
-                    let open = 66500; 
-                    for (let i = 0; i < 200; i++) {
-                        let close = open + (Math.random() - 0.5) * 400;
-                        let high = Math.max(open, close) + Math.random() * 200;
-                        let low = Math.min(open, close) - Math.random() * 200;
-                        data.push({ time: time + i * 3600, open, high, low, close });
-                        open = close;
-                    }
-                    return data;
-                }
-                candleSeries.setData(generateData());
-
-                // Auto Resize
-                new ResizeObserver(entries => {
-                    if (entries.length === 0 || entries[0].target !== chartContainer) { return; }
-                    const newRect = entries[0].contentRect;
-                    chart.applyOptions({ height: newRect.height, width: newRect.width });
-                }).observe(chartContainer);
-            } else {
-                chartContainer.innerHTML = "<p class='text-red-500 p-10 text-center'>Chart Library Failed to Load. Please Refresh.</p>";
-            }
-        };
-
-        // --- 2. Live Price Updates (Binance WS + REST Fallback) ---
-        let lastBtcPrice = 0;
-        let lastEthPrice = 0;
+        // === SIMPLIFIED PRICE LOADING (NO DEPENDENCIES) ===
         
-        // Function to update UI
-        function updatePriceUI(symbol, price) {
-            const elId = symbol === 'BTC' ? 'price-btc' : 'price-eth';
-            const el = document.getElementById(elId);
-            if(!el) return;
-            
-            const lastPrice = symbol === 'BTC' ? lastBtcPrice : lastEthPrice;
-            const priceStr = parseFloat(price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-            
-            // Color logic
-            if(price > lastPrice) {
-                el.classList.remove('text-red-400', 'text-white');
-                el.classList.add('text-green-400');
-            } else if (price < lastPrice) {
-                el.classList.remove('text-green-400', 'text-white');
-                el.classList.add('text-red-400');
-            } else {
-                 el.classList.add('text-white');
-            }
-            
-            // Reset to white after 500ms
-            setTimeout(() => {
-                 el.classList.remove('text-green-400', 'text-red-400');
-                 el.classList.add('text-white');
-            }, 800);
-
-            el.innerText = priceStr;
-            
-            if(symbol === 'BTC') {
-                lastBtcPrice = price;
-                document.title = `${priceStr} BTC | Stuxnet`;
-            } else {
-                lastEthPrice = price;
-            }
-        }
-
-        // REST API Fallback (CoinGecko) - Runs immediately and every 10s
-        async function fetchPricesREST() {
+        // 1. Immediate REST API Call on Page Load
+        async function loadPrices() {
             try {
                 const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
-                if(!res.ok) throw new Error("API Limit");
                 const data = await res.json();
                 
-                if(data.bitcoin) updatePriceUI('BTC', data.bitcoin.usd);
-                if(data.ethereum) updatePriceUI('ETH', data.ethereum.usd);
+                const btcEl = document.getElementById('price-btc');
+                const ethEl = document.getElementById('price-eth');
                 
-                console.log("REST Price Update:", data);
+                if(data.bitcoin && btcEl) {
+                    btcEl.innerText = '$' + data.bitcoin.usd.toLocaleString();
+                    btcEl.className = 'text-3xl font-medium tracking-tight text-white transition-all duration-300';
+                }
+                
+                if(data.ethereum && ethEl) {
+                    ethEl.innerText = '$' + data.ethereum.usd.toLocaleString();
+                    ethEl.className = 'text-3xl font-medium tracking-tight text-white transition-all duration-300';
+                }
+                
+                console.log("Prices loaded:", data);
             } catch(e) {
-                console.log("REST Fetch failed (using simulated fallback)");
-                // Extreme fallback: Simulation if everything fails
-                if(lastBtcPrice === 0) updatePriceUI('BTC', 67200 + Math.random()*100);
-                if(lastEthPrice === 0) updatePriceUI('ETH', 2600 + Math.random()*10);
+                console.error("Price load failed:", e);
             }
         }
         
-        // Initial Fetch
-        fetchPricesREST();
-        setInterval(fetchPricesREST, 10000); // Backup every 10s
-
-        // WebSocket (Primary)
-        function connectWebSocket() {
-            const ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade/ethusdt@trade');
-            ws.onmessage = (event) => {
-                try {
-                    const data = JSON.parse(event.data);
-                    const price = parseFloat(data.p);
-                    if (data.s === 'BTCUSDT') updatePriceUI('BTC', price);
-                    if (data.s === 'ETHUSDT') updatePriceUI('ETH', price);
-                } catch(e) {}
-            };
-            ws.onerror = (e) => console.log("WS Error");
-            ws.onclose = () => setTimeout(connectWebSocket, 5000);
-        }
-        // Try WS connection
-        connectWebSocket();
+        // Run immediately
+        loadPrices();
+        // Update every 10 seconds
+        setInterval(loadPrices, 10000);
 
         // Simulate Gold/Oil Ticker with Flash (Corrected Base Prices)
         // Gold Base: ~5081, Oil Base: ~78
