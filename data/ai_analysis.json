@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-02-12T00:00:00+06:30",
-  "title": "Bitcoin (BTC) Market Overview",
-  "summary": "Bitcoin ဈေးနှုန်းသည် $66,600 ဝန်းကျင်သို့ ကျဆင်းသွားသည်။ ပြီးခဲ့သည့် ၂၄ နာရီအတွင်း ၄.၅% ကျဆင်းသွားပြီး ဈေးကွက်ကျဆင်းမှု အရှိန်အဟုန်ကို ပြသနေသည်။",
-  "prediction": "ကျဆင်းနိုင်ခြေရှိသည်။ ($65,000 Support ကို စောင့်ကြည့်ပါ)",
-  "support": "65000",
-  "resistance": "68000"
+  "timestamp": "2026-02-12T00:57:00+06:30",
+  "title": "BTC Market Analysis (Data Fetch Failed)",
+  "summary": "Could not retrieve live market data due to API/network restrictions. Please configure Brave Search API or verify internet connectivity.",
+  "prediction": "N/A - Data Unavailable",
+  "support": "N/A",
+  "resistance": "N/A"
 }
