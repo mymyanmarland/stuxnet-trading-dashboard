@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-02-12T00:57:00+06:30",
-  "title": "BTC Market Analysis (Data Fetch Failed)",
-  "summary": "Could not retrieve live market data due to API/network restrictions. Please configure Brave Search API or verify internet connectivity.",
-  "prediction": "N/A - Data Unavailable",
-  "support": "N/A",
-  "resistance": "N/A"
+  "timestamp": "2026-02-11T18:57:41.000Z",
+  "title": "Bitcoin Holds Firm Above $67k Support",
+  "summary": "Bitcoin is currently trading at $67,226. The asset is showing resilience, maintaining a position above key support levels, suggesting market participants are eyeing a potential breakout if momentum continues.",
+  "prediction": "Neutral to Bullish. If the $67k level holds, a test of $68.5k resistance is likely in the near term.",
+  "support": "65,800",
+  "resistance": "68,500"
 }
