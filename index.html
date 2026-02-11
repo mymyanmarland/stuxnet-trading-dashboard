@@ -183,6 +183,8 @@
 
     <script>
         // --- 1. TradingView Lightweight Chart (Robust Setup) ---
+        let candleSeries; // Declare globally
+
         window.onload = function() {
             const chartContainer = document.getElementById('trading-chart');
             if (window.LightweightCharts) {
@@ -195,7 +197,7 @@
                     timeScale: { borderColor: '#374151' },
                 });
 
-                const candleSeries = chart.addCandlestickSeries({
+                candleSeries = chart.addCandlestickSeries({
                     upColor: '#22c55e', downColor: '#ef4444', borderUpColor: '#22c55e', borderDownColor: '#ef4444',
                     wickUpColor: '#22c55e', wickDownColor: '#ef4444',
                 });
@@ -230,12 +232,14 @@
         // --- 2. Live Price Updates (Binance + Simulation) ---
         let lastBtcPrice = 0;
         let lastEthPrice = 0;
+        let currentCandle = null;
 
         function connectWebSocket() {
             const ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade/ethusdt@trade');
             ws.onmessage = (event) => {
                 const data = JSON.parse(event.data);
-                const price = parseFloat(data.p).toFixed(2);
+                const price = parseFloat(data.p);
+                const priceStr = price.toFixed(2);
                 
                 if (data.s === 'BTCUSDT') {
                     const el = document.getElementById('price-btc');
@@ -249,11 +253,35 @@
                             el.classList.add('text-red-500');
                         }
                         lastBtcPrice = price;
-                        
-                        el.innerText = `$${price}`; 
+                        el.innerText = `$${priceStr}`; 
                     }
-                    document.title = `$${price} BTC`;
+                    document.title = `$${priceStr} BTC`;
+
+                    // --- Live Chart Update Logic ---
+                    if (candleSeries) {
+                        const now = Math.floor(Date.now() / 1000);
+                        const timeBucket = now - (now % 3600); // Hourly candle bucket
+
+                        // If no candle or new hour, create new candle
+                        if (!currentCandle || currentCandle.time !== timeBucket) {
+                            currentCandle = {
+                                time: timeBucket,
+                                open: price,
+                                high: price,
+                                low: price,
+                                close: price
+                            };
+                        } else {
+                            // Update existing candle
+                            currentCandle.high = Math.max(currentCandle.high, price);
+                            currentCandle.low = Math.min(currentCandle.low, price);
+                            currentCandle.close = price;
+                        }
+                        candleSeries.update(currentCandle);
+                    }
+
                 } else if (data.s === 'ETHUSDT') {
+                    // ... (ETH logic same as before) ...
                     const el = document.getElementById('price-eth');
                     if(el) {
                         if(price > lastEthPrice) {
@@ -264,7 +292,7 @@
                             el.classList.add('text-red-500');
                         }
                         lastEthPrice = price;
-                        el.innerText = `$${price}`;
+                        el.innerText = `$${priceStr}`;
                     }
                 }
             };
