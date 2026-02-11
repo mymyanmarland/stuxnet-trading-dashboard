@@ -210,10 +210,13 @@
                 </div>
                 
                 <div class="flex-1 overflow-y-auto space-y-5 pr-1 relative" id="news-feed">
-                    <!-- Dynamic News Items injected by JS -->
-                    <div class="animate-pulse space-y-4">
-                        <div class="h-20 bg-white/5 rounded-xl border border-white/5"></div>
-                        <div class="h-20 bg-white/5 rounded-xl border border-white/5"></div>
+                    <!-- Default Static Content (Fallback) -->
+                    <div class="news-card p-5 rounded-xl bg-white/5 border border-white/5 mb-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[11px] font-bold tracking-wider text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded uppercase">SYSTEM</span>
+                            <span class="text-[11px] text-gray-400 font-[Padauk]">Now</span>
+                        </div>
+                        <h4 class="text-base font-medium text-gray-100 leading-snug font-[Padauk]">System Connecting... (Connecting to Live Feed)</h4>
                     </div>
                 </div>
                 
@@ -432,6 +435,12 @@
                 if (!res.ok) throw new Error("JSON not found");
                 const data = await res.json();
                 
+                // --- INJECT NEWS ---
+                if(data.news) {
+                    injectNews(data.news);
+                }
+
+                // --- INJECT AI INSIGHTS ---
                 const feed = document.getElementById('ai-analysis-feed');
                 feed.innerHTML = `
                     <div class="bg-blue-600/10 border border-blue-500/20 p-6 rounded-2xl mb-4 shadow-lg shadow-blue-900/10 animate-in zoom-in duration-300">
@@ -460,12 +469,17 @@
                         // Helper to inject news
                         function injectNews(newsArray) {
                             const newsFeed = document.getElementById('news-feed');
-                            // Ensure container exists
                             if(!newsFeed) return;
                             
-                            // If newsArray is missing or empty, show fallback
+                            // Log for debugging
+                            console.log("Injecting news:", newsArray);
+
                             if(!newsArray || newsArray.length === 0) {
-                                newsFeed.innerHTML = '<p class="text-center text-gray-500 text-sm mt-10">သတင်းများ ရယူနေပါသည်...</p>';
+                                newsFeed.innerHTML = `
+                                    <div class="p-5 text-center text-gray-500 text-sm bg-white/5 rounded-xl border border-white/5 font-[Padauk]">
+                                        <p>သတင်းများ ခေတ္တမရရှိနိုင်ပါ (No News)</p>
+                                        <p class="text-xs mt-1 text-gray-600">Please check back in 1 min.</p>
+                                    </div>`;
                                 return;
                             }
                             
@@ -476,18 +490,20 @@
                                 if(item.tag === "MARKET" || item.tag === "General") colorClass = "text-yellow-400 bg-yellow-500/10";
                                 
                                 html += `
-                                <div class="news-card p-5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition cursor-pointer group mb-3 animate-in slide-in-from-bottom-2 duration-500" style="animation-delay: ${index * 0.1}s">
+                                <div class="news-card p-5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition cursor-pointer group mb-3 animate-in fade-in zoom-in duration-500" style="animation-delay: ${index * 0.15}s">
                                     <div class="flex justify-between items-center mb-2">
-                                        <span class="text-[11px] font-bold tracking-wider ${colorClass} px-2 py-0.5 rounded uppercase">${item.tag}</span>
-                                        <span class="text-[11px] text-gray-400 font-[Padauk]">${item.time}</span>
+                                        <span class="text-[10px] font-bold tracking-wider ${colorClass} px-2 py-0.5 rounded uppercase font-sans">${item.tag}</span>
+                                        <span class="text-[10px] text-gray-400 font-[Padauk]">${item.time}</span>
                                     </div>
-                                    <h4 class="text-base font-medium text-gray-100 leading-snug group-hover:text-blue-400 transition font-[Padauk]">${item.text}</h4>
+                                    <h4 class="text-[15px] font-medium text-gray-100 leading-relaxed group-hover:text-blue-300 transition font-[Padauk] tracking-wide">${item.text}</h4>
                                 </div>`;
                             });
                             newsFeed.innerHTML = html;
                         }
 
-                        // Call injectNews if data exists
+                        // Force inject if loadAIAnalysis succeeds
+                        // Ensure data.news is passed correctly
+
                         if(data && data.news) {
                             injectNews(data.news);
                         } else {
