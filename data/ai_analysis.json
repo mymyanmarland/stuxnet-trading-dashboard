@@ -1,8 +1,25 @@
 {
-  "timestamp": "2026-02-12T04:27:00+06:30",
-  "title": "BTC/USD Market Update",
-  "summary": "Bitcoin is currently trading at $67,815, showing consolidation below the $69,000 resistance. Market sentiment remains cautiously bullish as traders watch for a breakout or rejection.",
-  "prediction": "If $66,500 holds, expect a retest of $69,000. A daily close below $65,000 invalidates the bullish trend and could trigger a correction to $62,000.",
-  "support": "$66,200 / $64,800",
-  "resistance": "$69,500 / $71,200"
+  "timestamp": "2026-02-12T04:39:00+06:30",
+  "title": "Bitcoin (BTC) Market Overview",
+  "summary": "Bitcoin သည် $70,000 တွင် ငြင်းပယ်ခံရပြီးနောက် ကျဆင်းနေပြီး $60,000 ဝန်းကျင်ရှိ support ကို စမ်းသပ်ရန် တာစူနေပါသည်။ ETF inflows များရှိသော်လည်း ဈေးကွက်အခြေအနေမှာ အားနည်းနေပြီး ဝက်ဝံများ (bears) က ဈေးကွက်ကို လွှမ်းမိုးထားသည်။",
+  "prediction": "Bearish (ကျဆင်းနိုင်ခြေရှိ)",
+  "support": "$60,000",
+  "resistance": "$69,000 - $70,000",
+  "news": [
+    {
+      "tag": "Bitcoin Futures",
+      "time": "2026-02-11T21:15:00Z",
+      "text": "Bitcoin အနာဂတ်ဈေးကွက်အချက်အလက်များက $60,000 အဆင့်ကို ထိုးဖောက်ရန် ဝက်ဝံများ (Bears) ပြင်ဆင်နေကြောင်း ပြသနေပါသည်။"
+    },
+    {
+      "tag": "ETFs",
+      "time": "2026-02-11T09:09:00Z",
+      "text": "Spot Bitcoin ETF များသည် ပြီးခဲ့သည့်ရက်သတ္တပတ်က ထွက်သွားသောပမာဏကို ပြန်လည်ဖြည့်တင်းသည့်အနေဖြင့် $167M ဝင်ရောက်လာခဲ့ပါသည်။"
+    },
+    {
+      "tag": "Institutional DeFi",
+      "time": "2026-02-11T17:47:00Z",
+      "text": "BlackRock သည် DeFi လောကသို့ ဝင်ရောက်လာပြီး အဖွဲ့အစည်းဆိုင်ရာ token ကုန်သွယ်မှုအတွက် Uniswap ကို အသုံးပြုရန် စီစဉ်နေပါသည်။"
+    }
+  ]
 }
