@@ -276,42 +276,124 @@
             catch { return '$' + n; }
         }
 
-        async function loadPrices() {
-            const nowStr = new Date().toLocaleTimeString();
-            const setLast = (id, ok) => {
-                const el = document.getElementById(id);
-                if (!el) return;
-                el.textContent = ok ? `upd ${nowStr}` : `err ${nowStr}`;
-            };
+        // === Real-time (best effort): Binance WebSocket, fallback to REST ===
+        let lastBtc = null;
+        let lastEth = null;
 
-            // Try CoinGecko first, fallback to Binance if blocked/rate-limited
+        function flashPrice(el, dir) {
+            if (!el) return;
+            const base = 'text-3xl font-medium tracking-tight text-white transition-all duration-300';
+            const up = 'text-3xl font-medium tracking-tight text-green-400 transition-all duration-300';
+            const down = 'text-3xl font-medium tracking-tight text-red-400 transition-all duration-300';
+            el.className = dir > 0 ? up : dir < 0 ? down : base;
+            setTimeout(() => { el.className = base; }, 650);
+        }
+
+        function setLast(id, label) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.textContent = label;
+        }
+
+        function updateMarquee({ btc, eth, note }) {
+            const nowStr = new Date().toLocaleTimeString();
+            if (!els.marquee) return;
+            const btcPart = (typeof btc === 'number') ? `BTC: ${fmtUSD(btc)}` : 'BTC: N/A';
+            const ethPart = (typeof eth === 'number') ? `ETH: ${fmtUSD(eth)}` : 'ETH: N/A';
+            els.marquee.textContent = `${btcPart} • ${ethPart} • GOLD: ${els.gold?.innerText ?? '$5,081'} • OIL: ${els.oil?.innerText ?? '$78.20'} • ${note ?? 'Updated'}: ${nowStr}`;
+        }
+
+        function startBinanceWS() {
+            // trades stream (ticks)
             try {
-                const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true';
+                const ws = new WebSocket('wss://stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade');
+
+                ws.onopen = () => {
+                    setLast('btc-last', 'ws connected');
+                    setLast('eth-last', 'ws connected');
+                };
+
+                ws.onmessage = (evt) => {
+                    try {
+                        const msg = JSON.parse(evt.data);
+                        const stream = msg?.stream;
+                        const p = Number(msg?.data?.p);
+                        const nowStr = new Date().toLocaleTimeString();
+
+                        if (!Number.isFinite(p)) return;
+
+                        if (stream === 'btcusdt@trade') {
+                            const dir = lastBtc == null ? 0 : (p > lastBtc ? 1 : p < lastBtc ? -1 : 0);
+                            lastBtc = p;
+                            if (els.btc) { els.btc.innerText = fmtUSD(p); flashPrice(els.btc, dir); }
+                            setLast('btc-last', `ws ${nowStr}`);
+                            updateMarquee({ btc: lastBtc, eth: lastEth, note: 'WS' });
+                        }
+
+                        if (stream === 'ethusdt@trade') {
+                            const dir = lastEth == null ? 0 : (p > lastEth ? 1 : p < lastEth ? -1 : 0);
+                            lastEth = p;
+                            if (els.eth) { els.eth.innerText = fmtUSD(p); flashPrice(els.eth, dir); }
+                            setLast('eth-last', `ws ${nowStr}`);
+                            updateMarquee({ btc: lastBtc, eth: lastEth, note: 'WS' });
+                        }
+                    } catch (e) {
+                        // ignore
+                    }
+                };
+
+                ws.onerror = () => {
+                    const nowStr = new Date().toLocaleTimeString();
+                    setLast('btc-last', `ws err ${nowStr}`);
+                    setLast('eth-last', `ws err ${nowStr}`);
+                };
+
+                ws.onclose = () => {
+                    const nowStr = new Date().toLocaleTimeString();
+                    setLast('btc-last', `ws closed ${nowStr}`);
+                    setLast('eth-last', `ws closed ${nowStr}`);
+                };
+
+                return ws;
+            } catch (e) {
+                const nowStr = new Date().toLocaleTimeString();
+                setLast('btc-last', `ws fail ${nowStr}`);
+                setLast('eth-last', `ws fail ${nowStr}`);
+                return null;
+            }
+        }
+
+        async function loadPricesREST() {
+            const nowStr = new Date().toLocaleTimeString();
+
+            // Try CoinGecko first, fallback to Binance
+            try {
+                const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd';
                 const res = await fetch(url, { cache: 'no-store' });
                 if (!res.ok) throw new Error('CoinGecko error ' + res.status);
                 const data = await res.json();
 
                 const btc = data?.bitcoin?.usd;
                 const eth = data?.ethereum?.usd;
-                const btcChg = data?.bitcoin?.usd_24h_change;
-                const ethChg = data?.ethereum?.usd_24h_change;
 
-                if (typeof btc === 'number' && els.btc) { els.btc.innerText = fmtUSD(btc); setLast('btc-last', true); }
-                if (typeof eth === 'number' && els.eth) { els.eth.innerText = fmtUSD(eth); setLast('eth-last', true); }
-
-                if (els.marquee) {
-                    const btcPart = (typeof btc === 'number')
-                        ? `BTC: ${fmtUSD(btc)} (${(btcChg ?? 0).toFixed(2)}%)`
-                        : 'BTC: N/A';
-                    const ethPart = (typeof eth === 'number')
-                        ? `ETH: ${fmtUSD(eth)} (${(ethChg ?? 0).toFixed(2)}%)`
-                        : 'ETH: N/A';
-                    els.marquee.textContent = `${btcPart} • ${ethPart} • GOLD: ${els.gold?.innerText ?? '$5,081'} • OIL: ${els.oil?.innerText ?? '$78.20'} • Updated: ${nowStr}`;
+                if (typeof btc === 'number') {
+                    const dir = lastBtc == null ? 0 : (btc > lastBtc ? 1 : btc < lastBtc ? -1 : 0);
+                    lastBtc = btc;
+                    if (els.btc) { els.btc.innerText = fmtUSD(btc); flashPrice(els.btc, dir); }
+                    setLast('btc-last', `rest ${nowStr}`);
                 }
 
-                return; // success
+                if (typeof eth === 'number') {
+                    const dir = lastEth == null ? 0 : (eth > lastEth ? 1 : eth < lastEth ? -1 : 0);
+                    lastEth = eth;
+                    if (els.eth) { els.eth.innerText = fmtUSD(eth); flashPrice(els.eth, dir); }
+                    setLast('eth-last', `rest ${nowStr}`);
+                }
+
+                updateMarquee({ btc: lastBtc, eth: lastEth, note: 'REST' });
+                return;
             } catch (e) {
-                console.warn('CoinGecko failed, trying Binance:', e);
+                console.warn('CoinGecko REST failed, trying Binance REST:', e);
             }
 
             try {
@@ -322,36 +404,40 @@
 
                 if (!btcRes.ok || !ethRes.ok) throw new Error('Binance error');
 
-                const btcData = await btcRes.json();
-                const ethData = await ethRes.json();
+                const btc = Number((await btcRes.json())?.price);
+                const eth = Number((await ethRes.json())?.price);
 
-                const btc = Number(btcData?.price);
-                const eth = Number(ethData?.price);
-
-                if (Number.isFinite(btc) && els.btc) { els.btc.innerText = fmtUSD(btc); setLast('btc-last', true); }
-                else setLast('btc-last', false);
-
-                if (Number.isFinite(eth) && els.eth) { els.eth.innerText = fmtUSD(eth); setLast('eth-last', true); }
-                else setLast('eth-last', false);
-
-                if (els.marquee) {
-                    const btcPart = Number.isFinite(btc) ? `BTC: ${fmtUSD(btc)}` : 'BTC: N/A';
-                    const ethPart = Number.isFinite(eth) ? `ETH: ${fmtUSD(eth)}` : 'ETH: N/A';
-                    els.marquee.textContent = `${btcPart} • ${ethPart} • GOLD: ${els.gold?.innerText ?? '$5,081'} • OIL: ${els.oil?.innerText ?? '$78.20'} • Updated: ${nowStr}`;
+                if (Number.isFinite(btc)) {
+                    const dir = lastBtc == null ? 0 : (btc > lastBtc ? 1 : btc < lastBtc ? -1 : 0);
+                    lastBtc = btc;
+                    if (els.btc) { els.btc.innerText = fmtUSD(btc); flashPrice(els.btc, dir); }
+                    setLast('btc-last', `rest ${nowStr}`);
+                } else {
+                    setLast('btc-last', `rest err ${nowStr}`);
                 }
+
+                if (Number.isFinite(eth)) {
+                    const dir = lastEth == null ? 0 : (eth > lastEth ? 1 : eth < lastEth ? -1 : 0);
+                    lastEth = eth;
+                    if (els.eth) { els.eth.innerText = fmtUSD(eth); flashPrice(els.eth, dir); }
+                    setLast('eth-last', `rest ${nowStr}`);
+                } else {
+                    setLast('eth-last', `rest err ${nowStr}`);
+                }
+
+                updateMarquee({ btc: lastBtc, eth: lastEth, note: 'REST' });
             } catch (e) {
-                console.error('Price load failed:', e);
-                setLast('btc-last', false);
-                setLast('eth-last', false);
-                if (els.marquee) {
-                    els.marquee.textContent = `BTC: N/A • ETH: N/A • GOLD: ${els.gold?.innerText ?? '$5,081'} • OIL: ${els.oil?.innerText ?? '$78.20'} • Updated: ${nowStr}`;
-                }
+                console.error('REST price load failed:', e);
+                setLast('btc-last', `rest err ${nowStr}`);
+                setLast('eth-last', `rest err ${nowStr}`);
+                updateMarquee({ btc: null, eth: null, note: 'ERR' });
             }
         }
 
-        // Run immediately + refresh
-        loadPrices();
-        setInterval(loadPrices, 15000);
+        // Start WS (best), and also run REST occasionally as fallback
+        startBinanceWS();
+        loadPricesREST();
+        setInterval(loadPricesREST, 30000);
 
         // === Gold/Oil demo flash ===
         let lastGold = 5081.60;
