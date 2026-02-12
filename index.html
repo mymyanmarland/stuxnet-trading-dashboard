@@ -112,6 +112,7 @@
                 <div class="mt-4 flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                     <span class="text-[10px] text-green-400 font-medium tracking-wide">LIVE</span>
+                    <span id="btc-last" class="text-[10px] text-gray-500 font-mono">—</span>
                 </div>
             </div>
 
@@ -130,6 +131,7 @@
                 <div class="mt-4 flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                     <span class="text-[10px] text-green-400 font-medium tracking-wide">LIVE</span>
+                    <span id="eth-last" class="text-[10px] text-gray-500 font-mono">—</span>
                 </div>
             </div>
 
@@ -275,6 +277,14 @@
         }
 
         async function loadPrices() {
+            const nowStr = new Date().toLocaleTimeString();
+            const setLast = (id, ok) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.textContent = ok ? `upd ${nowStr}` : `err ${nowStr}`;
+            };
+
+            // Try CoinGecko first, fallback to Binance if blocked/rate-limited
             try {
                 const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true';
                 const res = await fetch(url, { cache: 'no-store' });
@@ -286,8 +296,8 @@
                 const btcChg = data?.bitcoin?.usd_24h_change;
                 const ethChg = data?.ethereum?.usd_24h_change;
 
-                if (typeof btc === 'number' && els.btc) els.btc.innerText = fmtUSD(btc);
-                if (typeof eth === 'number' && els.eth) els.eth.innerText = fmtUSD(eth);
+                if (typeof btc === 'number' && els.btc) { els.btc.innerText = fmtUSD(btc); setLast('btc-last', true); }
+                if (typeof eth === 'number' && els.eth) { els.eth.innerText = fmtUSD(eth); setLast('eth-last', true); }
 
                 if (els.marquee) {
                     const btcPart = (typeof btc === 'number')
@@ -296,12 +306,45 @@
                     const ethPart = (typeof eth === 'number')
                         ? `ETH: ${fmtUSD(eth)} (${(ethChg ?? 0).toFixed(2)}%)`
                         : 'ETH: N/A';
-                    els.marquee.textContent = `${btcPart} • ${ethPart} • GOLD: ${els.gold?.innerText ?? '$5,081'} • OIL: ${els.oil?.innerText ?? '$78.20'} • SOL: —`;
+                    els.marquee.textContent = `${btcPart} • ${ethPart} • GOLD: ${els.gold?.innerText ?? '$5,081'} • OIL: ${els.oil?.innerText ?? '$78.20'} • Updated: ${nowStr}`;
+                }
+
+                return; // success
+            } catch (e) {
+                console.warn('CoinGecko failed, trying Binance:', e);
+            }
+
+            try {
+                const [btcRes, ethRes] = await Promise.all([
+                    fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT', { cache: 'no-store' }),
+                    fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT', { cache: 'no-store' }),
+                ]);
+
+                if (!btcRes.ok || !ethRes.ok) throw new Error('Binance error');
+
+                const btcData = await btcRes.json();
+                const ethData = await ethRes.json();
+
+                const btc = Number(btcData?.price);
+                const eth = Number(ethData?.price);
+
+                if (Number.isFinite(btc) && els.btc) { els.btc.innerText = fmtUSD(btc); setLast('btc-last', true); }
+                else setLast('btc-last', false);
+
+                if (Number.isFinite(eth) && els.eth) { els.eth.innerText = fmtUSD(eth); setLast('eth-last', true); }
+                else setLast('eth-last', false);
+
+                if (els.marquee) {
+                    const btcPart = Number.isFinite(btc) ? `BTC: ${fmtUSD(btc)}` : 'BTC: N/A';
+                    const ethPart = Number.isFinite(eth) ? `ETH: ${fmtUSD(eth)}` : 'ETH: N/A';
+                    els.marquee.textContent = `${btcPart} • ${ethPart} • GOLD: ${els.gold?.innerText ?? '$5,081'} • OIL: ${els.oil?.innerText ?? '$78.20'} • Updated: ${nowStr}`;
                 }
             } catch (e) {
                 console.error('Price load failed:', e);
+                setLast('btc-last', false);
+                setLast('eth-last', false);
                 if (els.marquee) {
-                    els.marquee.textContent = 'BTC: N/A • ETH: N/A • GOLD: $5,081 • OIL: $78.20 • SOL: —';
+                    els.marquee.textContent = `BTC: N/A • ETH: N/A • GOLD: ${els.gold?.innerText ?? '$5,081'} • OIL: ${els.oil?.innerText ?? '$78.20'} • Updated: ${nowStr}`;
                 }
             }
         }
