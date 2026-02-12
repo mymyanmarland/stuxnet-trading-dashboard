@@ -1,8 +1,25 @@
 {
-  "timestamp": "2026-02-12T20:00:00+06:30",
+  "timestamp": "2026-02-12T20:10:08+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "လက်ရှိ BTC က ~$67,689 (USD) အနီးမှာ ရှိပြီး 24 နာရီအတွင်း ~+1.20% တက်လာနေပါတယ်။ 24h range က ~$65,932 (low) မှ ~$68,371 (high) ထိ ဖြစ်ပြီး အောက်ပိုင်း support ကနေ bid ပြန်တက်လာတဲ့ သဘောတရား မြင်ရပါတယ်။",
-  "prediction": "အနီးကာလ Trend က mildly bullish ဖြစ်ပြီး ~$68,371 resistance ကို ထပ်မံစမ်းသပ်နိုင်ပါတယ်။ အဲဒီအပေါ်ကို breakout ဖြစ်သွားရင် ~$70k အနီးထိ ဆက်တက်နိုင်ချေရှိပြီး၊ ပြန်လှည့်ပြီး ~$65,932 support အောက်ကို breakdown ဖြစ်ရင် ~$65k / ~$64k ဘက်ကို pullback ဖြစ်နိုင်ပါတယ်။",
-  "support": 65932,
-  "resistance": 68371
+  "summary": "Coinbase data အရ BTC က ~$67,885 (USD) အနီးမှာ trade လုပ်နေပြီး 24 နာရီအတွင်း ~$65,703 (low) ကနေ ~$68,788 (high) ထိ ရွေ့လျားခဲ့ပါတယ်။ Low ဘက်မှာ ဝယ်လိုအားဝင်ပြီး ပြန်တက်လာတာကြောင့် လက်ရှိက short-term rebound သဘောတရား မြင်ရပါတယ်။",
+  "prediction": "Trend က sideways-to-mildly bullish ဖြစ်ပြီး ~$68,800 resistance ကို ထပ်မံစမ်းသပ်နိုင်ပါတယ်။ အဲဒီအပေါ် breakout ဖြစ်ရင် ~$70k ဘက်ကို ဆက်တက်နိုင်ချေရှိပြီး၊ မအောင်မြင်ဘဲ ~$65,700 support အောက်ကို breakdown ဖြစ်သွားရင် ~$64k–$62k ဘက်ကို pullback ဖြစ်နိုင်ပါတယ်။",
+  "support": 65703,
+  "resistance": 68788,
+  "news": [
+    {
+      "tag": "CoinDesk",
+      "time": "2026-02-12T17:30:40+06:30",
+      "text": "Binance က SAFU user-protection fund ($1B) ကို stablecoin မှ BTC ~15,000 အဖြစ် ပြောင်းပြီး အရေးပေါ်ရံပုံငွေအတွက် BTC ကို အဓိက reserve အဖြစ် ခိုင်မာစေလိုက်ပါတယ်။"
+    },
+    {
+      "tag": "Cointelegraph",
+      "time": "2026-02-12T19:06:18+06:30",
+      "text": "အမေရိကန် National Credit Union Administration (NCUA) က payment stablecoin issuer တွေအတွက် federal licensing လမ်းကြောင်းကို တင်ပြပြီး စည်းမျဉ်းစည်းကမ်းပိုင်း တိတိကျကျ ချမှတ်ဖို့ ဦးတည်လာပါတယ်။"
+    },
+    {
+      "tag": "Cointelegraph",
+      "time": "2026-02-12T16:55:58+06:30",
+      "text": "UK အစိုးရက tokenized bond pilot (DIGIT) အတွက် HSBC Orion ကို ခန့်အပ်ပြီး blockchain ကို အသုံးပြုကာ ကုန်ကျစရိတ်/အလုပ်လုပ်ငန်းစဉ် ထိရောက်မှု တိုးတက်စေချင်တဲ့ လမ်းကြောင်းကို အတည်ပြုပါတယ်။"
+    }
+  ]
 }
