@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-02-12T20:27:52+06:30",
-  "title": "BTC Market Snapshot — ~$68,103",
-  "summary": "Live market data အရ BTC က ~$68,103 (USD) အနီးမှာ trade လုပ်နေပြီး 24h range က ~$65,932 (low) → ~$68,371 (high) ဖြစ်ပါတယ်။ 24h အတွင်း ~+0.99% တက်ထားပေမယ့် 7d အတွက်တော့ ~-1.92% လောက်နည်းနေသေးလို့ short-term rebound + weekly weakness သဘောတရားနှစ်မျိုးလုံး တွေ့ရပါတယ်။",
-  "prediction": "Base case (နောက် 24–48h): sideways-to-mildly bullish။ ~$68.3k–$68.4k ကို breakout လုပ်နိုင်ရင် ~$69k–$70k ဆီ စမ်းသပ်နိုင်ချေရှိပါတယ်။ အပြန်အလှန်အားဖြင့် ~$65.9k support အောက်ကို breakdown ဖြစ်သွားရင် liquidity sweep/pullback လုပ်ပြီး ~$65k–$64k ဘက်ကို ဆက်ဆင်းနိုင်ပါတယ်။",
+  "timestamp": "2026-02-12T20:30:54+06:30",
+  "title": "Bitcoin (BTC) Market Overview",
+  "summary": "Live market data အရ BTC က $68,268 (USD) အနီးမှာ trade လုပ်နေပြီး 24h change ~+1.23% ဖြစ်ပါတယ်။ 24h range က $65,932 (support zone) → $68,371 (resistance zone) လောက်အတွင်း လှုပ်ရှားနေပြီး 7d အတွက်တော့ ~-1.68% လောက်နည်းနေသေးလို့ short-term rebound နဲ့ weekly weakness နှစ်မျိုးလုံး တွေ့ရပါတယ်။",
+  "prediction": "Trend (နောက် 24–48h): sideways-to-ပေါ့ပေါ့ bullish ဖြစ်နိုင်ပါတယ်။ $68.4k အထက်ကို breakout/close တည်နိုင်ရင် $69k–$70k ကို စမ်းသပ်နိုင်ချေရှိပြီး၊ $65.9k အောက်ကို breakdown ဖြစ်သွားရင် $65k–$64k ဘက်ကို pullback ဖြစ်နိုင်ပါတယ်။",
   "support": 65932,
   "resistance": 68371
 }
