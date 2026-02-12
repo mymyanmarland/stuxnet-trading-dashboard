@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="my">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stuxnet Pro Dashboard</title>
+    <title>Stuxnet Pro Dashboard — ကိုပိုင် AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lightweight-charts@4.1.1/dist/lightweight-charts.standalone.production.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
@@ -69,17 +69,21 @@
                     </span>
                 </div>
                 <div class="hidden md:flex space-x-8 text-[13px] tracking-wide text-gray-300 font-medium">
-                    <a href="#" class="hover:text-white transition ease-out duration-300">Crypto</a>
-                    <a href="#" class="hover:text-white transition ease-out duration-300">Stocks</a>
-                    <a href="#" class="hover:text-white transition ease-out duration-300">Commodities</a>
-                    <a href="#" class="hover:text-white transition ease-out duration-300">AI Intelligence</a>
+                    <a href="#" class="hover:text-white transition ease-out duration-300">ကရစ်ပတို</a>
+                    <a href="#" class="hover:text-white transition ease-out duration-300">စတော့များ</a>
+                    <a href="#" class="hover:text-white transition ease-out duration-300">ကုန်စည်များ</a>
+                    <a href="#" class="hover:text-white transition ease-out duration-300">AI အကြံပြုချက်</a>
                 </div>
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-3">
                      <div id="yangon-weather" class="text-[11px] font-medium text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full border border-blue-500/20 flex items-center gap-2 backdrop-blur-md">
                         <span>🌦️ YGN</span>
                     </div>
+                    <div id="conn-badge" class="text-[11px] font-medium text-gray-300 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 flex items-center gap-2 backdrop-blur-md font-[Padauk]">
+                        <span class="w-2 h-2 rounded-full bg-gray-500"></span>
+                        <span>ချိတ်ဆက်နေ...</span>
+                    </div>
                     <button class="apple-btn text-white px-5 py-1.5 text-xs font-medium tracking-wide">
-                        Connect ID
+                        ချိတ်ဆက်မည်
                     </button>
                 </div>
             </div>
@@ -113,6 +117,7 @@
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                     <span class="text-[10px] text-green-400 font-medium tracking-wide">LIVE</span>
                     <span id="btc-last" class="text-[10px] text-gray-500 font-mono">—</span>
+                    <span id="btc-delta" class="text-[10px] text-gray-400 font-mono">—</span>
                 </div>
             </div>
 
@@ -132,6 +137,7 @@
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                     <span class="text-[10px] text-green-400 font-medium tracking-wide">LIVE</span>
                     <span id="eth-last" class="text-[10px] text-gray-500 font-mono">—</span>
+                    <span id="eth-delta" class="text-[10px] text-gray-400 font-mono">—</span>
                 </div>
             </div>
 
@@ -176,7 +182,7 @@
                 <div class="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
                     <h3 class="text-2xl font-bold tracking-tight text-white flex items-center gap-3">
                         <span class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center text-sm shadow-lg shadow-blue-500/30">🤖</span>
-                        Ko Paing AI Insights
+                        ကိုပိုင် AI အကြံပြုချက်
                     </h3>
                     <div class="flex items-center gap-2 px-3 py-1 bg-green-500/10 border border-green-500/20 rounded-full">
                         <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -195,10 +201,10 @@
                 <!-- Quick Action Buttons -->
                 <div class="mt-8 grid grid-cols-2 gap-4">
                      <button class="py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition flex items-center justify-center gap-2 text-sm font-medium text-gray-300 hover:text-white">
-                        🔔 Set Price Alert
+                        🔔 စျေး သတိပေးချက်
                     </button>
                     <button class="py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 transition flex items-center justify-center gap-2 text-sm font-medium text-white shadow-lg shadow-blue-500/20">
-                        📄 Generate Full Report
+                        📄 Report ထုတ်မယ်
                     </button>
                 </div>
             </div>
@@ -230,7 +236,7 @@
         <!-- Market Grid (Commodities & Forex) -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="glass-card p-5 rounded-2xl">
-                <h4 class="text-gray-400 text-sm mb-3">Forex (Major Pairs)</h4>
+                <h4 class="text-gray-400 text-sm mb-3">Forex (Major Pair များ)</h4>
                 <div class="space-y-3">
                     <div class="flex justify-between text-sm"><span class="text-gray-300">EUR/USD</span> <span class="text-green-400">1.0845 (+0.1%)</span></div>
                     <div class="flex justify-between text-sm"><span class="text-gray-300">GBP/USD</span> <span class="text-red-400">1.2630 (-0.2%)</span></div>
@@ -238,7 +244,7 @@
                 </div>
             </div>
             <div class="glass-card p-5 rounded-2xl">
-                <h4 class="text-gray-400 text-sm mb-3">Tech Stocks</h4>
+                <h4 class="text-gray-400 text-sm mb-3">Tech စတော့များ</h4>
                 <div class="space-y-3">
                     <div class="flex justify-between text-sm"><span class="text-gray-300">NVDA</span> <span class="text-green-400">$950.40 (+3.2%)</span></div>
                     <div class="flex justify-between text-sm"><span class="text-gray-300">TSLA</span> <span class="text-red-400">$175.20 (-1.5%)</span></div>
@@ -246,11 +252,11 @@
                 </div>
             </div>
             <div class="glass-card p-5 rounded-2xl bg-gradient-to-br from-blue-900/20 to-purple-900/20">
-                <h4 class="text-gray-400 text-sm mb-2">Fear & Greed Index</h4>
+                <h4 class="text-gray-400 text-sm mb-2">Fear & Greed အညွှန်းကိန်း</h4>
                 <div class="flex items-center justify-center h-24">
                     <div class="text-center">
                         <span class="text-4xl font-bold text-green-400">79</span>
-                        <p class="text-xs text-green-300 mt-1">Extreme Greed</p>
+                        <p class="text-xs text-green-300 mt-1">လောဘအလွန် (Extreme Greed)</p>
                     </div>
                 </div>
             </div>
@@ -269,11 +275,20 @@
             weather: document.getElementById('yangon-weather'),
             aiFeed: document.getElementById('ai-analysis-feed'),
             newsFeed: document.getElementById('news-feed'),
+            conn: document.getElementById('conn-badge'),
         };
 
-        function fmtUSD(n) {
-            try { return '$' + Number(n).toLocaleString(undefined, { maximumFractionDigits: 0 }); }
-            catch { return '$' + n; }
+        function fmtUSD(n, decimals = 2) {
+            try {
+                const num = Number(n);
+                if (!Number.isFinite(num)) return '$' + n;
+                return '$' + num.toLocaleString(undefined, {
+                    minimumFractionDigits: decimals,
+                    maximumFractionDigits: decimals,
+                });
+            } catch {
+                return '$' + n;
+            }
         }
 
         // === Real-time (best effort): Binance WebSocket, fallback to REST ===
@@ -295,11 +310,66 @@
             el.textContent = label;
         }
 
+        function setDelta(id, delta) {
+            const el = document.getElementById(id);
+            if (!el) return;
+
+            const base = 'text-[10px] font-mono';
+            if (!Number.isFinite(delta) || delta == 0) {
+                el.className = `${base} text-gray-500`;
+                el.textContent = '—';
+                return;
+            }
+
+            const up = delta > 0;
+            const arrow = up ? '▲' : '▼';
+            const sign = up ? '+' : '';
+            el.className = `${base} ${up ? 'text-green-400' : 'text-red-400'}`;
+            el.textContent = `${arrow} ${sign}${delta.toFixed(2)}`;
+        }
+
+        // Connection badge state (WS vs REST)
+        let wsLastTs = 0;
+
+        function setConnBadge(mode, label) {
+            if (!els.conn) return;
+
+            const baseWrap = 'text-[11px] font-medium px-3 py-1.5 rounded-full border flex items-center gap-2 backdrop-blur-md font-[Padauk]';
+            if (mode === 'WS') els.conn.className = `${baseWrap} text-green-300 bg-green-500/10 border-green-500/20`;
+            else if (mode === 'REST') els.conn.className = `${baseWrap} text-yellow-300 bg-yellow-500/10 border-yellow-500/20`;
+            else els.conn.className = `${baseWrap} text-red-300 bg-red-500/10 border-red-500/20`;
+
+            const spans = els.conn.querySelectorAll('span');
+            const dot = spans[0];
+            const txt = spans[1];
+
+            if (dot) {
+                const baseDot = 'w-2 h-2 rounded-full';
+                if (mode === 'WS') dot.className = `${baseDot} bg-green-500 animate-pulse`;
+                else if (mode === 'REST') dot.className = `${baseDot} bg-yellow-400 animate-pulse`;
+                else dot.className = `${baseDot} bg-red-500`;
+            }
+            if (txt) txt.textContent = label;
+        }
+
+        function markWS(label = 'WS တိုက်ရိုက်') {
+            wsLastTs = Date.now();
+            setConnBadge('WS', label);
+        }
+
+        function markREST(label = 'REST အပ်ဒိတ်') {
+            if (Date.now() - wsLastTs > 15000) setConnBadge('REST', label);
+        }
+
+        function markERR(label = 'Offline') {
+            if (Date.now() - wsLastTs > 15000) setConnBadge('ERR', label);
+        }
+
         function updateMarquee({ btc, eth, note }) {
             const nowStr = new Date().toLocaleTimeString();
             if (!els.marquee) return;
-            const btcPart = (typeof btc === 'number') ? `BTC: ${fmtUSD(btc)}` : 'BTC: N/A';
-            const ethPart = (typeof eth === 'number') ? `ETH: ${fmtUSD(eth)}` : 'ETH: N/A';
+            const btcPart = (typeof btc === 'number') ? `BTC: ${fmtUSD(btc, 0)}` : 'BTC: N/A';
+            const ethPart = (typeof eth === 'number') ? `ETH: ${fmtUSD(eth, 0)}` : 'ETH: N/A';
             els.marquee.textContent = `${btcPart} • ${ethPart} • GOLD: ${els.gold?.innerText ?? '$5,081'} • OIL: ${els.oil?.innerText ?? '$78.20'} • ${note ?? 'Updated'}: ${nowStr}`;
         }
 
@@ -311,6 +381,7 @@
                 ws.onopen = () => {
                     setLast('btc-last', 'ws connected');
                     setLast('eth-last', 'ws connected');
+                    markWS('WS ချိတ်ဆက်ပြီး');
                 };
 
                 ws.onmessage = (evt) => {
@@ -319,22 +390,29 @@
                         const stream = msg?.stream;
                         const p = Number(msg?.data?.p);
                         const nowStr = new Date().toLocaleTimeString();
+                        markWS();
 
                         if (!Number.isFinite(p)) return;
 
                         if (stream === 'btcusdt@trade') {
-                            const dir = lastBtc == null ? 0 : (p > lastBtc ? 1 : p < lastBtc ? -1 : 0);
+                            const prev = lastBtc;
+                            const dir = prev == null ? 0 : (p > prev ? 1 : p < prev ? -1 : 0);
+                            const delta = prev == null ? NaN : (p - prev);
                             lastBtc = p;
-                            if (els.btc) { els.btc.innerText = fmtUSD(p); flashPrice(els.btc, dir); }
+                            if (els.btc) { els.btc.innerText = fmtUSD(p, 2); flashPrice(els.btc, dir); }
                             setLast('btc-last', `ws ${nowStr}`);
+                            setDelta('btc-delta', delta);
                             updateMarquee({ btc: lastBtc, eth: lastEth, note: 'WS' });
                         }
 
                         if (stream === 'ethusdt@trade') {
-                            const dir = lastEth == null ? 0 : (p > lastEth ? 1 : p < lastEth ? -1 : 0);
+                            const prev = lastEth;
+                            const dir = prev == null ? 0 : (p > prev ? 1 : p < prev ? -1 : 0);
+                            const delta = prev == null ? NaN : (p - prev);
                             lastEth = p;
-                            if (els.eth) { els.eth.innerText = fmtUSD(p); flashPrice(els.eth, dir); }
+                            if (els.eth) { els.eth.innerText = fmtUSD(p, 2); flashPrice(els.eth, dir); }
                             setLast('eth-last', `ws ${nowStr}`);
+                            setDelta('eth-delta', delta);
                             updateMarquee({ btc: lastBtc, eth: lastEth, note: 'WS' });
                         }
                     } catch (e) {
@@ -346,12 +424,14 @@
                     const nowStr = new Date().toLocaleTimeString();
                     setLast('btc-last', `ws err ${nowStr}`);
                     setLast('eth-last', `ws err ${nowStr}`);
+                    setConnBadge('ERR', 'WS ပြဿနာ');
                 };
 
                 ws.onclose = () => {
                     const nowStr = new Date().toLocaleTimeString();
                     setLast('btc-last', `ws closed ${nowStr}`);
                     setLast('eth-last', `ws closed ${nowStr}`);
+                    setConnBadge('ERR', 'WS ပိတ်သွား');
                 };
 
                 return ws;
@@ -359,14 +439,16 @@
                 const nowStr = new Date().toLocaleTimeString();
                 setLast('btc-last', `ws fail ${nowStr}`);
                 setLast('eth-last', `ws fail ${nowStr}`);
+                setConnBadge('ERR', 'WS မရ');
                 return null;
             }
         }
 
-        async function loadPricesREST() {
+        async function loadPricesREST(preferBinance = false) {
             const nowStr = new Date().toLocaleTimeString();
 
-            // Try CoinGecko first, fallback to Binance
+            if (!preferBinance) {
+                // Try CoinGecko first, fallback to Binance
             try {
                 const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd';
                 const res = await fetch(url, { cache: 'no-store' });
@@ -377,23 +459,31 @@
                 const eth = data?.ethereum?.usd;
 
                 if (typeof btc === 'number') {
-                    const dir = lastBtc == null ? 0 : (btc > lastBtc ? 1 : btc < lastBtc ? -1 : 0);
+                    const prev = lastBtc;
+                    const dir = prev == null ? 0 : (btc > prev ? 1 : btc < prev ? -1 : 0);
+                    const delta = prev == null ? NaN : (btc - prev);
                     lastBtc = btc;
-                    if (els.btc) { els.btc.innerText = fmtUSD(btc); flashPrice(els.btc, dir); }
+                    if (els.btc) { els.btc.innerText = fmtUSD(btc, 2); flashPrice(els.btc, dir); }
                     setLast('btc-last', `rest ${nowStr}`);
+                    setDelta('btc-delta', delta);
                 }
 
                 if (typeof eth === 'number') {
-                    const dir = lastEth == null ? 0 : (eth > lastEth ? 1 : eth < lastEth ? -1 : 0);
+                    const prev = lastEth;
+                    const dir = prev == null ? 0 : (eth > prev ? 1 : eth < prev ? -1 : 0);
+                    const delta = prev == null ? NaN : (eth - prev);
                     lastEth = eth;
-                    if (els.eth) { els.eth.innerText = fmtUSD(eth); flashPrice(els.eth, dir); }
+                    if (els.eth) { els.eth.innerText = fmtUSD(eth, 2); flashPrice(els.eth, dir); }
                     setLast('eth-last', `rest ${nowStr}`);
+                    setDelta('eth-delta', delta);
                 }
 
                 updateMarquee({ btc: lastBtc, eth: lastEth, note: 'REST' });
+                markREST();
                 return;
             } catch (e) {
                 console.warn('CoinGecko REST failed, trying Binance REST:', e);
+            }
             }
 
             try {
@@ -408,36 +498,51 @@
                 const eth = Number((await ethRes.json())?.price);
 
                 if (Number.isFinite(btc)) {
-                    const dir = lastBtc == null ? 0 : (btc > lastBtc ? 1 : btc < lastBtc ? -1 : 0);
+                    const prev = lastBtc;
+                    const dir = prev == null ? 0 : (btc > prev ? 1 : btc < prev ? -1 : 0);
+                    const delta = prev == null ? NaN : (btc - prev);
                     lastBtc = btc;
-                    if (els.btc) { els.btc.innerText = fmtUSD(btc); flashPrice(els.btc, dir); }
+                    if (els.btc) { els.btc.innerText = fmtUSD(btc, 2); flashPrice(els.btc, dir); }
                     setLast('btc-last', `rest ${nowStr}`);
+                    setDelta('btc-delta', delta);
                 } else {
                     setLast('btc-last', `rest err ${nowStr}`);
+                    setDelta('btc-delta', NaN);
                 }
 
                 if (Number.isFinite(eth)) {
-                    const dir = lastEth == null ? 0 : (eth > lastEth ? 1 : eth < lastEth ? -1 : 0);
+                    const prev = lastEth;
+                    const dir = prev == null ? 0 : (eth > prev ? 1 : eth < prev ? -1 : 0);
+                    const delta = prev == null ? NaN : (eth - prev);
                     lastEth = eth;
-                    if (els.eth) { els.eth.innerText = fmtUSD(eth); flashPrice(els.eth, dir); }
+                    if (els.eth) { els.eth.innerText = fmtUSD(eth, 2); flashPrice(els.eth, dir); }
                     setLast('eth-last', `rest ${nowStr}`);
+                    setDelta('eth-delta', delta);
                 } else {
                     setLast('eth-last', `rest err ${nowStr}`);
+                    setDelta('eth-delta', NaN);
                 }
 
                 updateMarquee({ btc: lastBtc, eth: lastEth, note: 'REST' });
+                markREST();
             } catch (e) {
                 console.error('REST price load failed:', e);
                 setLast('btc-last', `rest err ${nowStr}`);
                 setLast('eth-last', `rest err ${nowStr}`);
+                setDelta('btc-delta', NaN);
+                setDelta('eth-delta', NaN);
                 updateMarquee({ btc: null, eth: null, note: 'ERR' });
+                markERR('API မရ');
             }
         }
 
-        // Start WS (best), and also run REST occasionally as fallback
+        // Start WS (best). If WS is blocked/closed, fallback to Binance REST every ~2s.
         startBinanceWS();
-        loadPricesREST();
-        setInterval(loadPricesREST, 30000);
+        loadPricesREST(true);
+
+        setInterval(() => {
+            if (Date.now() - wsLastTs > 5000) loadPricesREST(true);
+        }, 2000);
 
         // === Gold/Oil demo flash ===
         let lastGold = 5081.60;
@@ -517,6 +622,30 @@
             try { return new Date(ts).toLocaleTimeString(); } catch { return ''; }
         }
 
+        function buildAdvice(data) {
+            const tips = [];
+            const p = lastBtc;
+            const s = Number(data?.support);
+            const r = Number(data?.resistance);
+
+            if (Number.isFinite(p) && Number.isFinite(s) && p <= s * 1.01) {
+                tips.push(`Support (${fmtUSD(s, 0)}) နီးပြီ — bounce confirm (price action/volume) ကြည့်ပြီးမှ ဝင်ပါ။ SL ကို support အောက်နည်းနည်းထားပါ။`);
+            } else if (Number.isFinite(p) && Number.isFinite(r) && p >= r * 0.99) {
+                tips.push(`Resistance (${fmtUSD(r, 0)}) နီးပြီ — breakout အတည်ပြု (close/volume) မရှိရင် pullback ဖြစ်နိုင်လို့ profit lock/စောင့်ကြည့်ပါ။`);
+            } else if (Number.isFinite(p) && Number.isFinite(s) && Number.isFinite(r)) {
+                tips.push(`Range အလယ် (${fmtUSD(s, 0)} ~ ${fmtUSD(r, 0)}) — setup မထွက်သေးရင် စောင့်ကြည့်/DCA နဲ့ သတိထားပါ။`);
+            } else {
+                tips.push('အချက်အလက်မပြည့်စုံသေးလို့ လက်ရှိ trend ကို သတိထားပြီး စောင့်ကြည့်ပါ။');
+            }
+
+            tips.push('အမြဲ SL/TP သတ်မှတ်ပြီး position size ကို သင့်တင့်အောင်ထားပါ။');
+            tips.push('မှတ်ချက်: ဒီအကြံပြုချက်က ပညာရေးသဘောသာ (Not financial advice) ပါ။');
+
+            return tips
+                .map(t => `<li class="flex gap-2"><span class="text-blue-400">•</span><span>${t}</span></li>`)
+                .join('');
+        }
+
         async function loadAIAnalysis() {
             try {
                 const url = `data/ai_analysis.json?t=${Date.now()}`;
@@ -524,8 +653,8 @@
                 if (!res.ok) throw new Error('ai_analysis.json not found');
                 const data = await res.json();
 
-                // Inject news if present
-                if (Array.isArray(data?.news)) injectNews(data.news);
+                // Inject news (fallback if missing)
+                injectNews(data?.news);
 
                 // Inject AI panel
                 if (els.aiFeed) {
@@ -533,7 +662,7 @@
                     els.aiFeed.innerHTML = `
                         <div class="bg-blue-600/10 border border-blue-500/20 p-6 rounded-2xl mb-4 shadow-lg shadow-blue-900/10 animate-in zoom-in duration-300">
                             <div class="flex justify-between items-center mb-4">
-                                <span class="text-sm font-bold tracking-widest text-blue-400 uppercase">Latest Signal</span>
+                                <span class="text-sm font-bold tracking-widest text-blue-400 uppercase">နောက်ဆုံး အချက်ပြ</span>
                                 <span class="text-xs font-mono text-gray-400 bg-white/5 px-2 py-1 rounded">${timeStr}</span>
                             </div>
                             <h4 class="font-bold text-white text-2xl mb-3 tracking-tight">${data?.title ?? 'AI Update'}</h4>
@@ -542,16 +671,23 @@
 
                         <div class="grid grid-cols-2 gap-4 mt-6">
                             <div class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition">
-                                <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">Prediction</span>
+                                <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">ခန့်မှန်းချက်</span>
                                 <span class="text-lg font-bold text-white tracking-tight">${data?.prediction ?? '—'}</span>
                             </div>
                             <div class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition">
-                                <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">Levels</span>
+                                <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">အရေးကြီး Level</span>
                                 <div class="flex justify-between text-sm">
                                     <span class="text-green-400 font-medium">S: ${data?.support ?? '—'}</span>
                                     <span class="text-red-400 font-medium">R: ${data?.resistance ?? '—'}</span>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="mt-6 bg-white/5 p-5 rounded-2xl border border-white/5 hover:border-white/10 transition">
+                            <div class="text-sm font-bold tracking-tight text-white mb-3 font-[Padauk]">ကိုပိုင် အကြံပြုချက်</div>
+                            <ul class="space-y-2 text-sm text-gray-300 font-[Padauk]">
+                                ${buildAdvice(data)}
+                            </ul>
                         </div>
                     `;
                 }
