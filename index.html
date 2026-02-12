@@ -257,175 +257,182 @@
     </main>
 
     <script>
-        // === SIMPLIFIED PRICE LOADING (NO DEPENDENCIES) ===
-        
-        // 1. Immediate REST API Call on Page Load
+        // === PRICE + TICKER (CoinGecko REST fallback) ===
+        const els = {
+            btc: document.getElementById('price-btc'),
+            eth: document.getElementById('price-eth'),
+            marquee: document.getElementById('marquee-ticker'),
+            gold: document.getElementById('price-gold'),
+            oil: document.getElementById('price-oil'),
+            weather: document.getElementById('yangon-weather'),
+            aiFeed: document.getElementById('ai-analysis-feed'),
+            newsFeed: document.getElementById('news-feed'),
+        };
+
+        function fmtUSD(n) {
+            try { return '$' + Number(n).toLocaleString(undefined, { maximumFractionDigits: 0 }); }
+            catch { return '$' + n; }
+        }
+
         async function loadPrices() {
             try {
-                const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
+                const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true';
+                const res = await fetch(url, { cache: 'no-store' });
+                if (!res.ok) throw new Error('CoinGecko error ' + res.status);
                 const data = await res.json();
-                
-                const btcEl = document.getElementById('price-btc');
-                const ethEl = document.getElementById('price-eth');
-                
-                if(data.bitcoin && btcEl) {
-                    btcEl.innerText = '$' + data.bitcoin.usd.toLocaleString();
-                    btcEl.className = 'text-3xl font-medium tracking-tight text-white transition-all duration-300';
+
+                const btc = data?.bitcoin?.usd;
+                const eth = data?.ethereum?.usd;
+                const btcChg = data?.bitcoin?.usd_24h_change;
+                const ethChg = data?.ethereum?.usd_24h_change;
+
+                if (typeof btc === 'number' && els.btc) els.btc.innerText = fmtUSD(btc);
+                if (typeof eth === 'number' && els.eth) els.eth.innerText = fmtUSD(eth);
+
+                if (els.marquee) {
+                    const btcPart = (typeof btc === 'number')
+                        ? `BTC: ${fmtUSD(btc)} (${(btcChg ?? 0).toFixed(2)}%)`
+                        : 'BTC: N/A';
+                    const ethPart = (typeof eth === 'number')
+                        ? `ETH: ${fmtUSD(eth)} (${(ethChg ?? 0).toFixed(2)}%)`
+                        : 'ETH: N/A';
+                    els.marquee.textContent = `${btcPart} • ${ethPart} • GOLD: ${els.gold?.innerText ?? '$5,081'} • OIL: ${els.oil?.innerText ?? '$78.20'} • SOL: —`;
                 }
-                
-                if(data.ethereum && ethEl) {
-                    ethEl.innerText = '$' + data.ethereum.usd.toLocaleString();
-                    ethEl.className = 'text-3xl font-medium tracking-tight text-white transition-all duration-300';
+            } catch (e) {
+                console.error('Price load failed:', e);
+                if (els.marquee) {
+                    els.marquee.textContent = 'BTC: N/A • ETH: N/A • GOLD: $5,081 • OIL: $78.20 • SOL: —';
                 }
-                
-                console.log("Prices loaded:", data);
-            } catch(e) {
-                console.error("Price load failed:", e);
             }
         }
-        
-        // Run immediately
-        loadPrices();
-        // Update every 10 seconds
-        setInterval(loadPrices, 10000);
 
-        // Simulate Gold/Oil Ticker with Flash (Corrected Base Prices)
-        // Gold Base: ~5081, Oil Base: ~78
+        // Run immediately + refresh
+        loadPrices();
+        setInterval(loadPrices, 15000);
+
+        // === Gold/Oil demo flash ===
         let lastGold = 5081.60;
         let lastOil = 78.45;
-
         setInterval(() => {
-            const goldNow = (5081.60 + (Math.random() - 0.5) * 5).toFixed(2);
-            const oilNow = (78.45 + (Math.random() - 0.5) * 0.3).toFixed(2);
+            const goldNow = Number((5081.60 + (Math.random() - 0.5) * 5).toFixed(2));
+            const oilNow = Number((78.45 + (Math.random() - 0.5) * 0.3).toFixed(2));
 
-            const elGold = document.getElementById('price-gold');
-            const elOil = document.getElementById('price-oil');
-
-            // Gold Flash
-            if(goldNow > lastGold) {
-                elGold.className = "text-3xl font-medium tracking-tight text-green-400 transition-all duration-300";
-            } else {
-                elGold.className = "text-3xl font-medium tracking-tight text-red-400 transition-all duration-300";
+            if (els.gold) {
+                els.gold.className = (goldNow > lastGold)
+                    ? 'text-3xl font-medium tracking-tight text-green-400 transition-all duration-300'
+                    : 'text-3xl font-medium tracking-tight text-red-400 transition-all duration-300';
+                setTimeout(() => els.gold.className = 'text-3xl font-medium tracking-tight text-yellow-100 transition-all duration-500', 600);
+                els.gold.innerText = `$${goldNow.toFixed(2)}`;
             }
-            // Reset color after flash
-            setTimeout(() => elGold.className = "text-3xl font-medium tracking-tight text-yellow-100 transition-all duration-500", 600);
-            
+
+            if (els.oil) {
+                els.oil.className = (oilNow > lastOil)
+                    ? 'text-3xl font-medium tracking-tight text-green-400 transition-all duration-300'
+                    : 'text-3xl font-medium tracking-tight text-red-400 transition-all duration-300';
+                setTimeout(() => els.oil.className = 'text-3xl font-medium tracking-tight text-red-100 transition-all duration-500', 600);
+                els.oil.innerText = `$${oilNow.toFixed(2)}`;
+            }
+
             lastGold = goldNow;
-            elGold.innerText = `$${goldNow}`;
-
-            // Oil Flash
-            if(oilNow > lastOil) {
-                elOil.className = "text-3xl font-medium tracking-tight text-green-400 transition-all duration-300";
-            } else {
-                elOil.className = "text-3xl font-medium tracking-tight text-red-400 transition-all duration-300";
-            }
-             // Reset color after flash
-            setTimeout(() => elOil.className = "text-3xl font-medium tracking-tight text-red-100 transition-all duration-500", 600);
-
             lastOil = oilNow;
-            elOil.innerText = `$${oilNow}`;
-
         }, 3000);
 
-        // --- 3. Yangon Weather Fetch ---
+        // === Yangon Weather ===
         async function fetchWeather() {
             try {
-                const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=16.8053&longitude=96.1561&current_weather=true');
-                if(!res.ok) throw new Error("Weather API failed");
+                const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=16.8053&longitude=96.1561&current_weather=true', { cache: 'no-store' });
+                if (!res.ok) throw new Error('Weather API failed');
                 const data = await res.json();
-                document.getElementById('yangon-weather').innerHTML = `🌤️ YGN: ${data.current_weather.temperature}°C`;
+                if (els.weather) els.weather.textContent = `🌤️ YGN: ${data?.current_weather?.temperature ?? 'N/A'}°C`;
             } catch (e) {
-                document.getElementById('yangon-weather').innerHTML = `🌤️ YGN: N/A`;
+                if (els.weather) els.weather.textContent = '🌤️ YGN: N/A';
             }
         }
         fetchWeather();
 
-        // --- 4. Load AI Analysis (Burmese Support) ---
+        // === News injector (safe) ===
+        function injectNews(newsArray) {
+            if (!els.newsFeed) return;
+
+            if (!Array.isArray(newsArray) || newsArray.length === 0) {
+                els.newsFeed.innerHTML = '<p class="text-center text-gray-500 font-[Padauk]">သတင်းတိုများ မရှိသေးပါ</p>';
+                return;
+            }
+
+            let html = '';
+            newsArray.forEach((item, index) => {
+                const tag = (item?.tag ?? 'MARKET').toString();
+                const time = (item?.time ?? '').toString();
+                const text = (item?.text ?? '').toString();
+
+                let colorClass = 'text-blue-400 bg-blue-500/10';
+                if (tag === 'ETHEREUM' || tag === 'ETH') colorClass = 'text-purple-400 bg-purple-500/10';
+                if (tag === 'MARKET' || tag === 'General') colorClass = 'text-yellow-400 bg-yellow-500/10';
+
+                html += `
+                <div class="news-card p-5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition cursor-pointer group mb-3" style="animation-delay: ${index * 0.15}s">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-[10px] font-bold tracking-wider ${colorClass} px-2 py-0.5 rounded uppercase font-sans">${tag}</span>
+                        <span class="text-[10px] text-gray-400 font-[Padauk]">${time}</span>
+                    </div>
+                    <h4 class="text-[15px] font-medium text-gray-100 leading-relaxed group-hover:text-blue-300 transition font-[Padauk] tracking-wide">${text}</h4>
+                </div>`;
+            });
+
+            els.newsFeed.innerHTML = html;
+        }
+
+        // === AI Insights ===
+        function safeTime(ts) {
+            // support ISO strings / timestamps
+            try { return new Date(ts).toLocaleTimeString(); } catch { return ''; }
+        }
+
         async function loadAIAnalysis() {
             try {
-                // Use relative path to avoid CORS issues on same domain
-                const url = `data/ai_analysis.json?t=${Date.now()}`; 
-                const res = await fetch(url);
-                if (!res.ok) throw new Error("JSON not found");
+                const url = `data/ai_analysis.json?t=${Date.now()}`;
+                const res = await fetch(url, { cache: 'no-store' });
+                if (!res.ok) throw new Error('ai_analysis.json not found');
                 const data = await res.json();
-                
-                // --- INJECT NEWS ---
-                if(data.news && Array.isArray(data.news)) {
-                    await injectNews(data.news);
-                } else {
-                    console.error("Invalid news format:", data.news);
-                }
 
-                // --- INJECT AI INSIGHTS ---
-                const feed = document.getElementById('ai-analysis-feed');
-                feed.innerHTML = `
-                    <div class="bg-blue-600/10 border border-blue-500/20 p-6 rounded-2xl mb-4 shadow-lg shadow-blue-900/10 animate-in zoom-in duration-300">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-sm font-bold tracking-widest text-blue-400 uppercase">Latest Signal</span>
-                            <span class="text-xs font-mono text-gray-400 bg-white/5 px-2 py-1 rounded">${new Date(data.timestamp).toLocaleTimeString()}</span>
+                // Inject news if present
+                if (Array.isArray(data?.news)) injectNews(data.news);
+
+                // Inject AI panel
+                if (els.aiFeed) {
+                    const timeStr = safeTime(data?.timestamp);
+                    els.aiFeed.innerHTML = `
+                        <div class="bg-blue-600/10 border border-blue-500/20 p-6 rounded-2xl mb-4 shadow-lg shadow-blue-900/10 animate-in zoom-in duration-300">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm font-bold tracking-widest text-blue-400 uppercase">Latest Signal</span>
+                                <span class="text-xs font-mono text-gray-400 bg-white/5 px-2 py-1 rounded">${timeStr}</span>
+                            </div>
+                            <h4 class="font-bold text-white text-2xl mb-3 tracking-tight">${data?.title ?? 'AI Update'}</h4>
+                            <p class="text-base text-gray-300 leading-relaxed font-[Padauk] border-l-2 border-blue-500 pl-4 py-1">${data?.summary ?? 'AI analysis မလာသေးပါ…'}</p>
                         </div>
-                        <h4 class="font-bold text-white text-2xl mb-3 tracking-tight">${data.title}</h4>
-                        <p class="text-base text-gray-300 leading-relaxed font-[Padauk] border-l-2 border-blue-500 pl-4 py-1">${data.summary}</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 gap-4 mt-6">
-                         <div class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition">
-                            <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">Prediction</span>
-                            <span class="text-lg font-bold text-white tracking-tight">${data.prediction}</span>
-                        </div>
-                         <div class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition">
-                            <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">Levels</span>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-green-400 font-medium">S: ${data.support}</span>
-                                <span class="text-red-400 font-medium">R: ${data.resistance}</span>
+
+                        <div class="grid grid-cols-2 gap-4 mt-6">
+                            <div class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition">
+                                <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">Prediction</span>
+                                <span class="text-lg font-bold text-white tracking-tight">${data?.prediction ?? '—'}</span>
+                            </div>
+                            <div class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition">
+                                <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">Levels</span>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-green-400 font-medium">S: ${data?.support ?? '—'}</span>
+                                    <span class="text-red-400 font-medium">R: ${data?.resistance ?? '—'}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                        // Helper to inject news
-                        async function injectNews(newsArray) {
-                            const newsFeed = document.getElementById('news-feed');
-                            if(!newsFeed) return;
-
-                            if(!newsArray || newsArray.length === 0) {
-                                newsFeed.innerHTML = '<p class="text-center text-gray-500 font-[Padauk]">သတင်းများ မရှိသေးပါ (No News)</p>';
-                                return;
-                            }
-                            
-                            let html = '';
-                            newsArray.forEach((item, index) => {
-                                let colorClass = "text-blue-400 bg-blue-500/10";
-                                if(item.tag === "ETHEREUM" || item.tag === "ETH") colorClass = "text-purple-400 bg-purple-500/10";
-                                if(item.tag === "MARKET" || item.tag === "General") colorClass = "text-yellow-400 bg-yellow-500/10";
-                                
-                                html += `
-                                <div class="news-card p-5 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition cursor-pointer group mb-3" style="animation-delay: ${index * 0.15}s">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-[10px] font-bold tracking-wider ${colorClass} px-2 py-0.5 rounded uppercase font-sans">${item.tag}</span>
-                                        <span class="text-[10px] text-gray-400 font-[Padauk]">${item.time}</span>
-                                    </div>
-                                    <h4 class="text-[15px] font-medium text-gray-100 leading-relaxed group-hover:text-blue-300 transition font-[Padauk] tracking-wide">${item.text}</h4>
-                                </div>`;
-                            });
-                            newsFeed.innerHTML = html;
-                        }
-
-                        // Force inject if loadAIAnalysis succeeds
-                        // Ensure data.news is passed correctly
-
-                        if(data && data.news) {
-                            injectNews(data.news);
-                        } else {
-                            console.log("No news data found in JSON");
-                        }
-                `;
+                    `;
+                }
             } catch (e) {
-                console.log("Analysis Wait Loop...");
+                console.log('AI analysis not ready yet');
             }
         }
+
         loadAIAnalysis();
         setInterval(loadAIAnalysis, 30000);
-
     </script>
 </body>
 </html>
