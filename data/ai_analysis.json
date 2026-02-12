@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-13T05:39:00+06:30",
+  "timestamp": "2026-02-13T06:12:56+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC စျေးနှုန်းက $66,430 ဝန်းကျင်မှာရှိပြီး ၂၄ နာရီအတွင်း -1.44% လောက် ဆုတ်ခွာနေပါတယ်။ ၂၄ နာရီအတွင်း $65,118 (low) မှ $68,411 (high) ထိ ရွေ့လျားခဲ့ပြီး sell pressure များနေသလို bounce attempt တွေလည်း ရှိနေတဲ့ အနေအထားပါ။",
-  "prediction": "ကာလတိုအနေနဲ့ bearish-to-sideways သဘောထားဖြစ်ပြီး $65.1K support ကို ထိန်းနိုင်ရင် $67K–$68.4K ကို ပြန်စမ်းနိုင်ပါတယ်။ $65.1K ကို ထိုးဖောက်ကျသွားရင် $64K ဘက်ကို ဆက်ဆုတ်နိုင်လို့ position size/stop-loss ကို သေချာထားပါ။",
+  "summary": "BTC က လက်ရှိ $66,258 ဝန်းကျင်မှာရှိပြီး ၂၄ နာရီအတွင်း -1.20% လောက် ဆုတ်ခွာနေပါတယ်။ ၂၄ နာရီအတွင်း ရွေ့လျားမှုက $65,118–$68,411 လောက်ရှိပြီး စျေးက 20h SMA ($66,836) အောက်ဘက်မှာနေသေးတာကြောင့် ကာလတိုဖိအား များနေသလို မြင်ရပါတယ်။",
+  "prediction": "ကာလတိုအနေနဲ့ bearish-to-sideways ပုံစံ ဆက်ဖြစ်နိုင်ပြီး $65,118 ကို ထိန်းနိုင်ရင် $68,410 ဘက်ကို ပြန်စမ်းနိုင်ပါတယ်။ $65,118 ကို အောက်သို့ ဖောက်ချိုးရင် $60,000 အနီး (အကြီးစား support) ဘက်ကို ဆက်ဆုတ်နိုင်လို့ risk ကို ထိန်းပါ။",
   "support": 65118,
-  "resistance": 68411,
+  "resistance": 68410,
   "news": [
     {
-      "tag": "CoinDesk • Markets",
-      "time": "2026-02-13 03:24 (MMT)",
-      "text": "CoinDesk အဆိုအရ AI နဲ့ပတ်သက်တဲ့ စိတ်ပူပန်မှုကြောင့် tech စတော့များနှင့်အတူ BTC ကလည်း ပြီးခဲ့သည့်အပတ် low အနီးဘက်ကို ပြန်ဆုတ်လာခဲ့ပါတယ်။"
+      "tag": "Bloomberg.com",
+      "time": "2026-02-12 19:55 (MMT)",
+      "text": "Standard Chartered က BTC အပေါ် မျှော်မှန်းချက်/target ကို လျှော့ချပြီး စျေးက ဆက်ဖိအားခံနိုင်တယ်လို့ သတိပေးထားပါတယ်။ (ခေါင်းစဉ်: StanChart Slashes Bitcoin 2026 Target by 33%, Warns of More Pain - Bloomberg.com)"
     },
     {
-      "tag": "CoinDesk • Earnings",
-      "time": "2026-02-13 03:50 (MMT)",
-      "text": "CoinDesk သတင်းအရ Coinbase ရဲ့ Q4 earnings က ခန့်မှန်းချက်နည်းကျပီး transaction revenue က $1B အောက်ကို ဆင်းသွားတယ်လို့ ဖော်ပြထားပါတယ်။"
+      "tag": "CNBC",
+      "time": "2026-02-12 20:52 (MMT)",
+      "text": "BTC ရဲ့ drawdown (ကျဆင်းမှု) အခြေအနေကို သမိုင်းဒေတာနဲ့ နှိုင်းယှဉ်ပြီး ဆက်လက်အန္တရာယ်/အခွင့်အလမ်းတွေကို သုံးသပ်ထားပါတယ်။ (ခေါင်းစဉ်: Bitcoin's drawdown hit 50%. History shows it may have further to go - CNBC)"
     },
     {
-      "tag": "Cointelegraph • Derivatives",
-      "time": "2026-02-13 03:54 (MMT)",
-      "text": "Cointelegraph က BTC funding rate အနုတ်ဘက်ကို နေ့များစွာ ဆက်တိုက် ရောက်နေပြီး short position များက အလွန်အကျွံ ပြည့်နေတဲ့လက္ခဏာ ဖြစ်နိုင်လို့ short squeeze/reversal ဖြစ်နိုင်ချက်ကို ညွှန်ပြထားပါတယ်။"
+      "tag": "CoinDesk",
+      "time": "2026-02-13 01:20 (MMT)",
+      "text": "Bitcoin accumulation/ကော်ပိုရေးရှင်းပိုင်း စုဆောင်းမှုသဘောထားနဲ့ ဆိုင်တဲ့ သတင်းဖြစ်ပြီး စျေးကွက်ခံစားချက်ကို သက်ရောက်နိုင်ပါတယ်။ (ခေါင်းစဉ်: Strategy's STRC returns to $100, poised to unlock more bitcoin accumulation - CoinDesk)"
     }
   ]
 }
