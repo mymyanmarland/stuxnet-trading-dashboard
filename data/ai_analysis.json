@@ -1,25 +1,8 @@
 {
-  "timestamp": "2026-02-13T03:09:00+06:30",
-  "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC (Binance) လက်ရှိ $65,649 ဝန်းကျင်မှာ အရောင်းအဝယ်ဖြစ်နေပြီး 24 နာရီအတွင်း -2.56% လျော့ကျထားပါတယ်။ 24 နာရီ အနိမ့်/အမြင့် အကွာအဝေးက $65,118–$68,411 ဖြစ်ပြီး လဲလှယ်ပမာဏ (quote volume) ~ $1.67B လောက်ရှိပါတယ်။",
-  "prediction": "ကာလတိုအရ အောက်ဘက်ဖိအား ဆက်ရှိနေပြီး $65,100 အနီးမှာ ထောက်ကူအား (support) မပြနိုင်ရင် range ပြိုကွဲပြီး ထပ်ဆင်းနိုင်ပါတယ်။ ပြန်လည်အားတက်ဖို့ $68,500 ကို ပြန်ရောက်ပြီး အပေါ်မှာ တည်ငြိမ်အောင် ထိန်းနိုင်မှု (breakout/hold) ကို စောင့်ကြည့်ပါ။",
-  "support": 65100,
-  "resistance": 68500,
-  "news": [
-    {
-      "tag": "CoinDesk",
-      "time": "2026-02-13T02:13+06:30",
-      "text": "Crypto PAC “Fairshake” က တက္ကဆာ Democrat အမတ် Al Green ကို အမေရိကန် အောက်လွှတ်တော်ကနေ ဖယ်ရှားဖို့ (ရွေးကောက်ပွဲဘက်) ဖိအားပေး လှုပ်ရှားနေပါတယ်။"
-    },
-    {
-      "tag": "Cointelegraph",
-      "time": "2026-02-13T02:29+06:30",
-      "text": "21Shares က US/Europe အတွင်း စည်းမျဉ်းလိုက်နာတဲ့ staking နဲ့ custody ပံ့ပိုးမှုကို တိုးချဲ့ဖို့ BitGo နဲ့ ပူးပေါင်းလိုက်ပါတယ်။"
-    },
-    {
-      "tag": "Decrypt",
-      "time": "2026-02-13T02:45+06:30",
-      "text": "နောက်ဆုံး စျေးကျဆင်းမှုကြားမှာ BTC trader တချို့က Bitcoin ကို $55K အထိ ထပ်ဆင်းနိုင်တယ်လို့ ခန့်မှန်းနေပါတယ်။"
-    }
-  ]
+  "timestamp": "2026-02-13T03:28:51+06:30",
+  "title": "BTC Market Snapshot — $65,371 (-3.13% 24h)",
+  "summary": "Live price: $65,371 (24h: -3.13%).\n24h range: $65,243 – $68,309.\nMomentum: bearish over the last day; watch whether price holds above the 65k area.",
+  "prediction": "Next 24–48h: likely consolidation with a bearish bias while below ~$68,309. If BTC holds above support (~$65,243) and reclaims $66k–$67k, a bounce toward ~$68k is plausible. A clean break below ~$65,243 increases downside risk toward the $63k–$64k zone.",
+  "support": 65243.0,
+  "resistance": 68309.0
 }
