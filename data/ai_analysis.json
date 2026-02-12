@@ -1,25 +1,8 @@
 {
-  "timestamp": "2026-02-13T01:40:50+06:30",
-  "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC က Binance မှာ ~$65,408 (24h -3.12%) အထိ ဆုတ်ကျသွားပြီး 24 နာရီအတွင်း high ~$68,411 / low ~$65,118 ကို တိုက်ခဲ့ပါတယ်။ High ဘက်မတက်နိုင်ဘဲ support ဘက်ကို ဆုတ်လာတာကြောင့် short-term momentum က အနည်းငယ် bearish ဖြစ်နေပါတယ်။",
-  "prediction": "Trend အနေနဲ့ short-term အောက်ဘက်ဖိအားရှိပြီး ~$65.1k နီးစပ်ရာ support ပျက်သွားရင် ~$64k တန်းအနားကို ဆက်စမ်းနိုင်ပါတယ်။ ပြန်တက်ဖို့ဆိုရင် ~$66.5k–$68.4k ချင်း resistance ဇုန်ကို ပြန်ကျော်ပြီး volume နဲ့ confirm လုပ်ရပါမယ်။",
-  "support": 65118,
-  "resistance": 68410.52,
-  "news": [
-    {
-      "tag": "CoinDesk",
-      "time": "2026-02-13T00:30:16+06:30",
-      "text": "အမေရိကန် Senate ဒမိုကရက်တစ်ဦးက crypto market structure ဥပဒေကြမ်းကို ရှေ့ဆက်အတည်ပြုဖို့ တွန်းအားပေးနေပြီး SEC ခေါင်းဆောင် Paul Atkins က ဥပဒေမဖြစ်လာရင် မူဝါဒတည်ငြိမ်မှု အန္တရာယ်ရှိနိုင်ကြောင်း ပြောကြားခဲ့သည်။"
-    },
-    {
-      "tag": "The Block",
-      "time": "2026-02-13T00:55:18+06:30",
-      "text": "JPMorgan က 2026 အတွက် crypto ကို အကောင်းမြင်မှု ဆက်ထားပြီး Bitcoin production cost အခြေခံ support ကို ~$77,000 ဝန်းကျင်မှာ တွေ့နိုင်တယ်လို့ သုံးသပ်ချက် ထုတ်ပြန်ခဲ့သည်။"
-    },
-    {
-      "tag": "Cointelegraph",
-      "time": "2026-02-13T01:27:56+06:30",
-      "text": "Bitcoin miner ဆိုင်ရာ လုပ်ငန်း Cango က $75.5M ကို မူပိုင်အစုရှယ်ယာတိုးမြှင့်ဖြင့် ရင်းနှီးမြှုပ်နှံမှု ရယူပြီး AI infrastructure ဘက်ကို pivot လုပ်မယ်လို့ သတင်းထွက်လာသည်။"
-    }
-  ]
+  "timestamp": "2026-02-13T01:59:03+06:30",
+  "title": "BTC ဆုတ်ကျနေ — $65.2k Support စောင့်ကြည့်",
+  "summary": "CoinGecko live: BTC ~$65,731 (24h -2.49%). 24h range ~$65,243–$68,309. High ကနေ rejection လုပ်ပြီး sell pressure တက်လာတာကြောင့် short-term momentum နည်းနည်း bearish ဖြစ်နေပါတယ်။",
+  "prediction": "$68.3k အောက်မှာဆို Neutral→Bearish; $65.2k ထိန်းနိုင်ရင် $66.8k–$68.3k ပြန်စမ်းနိုင်၊ $65.2k ပျက်ရင် $64k ဝန်းကျင် ဆက်ကျနိုင်။",
+  "support": 65243,
+  "resistance": 68309
 }
