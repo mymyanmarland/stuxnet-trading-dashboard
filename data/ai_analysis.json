@@ -1,25 +1,8 @@
 {
-  "timestamp": "2026-02-13T02:39:00+06:30",
-  "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC လက်ရှိ ~$65,893 ဖြစ်ပြီး 24 နာရီအတွင်း -2.38% ကျဆင်းထားပါတယ်။ 24h range က $65,243–$68,309 အတွင်းဖြစ်ပြီး volume ~ $48.9B နဲ့ sell-pressure ပိုသာသလို မြင်ရပါတယ်။ အတိုကာလမှာ $65k ပတ်ဝန်းကျင်က demand စမ်းသပ်မှုတွေ ဆက်ဖြစ်နိုင်ပါတယ်။",
-  "prediction": "Support $65.2k ကို မကျိုးသေးသမျှ sideways-to-bearish အဖြစ် ပြန်ခုခံနိုင်ပေမဲ့ $68.3k ကို ပြန်မကျော်နိုင်ရင် rally တွေဟာ sell-into-strength ဖြစ်နိုင်ပါတယ်။ $65.2k ကျိုးပါက $63k–$60k ဇုန်ထိ ဆက်လျှောနိုင်ပြီး၊ $68.3k ထက် ပိတ်နိုင်ရင် short-term bullish reversal စတင်နိုင်ပါတယ်။",
-  "support": 65200,
-  "resistance": 68300,
-  "news": [
-    {
-      "tag": "Cointelegraph",
-      "time": "2026-02-13T02:29:36+06:30",
-      "text": "21Shares က အမေရိကန်/ဥရောပမှာ စည်းကမ်းနှင့်ကိုက်ညီတဲ့ staking နဲ့ custody ဝန်ဆောင်မှုတွေ တိုးချဲ့ဖို့ BitGo နဲ့ မိတ်ဖက်လုပ်လိုက်ပါတယ်။"
-    },
-    {
-      "tag": "CoinDesk",
-      "time": "2026-02-13T02:13:26+06:30",
-      "text": "Crypto super PAC ‘Fairshake’ က crypto ကို ဆန့်ကျင်သဘောထားရှိတဲ့ Texas Democrat အမတ် Al Green ကို primary ရွေးကောက်ပွဲမှာ အနိုင်မရအောင် အရင်းအနှီးသုံးစွဲဖို့ လှုပ်ရှားနေပါတယ်။"
-    },
-    {
-      "tag": "Decrypt",
-      "time": "2026-02-13T00:10:16+06:30",
-      "text": "ဇန်နဝါရီလအတွင်း BTC treasury ထားပြီး ဝယ်စုထားတဲ့ ကုမ္ပဏီတွေက စုစုပေါင်း ~$3.5B ထပ်ဝယ်ခဲ့ပြီး အများစုကို Strategy က ဦးဆောင်ဝယ်ယူခဲ့တယ်လို့ รายงาน ထွက်ပါတယ်။"
-    }
-  ]
+  "timestamp": "2026-02-13T03:00:00+06:30",
+  "title": "BTC Market Snapshot — $65,461",
+  "summary": "BTC (source: binance) လက်ရှိ $65,461 ဝန်းကျင်မှာ trade ဖြစ်နေပြီး 24 နာရီအတွင်း -2.58% ပြောင်းလဲထားပါတယ်။ 24h range က $65,118–$68,411 ဖြစ်ပြီး 24h quote volume ~ $1.7B လောက်ပါ။ 7 ရက် trend က +3.56% ဖြစ်တာကြောင့် short-term structure က bullish / range-bound ဖြစ်နိုင်ချေ မြင်ရပါတယ်။",
+  "prediction": "Trend အရ medium-term က bullish ဘက်သွားနိုင်ပေမဲ့ short-term မှာ $65,100–$68,400 range အတွင်း ပြန်လည်တည်ငြိမ်မှု (consolidation) ဖြစ်နိုင်ပါတယ်။ $68,400 ကို breakout + hold လုပ်နိုင်ရင် momentum continuation, $65,100 အောက်ချိုးရင် stop-hunt ဆန်ဆန် dip ကို သတိထားဖို့လိုပါတယ်။",
+  "support": 65100,
+  "resistance": 68400
 }
