@@ -1,25 +1,16 @@
 {
-  "timestamp": "2026-02-12T20:40:54+06:30",
-  "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC က $68k ဝန်းကျင်မှာ တည်ငြိမ်ဖို့ကြိုးစားနေပြီး (နောက်ဆုံး ၄၈ နာရီအတွင်း $65.7k–$70k အတွင်း) ရှိပါတယ်။ လက်ရှိဈေးက short-term average တွေအပေါ်ကို ပြန်တက်နေသော်လည်း resistance $70k အနီးမှာ ရောင်းအားဖိအားကို ကြုံနိုင်ပါတယ်။",
-  "prediction": "67.5k အပေါ်မှာ ထိန်းထားနိုင်ရင် sideway→အနည်းငယ်တက် (bullish bias) နဲ့ 70k ကို ထပ်စမ်းနိုင်ပါတယ်; 65.7k အောက်ကျရင် အောက်ဆင်းဖိအား ပြန်တက်နိုင်ပါတယ်။",
-  "support": 65750,
-  "resistance": 70000,
-  "news": [
-    {
-      "tag": "CoinDesk",
-      "time": "2026-02-12T20:27+06:30",
-      "text": "Bitcoin Layer-2 ပရောဂျက်တွေက BTCFi (Bitcoin DeFi) ကို အဖွဲ့အစည်းများ (institutional) ဝင်ရောက်နိုင်မှုကို ဖွင့်ပေးမယ့် အဓိကအချက်အဖြစ် တင်ပြခဲ့ပါတယ်။"
-    },
-    {
-      "tag": "Cointelegraph",
-      "time": "2026-02-12T20:27+06:30",
-      "text": "ဇန်နဝါရီအတွင်း Bitcoin miner wallet များမှ ထွက်ရွှေ့မှု (outflows) မြင့်တက်ခဲ့ပေမယ့် public miner တွေရဲ့ ရောင်းချမှုကတော့ တော်တော်လေးကန့်သတ်နေတယ်လို့ အချက်အလက်တွေ ပြထားပါတယ်။"
-    },
-    {
-      "tag": "Decrypt",
-      "time": "2026-02-12T11:30+06:30",
-      "text": "ဒီတပတ် အမေရိကန် CPI (အင်ဖလေးရှင်း ဒေတာ) မထွက်ခင် Bitcoin/crypto စျေးကွက်က မက်ခရိုသတင်းအပေါ် အာရုံစိုက်နေပြီး မတည်ငြိမ်မှု (volatility) တက်နိုင်တယ်လို့ ခန့်မှန်းချက်တွေ ထွက်လာပါတယ်။"
-    }
+  "timestamp": "2026-02-12T20:57:00+06:30",
+  "title": "BTC consolidates near $68k; watch $68.4k resistance / $67.25k pivot",
+  "summary": "Binance BTCUSDT last ~$67,971. 24h range $65,756–$68,411 with near-flat change (-0.08%). Price is back above the 24h VWAP (~$67,254), suggesting buyers defended the mid-range, but breakout confirmation requires a clean move over ~$68.4k.",
+  "prediction": "Base case (next 12–24h): range continuation $66k–$69k. Bullish continuation if BTC holds above ~$67.25k and breaks/holds above ~$68.4k; bearish if it loses ~$67.25k then retests ~$65.75k support.",
+  "support": [
+    67250,
+    66000,
+    65750
+  ],
+  "resistance": [
+    68000,
+    68410,
+    69000
   ]
 }
