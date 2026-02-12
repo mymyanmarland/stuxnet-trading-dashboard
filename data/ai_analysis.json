@@ -1,25 +1,14 @@
 {
-  "timestamp": "2026-02-13T02:10:00+06:30",
-  "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC က လက်ရှိ ~$65.9k (24 နာရီအတွင်း -2.6%) ဝန်းကျင်မှာ လှုပ်ရှားနေပြီး 24h range က ~$65.2k–$68.3k ဖြစ်ပါတယ်။ 24h volume က ~$49B လောက်ရှိပြီး အပေါ်ဘက်မှာ selling pressure ကြောင့် short-term အားနည်းတဲ့ပုံစံတွေ့ရပါတယ်။",
-  "prediction": "Short-term trend က ဘေးကွေ့ပြီး အောက်ဆင်းဘက် (sideways-to-bearish) ဖြစ်နိုင်ပါတယ် — $65.2k ကို မထိန်းနိုင်ရင် $64k ဖက် ဆုတ်နိုင်ပြီး $68.3k ပြန်ကျော်မှသာ bullish momentum ပြန်တက်လာနိုင်ပါတယ်။",
-  "support": 65243,
-  "resistance": 68309,
-  "news": [
-    {
-      "tag": "CoinDesk",
-      "time": "2026-02-13 00:30 MMT",
-      "text": "အမေရိကန် Senate ထဲမှာ crypto market-structure ဥပဒေမူကြမ်းကို ဆက်လက်တိုးမြှင့်အတည်ပြုစေချင်တယ်လို့ ဆွေးနွေးမှုတွေတက်လာပြီး SEC ခေါင်းဆောင်ကလည်း ဥပဒေတိတိကျကျ မရှိရင် စည်းမျဉ်းရေးရာ မတည်ငြိမ်မှုတွေကြာမြင့်နိုင်တယ်ဆိုပြီး အစိုးရဘက်ဖိအားကိစ္စတွေကို ထောက်ပြခဲ့ပါတယ်။"
-    },
-    {
-      "tag": "Cointelegraph",
-      "time": "2026-02-13 00:15 MMT",
-      "text": "Analyst တွေအရ BTC ဟာ အရေးကြီး cost-basis အဆင့်တွေကြားမှာ ပိတ်လှောင်နေပြီး consolidation ကာလတစ်ခု အချိန်ကြာ ဆက်ဖြစ်နိုင်တယ်လို့ သုံးသပ်ထားပါတယ်။"
-    },
-    {
-      "tag": "Decrypt",
-      "time": "2026-02-12 21:59 MMT",
-      "text": "Standard Chartered က BTC ဟာ rebound မလာခင် အရင် $50k ဝန်းကျင်ထိ ဆုတ်နိုင်ပေမယ့် 2026 အဆုံးပိုင်းမှာတော့ $100k ဖက်ကို ရောက်နိုင်တယ်လို့ ခန့်မှန်းချက်ထုတ်ပြန်ပါတယ်။"
-    }
+  "timestamp": "2026-02-13T02:28:39+06:30",
+  "title": "BTC Market Pulse: $65,882 (-2.45%)",
+  "summary": "Spot ~$65,882; 24h: -2.45%; 24h range: $65,243–$68,309; Momentum is pulling back on the day.",
+  "prediction": "Short-term bias: neutral-to-bearish while below the first resistance. A reclaim and hold above resistance could flip momentum bullish. A breakdown below the first support increases odds of a deeper pullback toward the next support zone.",
+  "support": [
+    64250,
+    65200
+  ],
+  "resistance": [
+    68300,
+    69250
   ]
 }
