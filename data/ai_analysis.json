@@ -1,25 +1,8 @@
 {
-  "timestamp": "2026-02-12T05:09:00+06:30",
-  "title": "Bitcoin (BTC) Market Overview",
-  "summary": "Bitcoin သည် $70,000 ခုခံမှုအဆင့်တွင် ငြင်းပယ်ခံရပြီးနောက် ကျဆင်းမှုလမ်းကြောင်းပေါ်ရောက်ရှိနေပြီး $66,000 အထောက်အပံ့အဆင့်ကို စမ်းသပ်နေပါသည်။ ဈေးကွက်အခြေအနေမှာ ကျဆင်းနိုင်ခြေရှိပြီး အရင်းအနှီးအသစ်ဝင်ရောက်မှု အားနည်းသောကြောင့် $60,000 ဝန်းကျင်ထိ ဆက်လက်ကျဆင်းနိုင်ကြောင်း သုံးသပ်ရပါသည်။",
-  "prediction": "ကျဆင်းမှုလမ်းကြောင်း (Bearish Trend)",
-  "support": "$60,000 - $66,000",
-  "resistance": "$69,000 - $70,000",
-  "news": [
-    {
-      "tag": "Market",
-      "time": "Feb 11, 2026",
-      "text": "Bitcoin ဈေးနှုန်းပြန်တက်လာမှု အရှိန်လျော့ကျသွားပြီး $66,000 အဆင့်ကို ထိန်းထားရန် ရုန်းကန်နေရသည်။"
-    },
-    {
-      "tag": "Adoption",
-      "time": "Feb 11, 2026",
-      "text": "BlackRock သည် Uniswap နှင့်ပူးပေါင်း၍ DeFi ကဏ္ဍသို့ ဝင်ရောက်လာပြီး အဖွဲ့အစည်းဆိုင်ရာ တိုကင်အရောင်းအဝယ်များကို တိုးချဲ့ဆောင်ရွက်နေသည်။"
-    },
-    {
-      "tag": "Regulation",
-      "time": "Feb 11, 2026",
-      "text": "ဒီမိုကရက်တစ်အမတ်များက SEC ဥက္ကဌ Atkins ၏ ကிரிပတိုစည်းမျဉ်းဆိုင်ရာ ကိုင်တွယ်ပုံအပေါ် ဝေဖန်ပြောကြားလိုက်သည်။"
-    }
-  ]
+  "timestamp": "2026-02-12T06:57:00+06:30",
+  "title": "BTC Market Update: Testing $67k Support",
+  "summary": "Bitcoin is currently trading at $67,352. The market shows consolidation near the $67k mark, with potential for a breakout if volume increases. Traders are watching for a decisive move above $68k.",
+  "prediction": "Neutral to Bullish",
+  "support": "$66,200",
+  "resistance": "$68,500"
 }
