@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-02-13T02:28:39+06:30",
-  "title": "BTC Market Pulse: $65,882 (-2.45%)",
-  "summary": "Spot ~$65,882; 24h: -2.45%; 24h range: $65,243–$68,309; Momentum is pulling back on the day.",
-  "prediction": "Short-term bias: neutral-to-bearish while below the first resistance. A reclaim and hold above resistance could flip momentum bullish. A breakdown below the first support increases odds of a deeper pullback toward the next support zone.",
+  "timestamp": "2026-02-13T02:31:42+06:30",
+  "title": "Bitcoin (BTC) Market Overview",
+  "summary": "BTC လက်ရှိစျေး ~$65,773 (24 နာရီ -2.75%) ဖြစ်ပြီး 24 နာရီအတွင်း $65,118–$68,411 အကွာအဝေးထဲမှာ လှုပ်ရှားနေပါတယ်။ ၇ ရက်အတွင်း ~-6.7% လျော့ထားတာကြောင့် အတိုကာလ momentum က pullback ဆန်ဆန်နည်းနည်းဆင်းဘက်လို ပြနေပါတယ်။",
+  "prediction": "$68.4k ကို ပြန်မကျော်နိုင်သေးသမျှ အတိုကာလ trend က neutral-to-bearish ဘက်မြင်သာပြီး $65.1k ကျိုးသွားရင် $60k support ဇုန်ထိ ဆက်ဆင်းစမ်းနိုင်ပါတယ်။ $68.4k ကို ပြန်ကျော်ပြီး ထိန်းထားနိုင်ရင် bullish ပြန်လှန်အလားအလာ တက်လာနိုင်ပါတယ်။",
   "support": [
-    64250,
-    65200
+    60000,
+    65100
   ],
   "resistance": [
-    68300,
-    69250
+    68400,
+    72300
   ]
 }
