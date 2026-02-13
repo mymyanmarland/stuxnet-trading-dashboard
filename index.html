@@ -53,16 +53,26 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .news-card { animation: fadeIn 0.5s ease-out forwards; }
 
-        /* Border-only rainbow glow (keep inside exactly same) */
+        /* Border-only rainbow glow (do not touch inside glass texture) */
         .market-glow-card {
             position: relative;
             isolation: isolate;
-            border: 1px solid transparent !important;
-            background:
-                linear-gradient(rgba(28, 28, 30, 0.65), rgba(28, 28, 30, 0.65)) padding-box,
-                linear-gradient(-45deg, rgba(232, 28, 255, 0.9), rgba(64, 201, 255, 0.9), rgba(252, 0, 255, 0.9), rgba(0, 219, 222, 0.9)) border-box !important;
-            background-size: 100% 100%, 300% 300%;
+        }
+        .market-glow-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 22px;
+            padding: 1px;
+            background: linear-gradient(-45deg, rgba(232, 28, 255, 0.9), rgba(64, 201, 255, 0.9), rgba(252, 0, 255, 0.9), rgba(0, 219, 222, 0.9));
+            background-size: 300% 300%;
             animation: borderFlow 6s ease infinite;
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0.85;
         }
         .market-glow-card::after {
             content: '';
@@ -73,11 +83,11 @@
             background-size: 300% 300%;
             animation: borderFlow 6s ease infinite;
             filter: blur(10px);
-            opacity: 0.4;
+            opacity: 0.45;
             z-index: -1;
             pointer-events: none;
         }
-        .market-glow-card:hover::after { opacity: 0.6; filter: blur(13px); }
+        .market-glow-card:hover::after { opacity: 0.65; filter: blur(12px); }
         @keyframes borderFlow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
