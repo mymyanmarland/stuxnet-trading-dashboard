@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-14T01:41:21+06:30",
+  "timestamp": "2026-02-14T02:12:14+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် လက်ရှိ $69,137 ဝန်းကျင်မှာကုန်သွယ်နေပြီး 24 နာရီအတွင်း +5.09% ပြောင်းလဲထားပါတယ်။ 4H chart အရ ဈေးနှုန်းက SMA20 ($67,525) နှင့် SMA50 ($68,352) ပေါ်ကို ပြန်တက်လာတာကြောင့် short-term rebound သဘောသက်ရောက်နေပါတယ်။ Support ကို $65,118 ဝန်းကျင်၊ resistance ကို $72,271 ဝန်းကျင်မှာ စောင့်ကြည့်သင့်ပါတယ်။",
-  "prediction": "လက်ရှိ momentum က အားနည်းနေပြီး အကျဘက်ဖိအားကို သတိထားဖို့လိုပါတယ်။",
-  "support": 65118.0,
-  "resistance": 72271.41,
+  "summary": "BTC သည် လက်ရှိ $69,004 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +4.80% ပြောင်းလဲထားပါတယ်။ 24h range က $65,349 မှ $69,277 အတွင်းဖြစ်ပြီး short-term rebound မြင်ရသော်လည်း 7 ရက်အခြေအနေ (-2.50%) က အပြည့်အဝ မတည်ငြိမ်သေးပါ။",
+  "prediction": "တိုတောင်းကာလတွင် အတက်ဘက် momentum ရှိနေသော်လည်း resistance အနီးတွင် အရောင်းဖိအား ပြန်တက်နိုင်ပြီး sideway-to-bullish လမ်းကြောင်းကို စောင့်ကြည့်သင့်ပါတယ်။",
+  "support": 65349.0,
+  "resistance": 69277.0,
   "news": [
     {
       "tag": "CoinDesk",
-      "time": "2026-02-13 10:52 PM MMT",
-      "text": "CoinDesk သတင်းအရ Coinbase ၏ Q4 ရလဒ် မျှော်မှန်းချက်မပြည့်ပြီးနောက် analyst များက target price လျှော့ချခဲ့သော်လည်း ရှယ်ယာဈေးပြန်တက်လာပါတယ်။"
+      "time": "2026-02-14 01:55 AM MMT",
+      "text": "CoinDesk အရ stablecoin ဥပဒေမူကြမ်းအတွက် crypto ကဏ္ဍက Wall Street ဘဏ်များ၏ အဆိုပြုချက်ကို တန်ပြန် မူဝါဒချက်များ တင်ပြလာပါတယ်။"
+    },
+    {
+      "tag": "Cointelegraph",
+      "time": "2026-02-14 01:51 AM MMT",
+      "text": "Cointelegraph အရ Bitcoin bulls များက $69K ပြန်လည်ကျော်လွန်စေပြီး retail trader များ၏ short position များအပေါ် ဖိအားတိုးလာပါတယ်။"
     },
     {
       "tag": "Decrypt",
       "time": "2026-02-14 01:30 AM MMT",
-      "text": "Decrypt ၏ market analysis တွင် Bitcoin သည် $69K အထိပြန်တက်လာပေမယ့် chart signal များအရ bearish pressure တချို့ကျန်နေသေးကြောင်း ဖော်ပြထားပါတယ်။"
-    },
-    {
-      "tag": "Cointelegraph",
-      "time": "2026-02-14 01:30 AM MMT",
-      "text": "Cointelegraph အဆိုအရ BlackRock က DeFi ကဏ္ဍထဲ ဝင်ရောက်လာမှုကြောင့် institution များ၏ crypto စိတ်ဝင်စားမှု ဆက်လက်တိုးလာနေပါတယ်။"
+      "text": "Decrypt analysis အရ Bitcoin က $69K ဝန်းကျင်ထိ ပြန်တက်လာပေမယ့် technical chart signal အချို့မှာ bearish သဘောတရား မပြတ်သေးကြောင်း ဖော်ပြထားပါတယ်။"
     }
   ]
 }
