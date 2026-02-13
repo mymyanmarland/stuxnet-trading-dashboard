@@ -204,14 +204,15 @@
                     </div>
                 </div>
 
-                <!-- Quick Action Buttons -->
-                <div class="mt-8 grid grid-cols-2 gap-4">
-                     <button class="py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition flex items-center justify-center gap-2 text-sm font-medium text-gray-300 hover:text-white">
-                        🔔 စျေး သတိပေးချက်
-                    </button>
-                    <button class="py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 transition flex items-center justify-center gap-2 text-sm font-medium text-white shadow-lg shadow-blue-500/20">
-                        📄 Report ထုတ်မယ်
-                    </button>
+                <!-- Manual AI Update Controls -->
+                <div class="mt-8 space-y-3">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <input id="openrouter-key" type="password" placeholder="OpenRouter API Key (sk-or-...)" class="md:col-span-2 w-full py-3 px-4 rounded-xl bg-white/5 border border-white/10 text-sm text-gray-200 placeholder:text-gray-500 focus:outline-none focus:border-blue-500/50" />
+                        <button id="update-ai-news-btn" class="py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 transition flex items-center justify-center gap-2 text-sm font-medium text-white shadow-lg shadow-blue-500/20">
+                            🧠 သတင်း Update တင်မယ်
+                        </button>
+                    </div>
+                    <p id="ai-update-status" class="text-xs text-gray-400 font-[Padauk]">Manual mode: ခလုတ်နှိပ်မှပဲ AI news/update ထုတ်ပါမယ်။</p>
                 </div>
             </div>
 
@@ -282,6 +283,9 @@
             aiFeed: document.getElementById('ai-analysis-feed'),
             newsFeed: document.getElementById('news-feed'),
             conn: document.getElementById('conn-badge'),
+            openrouterKey: document.getElementById('openrouter-key'),
+            updateBtn: document.getElementById('update-ai-news-btn'),
+            updateStatus: document.getElementById('ai-update-status'),
         };
 
         function fmtUSD(n, decimals = 2) {
@@ -626,58 +630,144 @@
                 .join('');
         }
 
-        async function loadAIAnalysis() {
+        function renderAIPanel(data) {
+            if (!els.aiFeed) return;
+            const timeStr = safeTime(data?.timestamp ?? Date.now());
+            const adviceItems = Array.isArray(data?.advice)
+                ? data.advice.map(t => `<li class="flex gap-2"><span class="text-blue-400">•</span><span>${t}</span></li>`).join('')
+                : buildAdvice(data);
+
+            els.aiFeed.innerHTML = `
+                <div class="bg-blue-600/10 border border-blue-500/20 p-6 rounded-2xl mb-4 shadow-lg shadow-blue-900/10 animate-in zoom-in duration-300">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm font-bold tracking-widest text-blue-400 uppercase">နောက်ဆုံး အချက်ပြ</span>
+                        <span class="text-xs font-mono text-gray-400 bg-white/5 px-2 py-1 rounded">${timeStr}</span>
+                    </div>
+                    <h4 class="font-bold text-white text-2xl mb-3 tracking-tight">${data?.title ?? 'AI Update'}</h4>
+                    <p class="text-base text-gray-300 leading-relaxed font-[Padauk] border-l-2 border-blue-500 pl-4 py-1">${data?.summary ?? 'AI analysis မလာသေးပါ…'}</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mt-6">
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition">
+                        <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">ခန့်မှန်းချက်</span>
+                        <span class="text-lg font-bold text-white tracking-tight">${data?.prediction ?? '—'}</span>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition">
+                        <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">အရေးကြီး Level</span>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-green-400 font-medium">S: ${data?.support ?? '—'}</span>
+                            <span class="text-red-400 font-medium">R: ${data?.resistance ?? '—'}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-white/5 p-5 rounded-2xl border border-white/5 hover:border-white/10 transition">
+                    <div class="text-sm font-bold tracking-tight text-white mb-3 font-[Padauk]">ကိုပိုင် အကြံပြုချက်</div>
+                    <ul class="space-y-2 text-sm text-gray-300 font-[Padauk]">${adviceItems}</ul>
+                </div>
+            `;
+        }
+
+        function parseJSONSafe(text) {
+            if (!text) return null;
+            try { return JSON.parse(text); } catch {}
+            const cleaned = text.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```$/i, '').trim();
+            try { return JSON.parse(cleaned); } catch {}
+            const start = cleaned.indexOf('{');
+            const end = cleaned.lastIndexOf('}');
+            if (start >= 0 && end > start) {
+                try { return JSON.parse(cleaned.slice(start, end + 1)); } catch {}
+            }
+            return null;
+        }
+
+        async function fetchCryptoCompareNews() {
+            const res = await fetch('https://min-api.cryptocompare.com/data/v2/news/?lang=EN', { cache: 'no-store' });
+            if (!res.ok) throw new Error('News source failed');
+            const data = await res.json();
+            return (data?.Data ?? []).slice(0, 8).map(x => ({
+                title: x?.title ?? '',
+                source: x?.source ?? 'news',
+                time: new Date((x?.published_on ?? 0) * 1000).toLocaleString(),
+                body: x?.body ?? ''
+            }));
+        }
+
+        async function updateWithOpenRouter() {
+            const key = (els.openrouterKey?.value || '').trim();
+            if (!key) {
+                if (els.updateStatus) els.updateStatus.textContent = 'OpenRouter API Key ထည့်ပြီးမှ update လုပ်ပါ။';
+                return;
+            }
+
+            localStorage.setItem('openrouter_api_key', key);
+            if (els.updateBtn) { els.updateBtn.disabled = true; els.updateBtn.textContent = 'Updating...'; }
+            if (els.updateStatus) els.updateStatus.textContent = 'သတင်းကို AI နဲ့ ပြန်စုပြီး update လုပ်နေပါတယ်...';
+
             try {
-                const url = `data/ai_analysis.json?t=${Date.now()}`;
-                const res = await fetch(url, { cache: 'no-store' });
-                if (!res.ok) throw new Error('ai_analysis.json not found');
-                const data = await res.json();
+                const rawNews = await fetchCryptoCompareNews();
+                const marketSnapshot = {
+                    btc: lastBtc,
+                    eth: lastEth,
+                    gold: 'TVC:GOLD',
+                    oil: 'TVC:UKOIL'
+                };
 
-                // Inject news (fallback if missing)
-                injectNews(data?.news);
+                const prompt = `You are a financial news assistant for Myanmar users.\nUse the provided headlines and market snapshot to produce concise Burmese updates.\nReturn STRICT JSON only with this schema:\n{\n  "title": string,\n  "summary": string,\n  "prediction": string,\n  "support": string,\n  "resistance": string,\n  "advice": string[],\n  "news": [{"tag": string, "time": string, "text": string}]\n}\nRules:\n- news must contain 3 to 5 items, Burmese text, short and clear.\n- no markdown.\n- keep advice practical and risk-aware.\nInput headlines: ${JSON.stringify(rawNews)}\nMarket snapshot: ${JSON.stringify(marketSnapshot)}`;
 
-                // Inject AI panel
-                if (els.aiFeed) {
-                    const timeStr = safeTime(data?.timestamp);
-                    els.aiFeed.innerHTML = `
-                        <div class="bg-blue-600/10 border border-blue-500/20 p-6 rounded-2xl mb-4 shadow-lg shadow-blue-900/10 animate-in zoom-in duration-300">
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="text-sm font-bold tracking-widest text-blue-400 uppercase">နောက်ဆုံး အချက်ပြ</span>
-                                <span class="text-xs font-mono text-gray-400 bg-white/5 px-2 py-1 rounded">${timeStr}</span>
-                            </div>
-                            <h4 class="font-bold text-white text-2xl mb-3 tracking-tight">${data?.title ?? 'AI Update'}</h4>
-                            <p class="text-base text-gray-300 leading-relaxed font-[Padauk] border-l-2 border-blue-500 pl-4 py-1">${data?.summary ?? 'AI analysis မလာသေးပါ…'}</p>
-                        </div>
+                const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${key}`,
+                        'Content-Type': 'application/json',
+                        'HTTP-Referer': window.location.origin,
+                        'X-Title': 'Stuxnet Trading Dashboard'
+                    },
+                    body: JSON.stringify({
+                        model: 'openrouter/auto',
+                        temperature: 0.4,
+                        messages: [{ role: 'user', content: prompt }]
+                    })
+                });
 
-                        <div class="grid grid-cols-2 gap-4 mt-6">
-                            <div class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition">
-                                <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">ခန့်မှန်းချက်</span>
-                                <span class="text-lg font-bold text-white tracking-tight">${data?.prediction ?? '—'}</span>
-                            </div>
-                            <div class="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-white/10 transition">
-                                <span class="block text-xs uppercase tracking-wider text-gray-500 mb-1">အရေးကြီး Level</span>
-                                <div class="flex justify-between text-sm">
-                                    <span class="text-green-400 font-medium">S: ${data?.support ?? '—'}</span>
-                                    <span class="text-red-400 font-medium">R: ${data?.resistance ?? '—'}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-6 bg-white/5 p-5 rounded-2xl border border-white/5 hover:border-white/10 transition">
-                            <div class="text-sm font-bold tracking-tight text-white mb-3 font-[Padauk]">ကိုပိုင် အကြံပြုချက်</div>
-                            <ul class="space-y-2 text-sm text-gray-300 font-[Padauk]">
-                                ${buildAdvice(data)}
-                            </ul>
-                        </div>
-                    `;
+                if (!r.ok) {
+                    const errText = await r.text();
+                    throw new Error(`OpenRouter error: ${r.status} ${errText.slice(0, 140)}`);
                 }
+
+                const out = await r.json();
+                const content = out?.choices?.[0]?.message?.content ?? '';
+                const parsed = parseJSONSafe(content);
+                if (!parsed) throw new Error('AI output JSON parse failed');
+
+                injectNews(parsed.news);
+                renderAIPanel({ ...parsed, timestamp: Date.now() });
+                if (els.updateStatus) els.updateStatus.textContent = `ပြီးပါပြီ — ${new Date().toLocaleTimeString()} မှာ update လုပ်ပြီး။`;
             } catch (e) {
-                console.log('AI analysis not ready yet');
+                console.error(e);
+                if (els.updateStatus) els.updateStatus.textContent = `Update မအောင်မြင်ပါ: ${e.message}`;
+            } finally {
+                if (els.updateBtn) { els.updateBtn.disabled = false; els.updateBtn.textContent = '🧠 သတင်း Update တင်မယ်'; }
             }
         }
 
-        loadAIAnalysis();
-        setInterval(loadAIAnalysis, 30000);
+        async function loadInitialFallback() {
+            try {
+                const url = `data/ai_analysis.json?t=${Date.now()}`;
+                const res = await fetch(url, { cache: 'no-store' });
+                if (!res.ok) return;
+                const data = await res.json();
+                injectNews(data?.news);
+                renderAIPanel(data);
+            } catch {}
+        }
+
+        const savedKey = localStorage.getItem('openrouter_api_key') || '';
+        if (els.openrouterKey) els.openrouterKey.value = savedKey;
+        if (els.updateBtn) els.updateBtn.addEventListener('click', updateWithOpenRouter);
+
+        // Manual mode: no auto AI refresh.
+        loadInitialFallback();
     </script>
 </body>
 </html>
