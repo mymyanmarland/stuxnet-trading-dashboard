@@ -141,33 +141,39 @@
                 </div>
             </div>
 
-            <!-- Gold Card -->
+            <!-- Gold Card (TradingView live) -->
             <div class="glass-card p-6 apple-glow cursor-default relative overflow-hidden group">
                 <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent pointer-events-none"></div>
-                <div class="flex justify-between items-start z-10 relative">
+                <div class="flex justify-between items-start z-10 relative mb-3">
                     <div>
                         <p class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Gold (XAU)</p>
-                        <h3 class="text-3xl font-medium tracking-tight text-yellow-100 transition-all duration-300" id="price-gold">$5,081.60</h3>
+                        <h3 class="text-xs tracking-wide text-yellow-200/80" id="price-gold">TradingView Live</h3>
                     </div>
-                    <span class="text-[10px] font-mono text-yellow-500/80 border border-yellow-500/20 px-2 py-0.5 rounded-full">OZ</span>
+                    <span class="text-[10px] font-mono text-yellow-500/80 border border-yellow-500/20 px-2 py-0.5 rounded-full">TVC:GOLD</span>
                 </div>
-                <div class="mt-4 text-[10px] text-gray-500 flex items-center gap-1">
-                    Global Spot Market
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                    { "symbol": "TVC:GOLD", "width": "100%", "colorTheme": "dark", "isTransparent": true, "locale": "en" }
+                    </script>
                 </div>
             </div>
 
-            <!-- Oil Card -->
+            <!-- Oil Card (TradingView live) -->
             <div class="glass-card p-6 apple-glow cursor-default relative overflow-hidden group">
                  <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent pointer-events-none"></div>
-                <div class="flex justify-between items-start z-10 relative">
+                <div class="flex justify-between items-start z-10 relative mb-3">
                     <div>
                         <p class="text-[11px] uppercase tracking-wider text-gray-400 font-semibold mb-1">Crude Oil</p>
-                        <h3 class="text-3xl font-medium tracking-tight text-red-100 transition-all duration-300" id="price-oil">$78.45</h3>
+                        <h3 class="text-xs tracking-wide text-red-200/80" id="price-oil">TradingView Live</h3>
                     </div>
-                     <span class="text-[10px] font-mono text-red-500/80 border border-red-500/20 px-2 py-0.5 rounded-full">WTI</span>
+                     <span class="text-[10px] font-mono text-red-500/80 border border-red-500/20 px-2 py-0.5 rounded-full">TVC:UKOIL</span>
                 </div>
-                 <div class="mt-4 text-[10px] text-gray-500 flex items-center gap-1">
-                    Energy Futures
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                    { "symbol": "TVC:UKOIL", "width": "100%", "colorTheme": "dark", "isTransparent": true, "locale": "en" }
+                    </script>
                 </div>
             </div>
         </div>
@@ -370,7 +376,7 @@
             if (!els.marquee) return;
             const btcPart = (typeof btc === 'number') ? `BTC: ${fmtUSD(btc, 0)}` : 'BTC: N/A';
             const ethPart = (typeof eth === 'number') ? `ETH: ${fmtUSD(eth, 0)}` : 'ETH: N/A';
-            els.marquee.textContent = `${btcPart} • ${ethPart} • GOLD: ${els.gold?.innerText ?? '$5,081'} • OIL: ${els.oil?.innerText ?? '$78.20'} • ${note ?? 'Updated'}: ${nowStr}`;
+            els.marquee.textContent = `${btcPart} • ${ethPart} • GOLD: TVC:GOLD (live) • OIL: TVC:UKOIL (live) • ${note ?? 'Updated'}: ${nowStr}`;
         }
 
         function startBinanceWS() {
@@ -544,69 +550,7 @@
             if (Date.now() - wsLastTs > 5000) loadPricesREST(true);
         }, 2000);
 
-        // === Gold (live) + Oil (demo) ===
-        let lastGold = 5081.60;
-        let lastOil = 78.45;
-
-        function flashCommodity(el, now, prev, resetClass) {
-            if (!el || !Number.isFinite(now)) return;
-            el.className = (now > prev)
-                ? 'text-3xl font-medium tracking-tight text-green-400 transition-all duration-300'
-                : now < prev
-                    ? 'text-3xl font-medium tracking-tight text-red-400 transition-all duration-300'
-                    : resetClass;
-            if (now !== prev) {
-                setTimeout(() => el.className = resetClass, 700);
-            }
-            el.innerText = `$${now.toFixed(2)}`;
-        }
-
-        async function fetchGoldLive() {
-            try {
-                const res = await fetch('https://api.gold-api.com/price/XAU', { cache: 'no-store' });
-                if (!res.ok) throw new Error(`gold api ${res.status}`);
-                const data = await res.json();
-                const goldNow = Number(data?.price);
-                if (Number.isFinite(goldNow)) {
-                    flashCommodity(
-                        els.gold,
-                        goldNow,
-                        Number.isFinite(lastGold) ? lastGold : goldNow,
-                        'text-3xl font-medium tracking-tight text-yellow-100 transition-all duration-500'
-                    );
-                    lastGold = goldNow;
-                    return;
-                }
-                throw new Error('invalid gold value');
-            } catch (e) {
-                // soft fallback so UI never looks frozen
-                const fallback = Number((lastGold + (Math.random() - 0.5) * 0.9).toFixed(2));
-                flashCommodity(
-                    els.gold,
-                    fallback,
-                    Number.isFinite(lastGold) ? lastGold : fallback,
-                    'text-3xl font-medium tracking-tight text-yellow-100 transition-all duration-500'
-                );
-                lastGold = fallback;
-            }
-        }
-
-        function updateOilDemo() {
-            const oilNow = Number((78.45 + (Math.random() - 0.5) * 0.3).toFixed(2));
-            flashCommodity(
-                els.oil,
-                oilNow,
-                Number.isFinite(lastOil) ? lastOil : oilNow,
-                'text-3xl font-medium tracking-tight text-red-100 transition-all duration-500'
-            );
-            lastOil = oilNow;
-        }
-
-        fetchGoldLive();
-        updateOilDemo();
-        setInterval(fetchGoldLive, 15000);
-        setInterval(updateOilDemo, 3000);
-
+        // === Gold/Oil now use TradingView widgets (same pattern as crypto-live-tracker) ===
         // === Yangon Weather ===
         async function fetchWeather() {
             try {
