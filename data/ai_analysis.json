@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-14T20:09:00+06:30",
+  "timestamp": "2026-02-14T20:41:32+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် လက်ရှိ $69,460 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +3.26% ပြန်တက်လာပါတယ်။ စျေးနှုန်းအကွာအဝေးက $67,143 မှ $70,434 အတွင်းလှုပ်ရှားထားပြီး inflation ပျော့သွားတဲ့မက်ခရိုသတင်းကြောင့် ရေတိုဝယ်လိုအား ပြန်တက်လာသော်လည်း market fear က အမြင့်ပိုင်းမှာတင်ရှိနေဆဲပါ။",
-  "prediction": "ရေတိုအမြင်မှာ rebound ဆန်ဆန် bullish bias ရှိပေမယ့် volatility မြင့်နေပြီး $70,434 အထက်မဖောက်နိုင်သေးရင် sideway pullback ပြန်ဖြစ်နိုင်ပါတယ်။",
-  "support": 67143,
-  "resistance": 70434,
+  "summary": "BTC သည် လက်ရှိ $69,423 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +3.19% ပြောင်းလဲထားပါတယ်။ နေ့တွင်း range က $66,867 မှ $70,560 အတွင်းဖြစ်ပြီး macro inflation ပျော့လာမှုနဲ့ ETF headline တွေကြောင့် ဝယ်လိုအားဘက်က ပြန်ကောင်းလာပါတယ်။ ဒါပေမယ့် short-term volatility မြင့်နေသေးလို့ breakout confirmation မရမချင်း risk management ကို ဦးစားပေးသင့်ပါတယ်။",
+  "prediction": "ရေတိုခန့်မှန်းချက်အနေနဲ့ အတက်ဘက် bias ဆက်ရှိနေပြီး $70,560 အထက်ကိုအတည်ပြုဖောက်နိုင်ရင် bullish continuation ဖြစ်နိုင်ပါတယ်။ ဖောက်မတက်နိုင်ဘူးဆိုရင် $66,867 ဝန်းကျင်သို့ pullback/sideways ပြန်လာနိုင်ပါတယ်။",
+  "support": 66867,
+  "resistance": 70560,
   "news": [
     {
       "tag": "CoinDesk",
       "time": "2026-02-14 06:34 PM MMT",
-      "text": "US inflation ဖိအားပျော့လာပြီးနောက် BTC က $70,000 နီးပါးကို ပြန်တက်လာကာ မကြာသေးမီ liquidations ပြီးနောက် sentiment ပြန်တည်ငြိမ်လာတဲ့ လက္ခဏာတွေ့ရပါတယ်။"
+      "text": "Inflation အေးလာတဲ့ macro သတင်းအပြီး BTC က $70K နီးပါးပြန်တက်လာပြီး ရေတို risk-on mood ပြန်ဝင်လာတာကို ပြသနေပါတယ်။"
     },
     {
       "tag": "Cointelegraph",
       "time": "2026-02-14 02:17 PM MMT",
-      "text": "Trump Media/Truth Social က Bitcoin၊ Ether နဲ့ Cronos ဆိုင်ရာ crypto ETF အသစ်နှစ်ခုတင်သွင်းလိုက်တာကြောင့် regulation-driven institutional interest ပိုတက်လာမလားဆိုတာ စျေးကွက်က စောင့်ကြည့်နေပါတယ်။"
+      "text": "Truth Social ဘက်က Bitcoin/Ether/Cronos ETF ဖိုင်တင်မှုက regulation-driven institutional demand ပိုမိုတက်လာမလားဆိုတာ စျေးကွက်က အာရုံစိုက်နေပါတယ်။"
     },
     {
       "tag": "Decrypt",
-      "time": "2026-02-13 08:04 PM MMT",
-      "text": "US spot Bitcoin ETF တွေက တစ်ရက်အတွင်း ထုတ်ယူငွေ $410M လောက်တွေ့ရှိခဲ့ပြီး institutional flow ဘက်ကတော့ ရေတိုထိန်းထားတဲ့သဘောနဲ့ စျေးကွက်ကို ဖိအားပေးနေဆဲဖြစ်ပါတယ်။"
+      "time": "2026-02-14 01:30 AM MMT",
+      "text": "BTC $69K ဝန်းကျင်ပြန်တက်လာသော်လည်း chart setup တွေမှာ bearish signal မပျောက်သေးလို့ pullback risk ကို သတိထားဖို့ ခေါ်ဆိုထားပါတယ်။"
     }
   ]
 }
