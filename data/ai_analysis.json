@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-14T20:41:32+06:30",
+  "timestamp": "2026-02-14T21:09:00+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် လက်ရှိ $69,423 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +3.19% ပြောင်းလဲထားပါတယ်။ နေ့တွင်း range က $66,867 မှ $70,560 အတွင်းဖြစ်ပြီး macro inflation ပျော့လာမှုနဲ့ ETF headline တွေကြောင့် ဝယ်လိုအားဘက်က ပြန်ကောင်းလာပါတယ်။ ဒါပေမယ့် short-term volatility မြင့်နေသေးလို့ breakout confirmation မရမချင်း risk management ကို ဦးစားပေးသင့်ပါတယ်။",
-  "prediction": "ရေတိုခန့်မှန်းချက်အနေနဲ့ အတက်ဘက် bias ဆက်ရှိနေပြီး $70,560 အထက်ကိုအတည်ပြုဖောက်နိုင်ရင် bullish continuation ဖြစ်နိုင်ပါတယ်။ ဖောက်မတက်နိုင်ဘူးဆိုရင် $66,867 ဝန်းကျင်သို့ pullback/sideways ပြန်လာနိုင်ပါတယ်။",
-  "support": 66867,
+  "summary": "BTC သည် လက်ရှိ $69,583 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +3.18% တက်လာထားပါတယ်။ ဈေးနှုန်းက $70,434 အထိတက်ပြီးနောက် $68,730-$70,560 အတွင်း ပြန်လည်ညှိနှိုင်းနေသော်လည်း short-term moving average များအရ အတက်ဘက် momentum မပျက်သေးပါ။ Macro sentiment က risk-on ဘက်သို့ ပြန်လှည့်လာပေမယ့် resistance အနီး volatility မြင့်နေသေးလို့ breakout confirmation ကို စောင့်ကြည့်ရပါမယ်။",
+  "prediction": "ရေတို trend သည် အတက်ဘက်အားသာနေဆဲဖြစ်ပြီး $70,560 အပေါ်ကို အတည်ပြုဖောက်ထွက်နိုင်ပါက နောက်ထပ်အတက်လှိုင်း ဆက်ဖြစ်နိုင်ပါတယ်။ မဖောက်နိုင်ဘဲ volume လျော့လာပါက $68,730 support သို့ ပြန်စမ်းသပ်သော sideways/pullback ဖြစ်နိုင်ခြေ မြင့်ပါတယ်။",
+  "support": 68730,
   "resistance": 70560,
   "news": [
     {
       "tag": "CoinDesk",
       "time": "2026-02-14 06:34 PM MMT",
-      "text": "Inflation အေးလာတဲ့ macro သတင်းအပြီး BTC က $70K နီးပါးပြန်တက်လာပြီး ရေတို risk-on mood ပြန်ဝင်လာတာကို ပြသနေပါတယ်။"
+      "text": "US inflation ပျော့လာသည့် သတင်းနောက်ပိုင်း Bitcoin သည် $70K နီးပါး ပြန်တက်လာခဲ့ပြီး market risk appetite ပြန်ကောင်းလာကြောင်း ပြထားပါတယ်။"
     },
     {
       "tag": "Cointelegraph",
-      "time": "2026-02-14 02:17 PM MMT",
-      "text": "Truth Social ဘက်က Bitcoin/Ether/Cronos ETF ဖိုင်တင်မှုက regulation-driven institutional demand ပိုမိုတက်လာမလားဆိုတာ စျေးကွက်က အာရုံစိုက်နေပါတယ်။"
+      "time": "2026-02-14 07:27 PM MMT",
+      "text": "Figure Technology တွင် data breach ဖြစ်ပွားခဲ့ပြီး customer ကိုယ်ရေးအချက်အလက်များ ထိခိုက်နိုင်သည့် cyber risk ကို crypto/lending sector တစ်ခုလုံးက ပြန်လည်အာရုံစိုက်လာပါတယ်။"
     },
     {
       "tag": "Decrypt",
-      "time": "2026-02-14 01:30 AM MMT",
-      "text": "BTC $69K ဝန်းကျင်ပြန်တက်လာသော်လည်း chart setup တွေမှာ bearish signal မပျောက်သေးလို့ pullback risk ကို သတိထားဖို့ ခေါ်ဆိုထားပါတယ်။"
+      "time": "2026-02-14 03:52 AM MMT",
+      "text": "Trump Media ဘက်မှ Truth Social branding ဖြင့် Bitcoin, Ethereum, Cronos ETF များတင်သွင်းရန် ဖိုင်တင်ထားပြီး institutional flow အပေါ် မျှော်လင့်ချက်အသစ်များ တိုးလာစေခဲ့ပါတယ်။"
     }
   ]
 }
