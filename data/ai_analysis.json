@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-14T21:39:00+06:30",
+  "timestamp": "2026-02-14T22:11:38+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် လက်ရှိ $69,722 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +2.23% တက်ထားပါတယ်။ နေ့အတွင်း $68,130 မှ $70,560 ကြား လှုပ်ရှားနေသဖြင့် $70K အနီးတွင် ရောင်းအားတိုးတက်နေသော်လည်း dip-buying စိတ်ဓာတ်လည်း ဆက်ရှိနေပါတယ်။ Inflation ပျော့လာမှုနှင့် ETF ဆိုင်ရာ headline များကြောင့် စျေးကွက် mood သည် neutral-to-bullish ဘက်သို့ ပြန်လှည့်လာနေပါတယ်။",
-  "prediction": "ရေတိုတွင် BTC က $68,130 support အပေါ် တည်ငြိမ်နေသရွေ့ အတက်ဘက် bias ဆက်ရှိနိုင်ပြီး $70,560 resistance ကို ပြန်စမ်းသပ်နိုင်ပါတယ်။ $70,560 ကို volume နဲ့ အတည်ပြုဖောက်မထွက်နိုင်ပါက $68,130-$70,560 အတွင်း sideways consolidation ဖြစ်နိုင်ခြေ မြင့်ပါတယ်။",
-  "support": 68130,
+  "summary": "BTC သည် လက်ရှိ $69,804 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +1.28% ပြောင်းလဲထားပါတယ်။ နေ့အတွင်း $68,380 မှ $70,560 ကြား လှုပ်ရှားနေသဖြင့် volatility က တော်တော်မြင့်နေတုန်းပါ။ Macro နဲ့ ETF ဆိုင်ရာ headline တွေကြောင့် စျေးကွက် mood က neutral-to-bullish ဘက်ကို အနည်းငယ် လှည့်လာနေပါတယ်။",
+  "prediction": "ရေတို trend သည် အတက်ဘက် bias ရှိပြီး $68,380 support အပေါ်တည်နေသရွေ့ $70,560 resistance ကို ပြန်စမ်းသပ်နိုင်ပါတယ်။",
+  "support": 68380,
   "resistance": 70560,
   "news": [
     {
       "tag": "CoinDesk",
       "time": "2026-02-14 06:34 PM MMT",
-      "text": "US inflation ပျော့လာပြီးနောက် Bitcoin သည် $70,000 အနီး ပြန်တက်လာကာ sell-off ပြင်းခဲ့သည့် စျေးကွက်ထဲတွင် risk appetite ပြန်ရောက်လာကြောင်း ပြသခဲ့ပါတယ်။"
-    },
-    {
-      "tag": "CoinDesk",
-      "time": "2026-02-14 03:15 AM MMT",
-      "text": "Trump နှင့် ဆက်နွယ်သော Truth Social ဘက်မှ SEC သို့ crypto ETF နှစ်ခု တင်သွင်းမှုကြောင့် BTC/ETH ဆိုင်ရာ institutional product မျှော်လင့်ချက်များ တိုးလာခဲ့ပါတယ်။"
+      "text": "CoinDesk အရ “Bitcoin claws back to $70,000 on cooling inflation after $8.7 billion wipeout” ဆိုတဲ့ headline ထွက်လာပြီး BTC စျေးနှုန်းအပေါ် macro data သက်ရောက်မှုကို စျေးကွက်က အနီးကပ်စောင့်ကြည့်နေပါတယ်။"
     },
     {
       "tag": "Cointelegraph",
       "time": "2026-02-14 04:49 PM MMT",
-      "text": "ARK Invest က Coinbase ရှယ်ယာကို $15M ကျော် ပြန်ဝယ်ယူလာသဖြင့် crypto-linked equities ဘက် sentiment ပြန်တက်လာနိုင်ကြောင်း စျေးကွက်က သဘောထားယူနေပါတယ်။"
+      "text": "Cointelegraph သတင်း “ARK turns bullish on Coinbase again with $15M purchase after selling spree” အရ crypto-related equities ဘက် sentiment ပြန်တက်လာနိုင်မယ့် လက္ခဏာတွေကို မြင်ရပါတယ်။"
+    },
+    {
+      "tag": "Decrypt",
+      "time": "2026-02-14 03:52 AM MMT",
+      "text": "Decrypt မှ “Trump Media Files to Launch Truth Social-Branded Bitcoin, Ethereum, Cronos ETFs” သတင်းကြောင့် ETF narrative နဲ့ institution interest ဆိုင်ရာ မျှော်လင့်ချက်တွေ ထပ်တိုးလာနိုင်ပါတယ်။"
     }
   ]
 }
