@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-14T22:41:49+06:30",
+  "timestamp": "2026-02-14T23:11:16+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် လက်ရှိ $69,663 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +0.97% ပြောင်းလဲထားပါတယ်။ နေ့အတွင်း $68,701 မှ $70,434 ကြား လှုပ်ရှားထားတာကြောင့် volatility များနေပြီး $70,000 အနီး sentiment က neutral-to-bullish ဘက်သို့ ရွေ့နေပါတယ်။",
-  "prediction": "ရေတို trend သည် အတက်ဘက် bias ရှိပြီး $68,704 support အထက်တည်နေသရွေ့ $70,628 resistance ကို ပြန်စမ်းသပ်နိုင်ချေရှိပါတယ်။",
-  "support": 68704,
-  "resistance": 70628,
+  "summary": "BTC သည် လက်ရှိ $69,511 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +0.27% (တက်) ပြောင်းလဲထားပါတယ်။ နေ့အတွင်း $68,636 မှ $70,560 ကြား လှုပ်ရှားနေသဖြင့် volatility ဆက်လက်မြင့်မားနေပါတယ်။",
+  "prediction": "ရေတို trend သည် အနည်းငယ် အကျဘက်ဖိအားရှိနေပြီး $68,636 support ကို မကျိုးသရွေ့ rebound ဖြစ်နိုင်ပါတယ်။ $70,560 အထက်ကို ပြန်တက်မှ bullish momentum ပိုမိုခိုင်မာမယ်။",
+  "support": 68636,
+  "resistance": 70560,
   "news": [
     {
       "tag": "CoinDesk",
-      "time": "2026-02-14 06:34 PM MMT",
-      "text": "CoinDesk မှ \"Bitcoin claws back to $70,000 on cooling inflation after $8.7 billion wipeout\" headline ကို ထုတ်ပြန်ထားပြီး crypto စျေးကွက် sentiment နှင့် BTC လှုပ်ရှားမှုအပေါ် တိုက်ရိုက် သက်ရောက်နိုင်တဲ့ သတင်းဖြစ်ပါတယ်။"
-    },
-    {
-      "tag": "Cointelegraph",
-      "time": "2026-02-14 04:49 PM MMT",
-      "text": "Cointelegraph မှ \"ARK turns bullish on Coinbase again with $15M purchase after selling spree\" headline ကို ထုတ်ပြန်ထားပြီး crypto စျေးကွက် sentiment နှင့် BTC လှုပ်ရှားမှုအပေါ် တိုက်ရိုက် သက်ရောက်နိုင်တဲ့ သတင်းဖြစ်ပါတယ်။"
+      "time": "2026-02-14 06:36 PM MMT",
+      "text": "CoinDesk မှ \"BTC price news: bitcoin claws back to $70,000 after $8.7 billion wipeout\" ဆိုသော headline ကို ဖော်ပြထားပြီး BTC စျေးကွက် sentiment အပေါ် သက်ရောက်နိုင်ပါသည်။"
     },
     {
       "tag": "Decrypt",
-      "time": "2026-02-14 02:59 AM MMT",
-      "text": "Decrypt မှ \"Clarity Act Passage Would 'Comfort' Markets Amid Bitcoin Volatility: Treasury Secretary Bessent\" headline ကို ထုတ်ပြန်ထားပြီး crypto စျေးကွက် sentiment နှင့် BTC လှုပ်ရှားမှုအပေါ် တိုက်ရိုက် သက်ရောက်နိုင်တဲ့ သတင်းဖြစ်ပါတယ်။"
+      "time": "2026-02-14 10:41 PM MMT",
+      "text": "Decrypt မှ \"Bitcoin Is Down Bad, But Hasn't Yet Hit Its 'Ultimate Bear Market Bottom': Analysts\" ဆိုသော headline ကို ဖော်ပြထားပြီး BTC စျေးကွက် sentiment အပေါ် သက်ရောက်နိုင်ပါသည်။"
+    },
+    {
+      "tag": "The Block",
+      "time": "2026-02-14 10:43 PM MMT",
+      "text": "The Block မှ \"X to launch 'Smart Cashtags' for in-timeline crypto and stock trading within 'a couple weeks'\" ဆိုသော headline ကို ဖော်ပြထားပြီး BTC စျေးကွက် sentiment အပေါ် သက်ရောက်နိုင်ပါသည်။"
     }
   ]
 }
