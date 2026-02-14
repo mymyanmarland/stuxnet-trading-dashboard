@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-14T16:09:00+06:30",
+  "timestamp": "2026-02-14T16:42:22+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် လက်ရှိ $69,667 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +4.25% တက်ထားပါတယ်။ 24h range က $66,790 မှ $69,813 အတွင်းဖြစ်ပြီး၊ 7 ရက်စာ +2.37% နဲ့ short-term momentum က အပေါ်ဘက်ကို သဘောတရားပေးနေပါတယ်။ ETF/Regulation ဆိုင်ရာ headline များကြောင့် sentiment အားကောင်းလာပေမယ့် resistance zone အနီးမှာ volatility မြင့်နိုင်တဲ့အတွက် volume confirmation လိုအပ်ပါတယ်။",
-  "prediction": "Trend အမြင်အရ short-term bullish ဖြစ်ပေမယ့် $69.8k-$70k resistance ကို ရှင်းရှင်းလင်းလင်း breakout မလုပ်နိုင်သေးလျှင် range-bound pullback တစ်ကြိမ် ပြန်လာနိုင်ပါတယ်။",
+  "summary": "BTC သည် လက်ရှိ $69,616 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +4.18% တက်ထားပါတယ်။ 24h range က $66,790 မှ $69,813 အတွင်းဖြစ်ပြီး 7 ရက်စာ +2.31% ကြောင့် short-term momentum က အပေါ်ဘက်ဘက်သို့ ချိန်ထားနေပါတယ်။ သို့သော် $70k အနီး resistance zone ကို volume နဲ့ အတည်ပြုမထိုးဖောက်နိုင်သေးပါက volatility မြင့်ပြီး range ပြန်ဝင်နိုင်ပါတယ်။",
+  "prediction": "Trend အမြင်အရ short-term bullish bias ရှိနေပြီး $69.8k-$70k ကို ထိုးဖောက်ပြီးတည်နိုင်လျှင် $72k ဘက် ဆက်တက်နိုင်ပါတယ်။ မအောင်မြင်လျှင် $66.8k support ကို ပြန်စမ်းသပ်နိုင်ပြီး consolidation ဖြစ်နိုင်ပါတယ်။",
   "support": 66790.0,
   "resistance": 69813.0,
   "news": [
     {
       "tag": "Cointelegraph",
       "time": "2026-02-14 02:17 PM MMT",
-      "text": "Trump Media က Bitcoin/Ether/Cronos ဆိုင်ရာ crypto ETF အသစ် ၂ ခုအတွက် SEC သို့ လျှောက်ထားကြောင်း ဖော်ပြထားပြီး၊ institutional demand expectation ကို တိုးစေနိုင်တဲ့ signal အဖြစ် စျေးကွက်က စောင့်ကြည့်နေပါတယ်။"
+      "text": "Trump Media က Bitcoin, Ether, Cronos တို့နှင့် ချိတ်ဆက်ထားသော crypto ETF အသစ် ၂ ခုကို SEC သို့ တင်ပြလိုက်ကြောင်း သတင်းထွက်လာပြီး institutional demand မျှော်လင့်ချက်ကို ပြန်လည်တက်စေပါတယ်။"
     },
     {
       "tag": "CoinDesk",
       "time": "2026-02-14 01:55 AM MMT",
-      "text": "Stablecoin ဥပဒေမူကြမ်းအတွက် crypto industry ဘက်က Wall Street အဖွဲ့များကို တန်ပြန်မူဝါဒ အဆိုပြုလာကြောင်း သတင်းထွက်လာပြီး၊ regulation landscape ပြောင်းလဲနိုင်မှုအပေါ် ရင်းနှီးမြှုပ်နှံသူတွေ အာရုံစိုက်နေကြပါတယ်။"
+      "text": "Stablecoin ဥပဒေမူကြမ်းအတွက် crypto industry ဘက်က Wall Street အဖွဲ့များကို တန်ပြန်မူဝါဒ အကြံပြုချက်များတင်ပြလာပြီး US regulation လမ်းကြောင်းအပေါ် စျေးကွက်အာရုံစိုက်မှု မြင့်တက်နေပါတယ်။"
     },
     {
-      "tag": "The Block",
-      "time": "2026-02-14 03:28 AM MMT",
-      "text": "CryptoQuant က Bitcoin အတွက် အနိမ့်ဆုံး bear-market floor ကို $55,000 ဝန်းကျင်ဟု သတ်မှတ်ပြောကြားလာပြီး၊ correction ဖြစ်သော်လည်း long-term downside limited ဖြစ်နိုင်ကြောင်း narrative တက်လာပါတယ်။"
+      "tag": "Decrypt",
+      "time": "2026-02-14 01:30 AM MMT",
+      "text": "Bitcoin က $69K အထက်သို့ ပြန်လည်တက်လာသော်လည်း daily chart momentum သည် အားနည်းနေဆဲဖြစ်ကြောင်း analysis ထွက်လာပြီး short-term rally အပေါ် သတိထားလိုကြောင်း ပြသနေပါတယ်။"
     }
   ]
 }
