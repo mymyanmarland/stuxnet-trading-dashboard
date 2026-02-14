@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-14T02:12:14+06:30",
+  "timestamp": "2026-02-14T15:45:25+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် လက်ရှိ $69,004 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +4.80% ပြောင်းလဲထားပါတယ်။ 24h range က $65,349 မှ $69,277 အတွင်းဖြစ်ပြီး short-term rebound မြင်ရသော်လည်း 7 ရက်အခြေအနေ (-2.50%) က အပြည့်အဝ မတည်ငြိမ်သေးပါ။",
-  "prediction": "တိုတောင်းကာလတွင် အတက်ဘက် momentum ရှိနေသော်လည်း resistance အနီးတွင် အရောင်းဖိအား ပြန်တက်နိုင်ပြီး sideway-to-bullish လမ်းကြောင်းကို စောင့်ကြည့်သင့်ပါတယ်။",
-  "support": 65349.0,
-  "resistance": 69277.0,
+  "summary": "BTC သည် လက်ရှိ $69,689 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +4.46% ပြောင်းလဲထားပါတယ်။ 24h range က $66,625 မှ $69,813 အတွင်းဖြစ်ပြီး volatility ဆက်လက်မြင့်နေပါတယ်။ 7 ရက်အခြေအနေမှာ +2.40% ဖြစ်နေသဖြင့် short-term momentum ကို confirm လုပ်ဖို့ volume နှင့် breakout level ကို ထပ်မံစောင့်ကြည့်ရန်လိုပါတယ်။",
+  "prediction": "အချိန်တိုအတွက် bullish bias ရှိနေပြီး resistance အပေါ် daily close တင်နိုင်ပါက အတက်လမ်းကြောင်း ဆက်နိုင်ပါတယ်။",
+  "support": 66625.0,
+  "resistance": 69813.0,
   "news": [
     {
       "tag": "CoinDesk",
-      "time": "2026-02-14 01:55 AM MMT",
-      "text": "CoinDesk အရ stablecoin ဥပဒေမူကြမ်းအတွက် crypto ကဏ္ဍက Wall Street ဘဏ်များ၏ အဆိုပြုချက်ကို တန်ပြန် မူဝါဒချက်များ တင်ပြလာပါတယ်။"
+      "time": "2026-02-14 03:15 AM MMT",
+      "text": "CoinDesk အရ Trump-linked Truth Social seeks SEC approval for two crypto ETFs ဆိုတဲ့ headline ထွက်ရှိလာပြီး crypto စျေးကွက် sentiment အပေါ် သက်ရောက်မှုရှိနိုင်တဲ့ သတင်းတစ်ခုအဖြစ် စောင့်ကြည့်ရပါတယ်။"
     },
     {
       "tag": "Cointelegraph",
-      "time": "2026-02-14 01:51 AM MMT",
-      "text": "Cointelegraph အရ Bitcoin bulls များက $69K ပြန်လည်ကျော်လွန်စေပြီး retail trader များ၏ short position များအပေါ် ဖိအားတိုးလာပါတယ်။"
+      "time": "2026-02-14 02:17 PM MMT",
+      "text": "Cointelegraph အရ Trump Media files for two new crypto ETFs tied to Bitcoin, Ether, Cronos ဆိုတဲ့ headline ထွက်ရှိလာပြီး crypto စျေးကွက် sentiment အပေါ် သက်ရောက်မှုရှိနိုင်တဲ့ သတင်းတစ်ခုအဖြစ် စောင့်ကြည့်ရပါတယ်။"
     },
     {
       "tag": "Decrypt",
-      "time": "2026-02-14 01:30 AM MMT",
-      "text": "Decrypt analysis အရ Bitcoin က $69K ဝန်းကျင်ထိ ပြန်တက်လာပေမယ့် technical chart signal အချို့မှာ bearish သဘောတရား မပြတ်သေးကြောင်း ဖော်ပြထားပါတယ်။"
+      "time": "2026-02-14 06:34 AM MMT",
+      "text": "Decrypt အရ Publicly Traded Blockchain Lender Figure Confirms Customer Data Breach ဆိုတဲ့ headline ထွက်ရှိလာပြီး crypto စျေးကွက် sentiment အပေါ် သက်ရောက်မှုရှိနိုင်တဲ့ သတင်းတစ်ခုအဖြစ် စောင့်ကြည့်ရပါတယ်။"
     }
   ]
 }
