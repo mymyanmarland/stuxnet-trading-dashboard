@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-14T18:41+06:30",
+  "timestamp": "2026-02-14T19:11+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် လက်ရှိ $70,399.38 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +5.05% တက်လာပါတယ်။ စျေးနှုန်းက intraday resistance နား ($70,560.01) ကို ပြန်စမ်းသပ်နေသလို short-term buying momentum က အားကောင်းနေပါတယ်။ တပြိုင်နက်တည်း volatility မြင့်နေသေးလို့ $66,867.47 support ကို မချိုးမိခြင်းက trend ဆက်မဆက် အတွက် အရေးကြီးပါတယ်။",
-  "prediction": "Trend အမြင်အရ short-term bullish bias ရှိပြီး $70,560.01 ကို volume နဲ့ ဖောက်ထွက်နိုင်လျှင် upside continuation ဖြစ်နိုင်ပါတယ်။ မဖောက်ထွက်နိုင်သေးပါက $66,867.47 - $70,560.01 range အတွင်း consolidation ဖြစ်နိုင်ပါတယ်။",
+  "summary": "BTC သည် လက်ရှိ $70,111.00 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း +4.50% ပြောင်းလဲထားပါတယ်။ Intraday အတွင်း $66,867.47 မှ $70,560.01 အထိ လှုပ်ရှားထားသဖြင့် volatility မြင့်နေတုန်းဖြစ်ပါတယ်။ $70k အပေါ်မှာ တည်ငြိမ်နိုင်ရင် bullish momentum ဆက်နိုင်ပေမယ့် volume လျော့သွားပါက range ပြန်ဝင်နိုင်ပါတယ်။",
+  "prediction": "Short-term trend က အနည်းငယ်တက်လမ်း (bullish bias) ဖြစ်နေပါတယ်။ Resistance ကို ဖောက်ပြီး တည်ငြိမ်ပိတ်နိုင်ရင် အပေါ်ဘက် extension ဆက်ဖွင့်နိုင်ပြီး မဖောက်နိုင်ပါက support ဘက် retrace ဖြစ်နိုင်ပါတယ်။",
   "support": 66867.47,
   "resistance": 70560.01,
   "news": [
     {
       "tag": "CoinDesk",
       "time": "2026-02-14 06:34 PM MMT",
-      "text": "Inflation ဖိအားလျော့လာမှုနောက် BTC သည် $70,000 အပေါ် ပြန်တက်လာပြီး မကြာသေးမီ sell-off အပြီး sentiment ပြန်လည်တည်ငြိမ်လာနေပါတယ်။"
+      "text": "U.S. inflation ဖိအား လျော့လာမှုနဲ့အတူ BTC က $70,000 အထက် ပြန်တက်လာပြီး short-term risk appetite ပြန်တိုးလာနေပါတယ်။"
     },
     {
       "tag": "Cointelegraph",
       "time": "2026-02-14 04:49 PM MMT",
-      "text": "ARK Invest က Coinbase ကို ခန့်မှန်း $15M ဝန်းကျင် ပြန်ဝယ်လာတာကြောင့် crypto-related equities နှင့် broader market confidence ကို အားပေးထားပါတယ်။"
+      "text": "ARK က Coinbase ကို ဒေါ်လာ ၁၅ သန်းခန့် ပြန်ဝယ်ယူလာတာကြောင့် crypto စတော့ဘက် sentiment ကို ပြန်လည်အကောင်းမြင်သွားစေပါတယ်။"
     },
     {
       "tag": "Decrypt",
-      "time": "2026-02-14 03:52 AM MMT",
-      "text": "Trump Media မှ Bitcoin/Ethereum/Cronos အခြေပြု ETF အသစ်များ တင်သွင်းလာခြင်းက U.S. မှာ institutional crypto exposure ပိုမိုတိုးချဲ့နိုင်မယ့် မျှော်လင့်ချက်ကို မြှင့်တင်ပါတယ်။"
+      "time": "2026-02-14 06:34 AM MMT",
+      "text": "Public blockchain lender တစ်ခုမှာ customer data ပေါက်ကြားမှု အတည်ပြုသတင်းကြောင့် sector တစ်လျှောက် security risk စိုးရိမ်ချက် ပြန်မြင့်တက်လာပါတယ်။"
     }
   ]
 }
