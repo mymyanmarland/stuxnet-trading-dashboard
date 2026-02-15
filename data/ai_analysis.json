@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-16T03:11:09+06:30",
+  "timestamp": "2026-02-16T03:39:00+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် $68.5K ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း 2.01% ခန့် ကျဆင်းထားသည်။ 4H အခြေခံမှာ စျေးနှုန်းက SMA20/SMA50 အောက်တွင်ရှိနေသောကြောင့် short-term momentum သည် အားနည်းဘက်ကို ဦးတည်နေသည်။ သို့သော် $68K support မကျိုးသရွေ့ rebound ဖြစ်ပြီး အပေါ်ဘက် resistance ကို ပြန်စမ်းနိုင်သေးသည်။",
-  "prediction": "လတ်တလော trend သည် bearish bias ပါတဲ့ sideways လှုပ်ရှားမှုဖြစ်နိုင်သည်။ $68K အောက်သို့ ပိတ်ကျသွားပါက $66K ဘက်သို့ ဆုတ်ခွာနိုင်ပြီး၊ $70.9K ကျော်တင်နိုင်ပါက bullish continuation ပြန်လည်ဖွင့်နိုင်သည်။",
+  "summary": "BTC သည် $68.7K ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း 2% ခန့် ကျဆင်းထားသည်။ စျေးနှုန်းအကွာအဝေးသည် $68,000 မှ $70,983 အတွင်း ဖြစ်နေပြီး volatility မြင့်နေသော်လည်း $68K support ကို ထိန်းထားနိုင်ဆဲဖြစ်သည်။ Derivatives leverage ဖိအားကြောင့် short-term movement သည် အလွန်တုန်ခါနေသော်လည်း downside break မဖြစ်သရွေ့ sideways rebound အခွင့်အလမ်းရှိနေသည်။",
+  "prediction": "လတ်တလော trend သည် bearish bias ပါတဲ့ sideways ဖြစ်နိုင်သည်။ $68,000 အောက် ပိတ်ကျပါက ဆက်လက်ကျဆင်းမှု တိုးလာနိုင်ပြီး၊ $70,983 အထက်ကို ပြန်တက်နိုင်ပါက bullish recovery ဖွင့်နိုင်သည်။",
   "support": 68000,
   "resistance": 70983,
   "news": [
     {
       "tag": "Policy",
       "time": "2026-02-16 01:30",
-      "text": "ဟောင်ကောင်ဘက်မှ crypto စည်းမျဉ်းစနစ်ကို ပိုမိုတိုးချဲ့တည်ဆောက်ရန် အစိုးရနှင့် စက်မှုခေါင်းဆောင်များက အာရုံစိုက်နေကြောင်း CoinDesk တွင် ဖော်ပြထားသည်။"
+      "text": "ဟောင်ကောင်က ဒစ်ဂျစ်တယ်ပိုင်ဆိုင်မှု စည်းမျဉ်းဘောင်ကို တိုးချဲ့နေပြီး perpetual contracts framework နဲ့ stablecoin license ကြေညာမှုကို မကြာမီ ထုတ်ပြန်မည်ဟု CoinDesk တွင် ဖော်ပြထားသည်။"
     },
     {
       "tag": "Institutional",
-      "time": "2026-02-16 00:30",
-      "text": "Prediction market လုပ်ငန်းခေါင်းဆောင်များက insider trading စိုးရိမ်ချက်ကို လျှော့ချရန် blockchain transparency သည် အဓိကကာကွယ်ချက်ဖြစ်ကြောင်း ပြောကြားခဲ့သည်။"
+      "time": "2026-02-16 01:25",
+      "text": "MicroStrategy (Strategy) မှ Michael Saylor သည် စျေးကွက်ကျဆင်းချိန်တွင်ပါ Bitcoin ကို ထပ်မံစုဆောင်းမည့် signal ပေးထားပြီး institution demand အပြင် support sentiment ကို ခိုင်မာစေခဲ့သည်။"
     },
     {
       "tag": "Market",
       "time": "2026-02-15 20:30",
-      "text": "BlackRock ၏ digital assets ခေါင်းဆောင်က leverage-driven volatility မြင့်တက်နေခြင်းသည် Bitcoin ၏ institutional narrative ကို ဖိအားပေးနိုင်ကြောင်း သတိပေးခဲ့သည်။"
+      "text": "BlackRock ၏ digital assets ခေါင်းဆောင်က leverage-driven volatility မြင့်မားမှုသည် Bitcoin ၏ long-term institutional narrative ကို ထိခိုက်နိုင်ကြောင်း သတိပေးခဲ့သည်။"
     }
   ]
 }
