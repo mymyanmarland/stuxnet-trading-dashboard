@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-15T00:39:00+06:30",
+  "timestamp": "2026-02-16T02:11+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် လက်ရှိ $69,790 ဝန်းကျင်တွင် အရောင်းအဝယ်ဖြစ်နေပြီး 24 နာရီအတွင်း +1.24% တက်နေကာ $68,713 မှ $70,434 ကြား လှုပ်ရှားနေပါတယ်။ စျေးနှုန်းက နေ့တွင်းအမြင့်နားကို ဆက်လက်စမ်းသပ်နေတာကြောင့် ဝယ်လိုအားဘက်က အားသာမှုမပျက်သေးကြောင်း ပြသပါတယ်။ သို့သော် $70.4K အထက်ကို ခိုင်ခိုင်မာမာ မကျော်နိုင်ပါက short-term pullback တစ်ကြိမ် ပြန်ဖြစ်နိုင်ပါတယ်။",
-  "prediction": "ကာလတိုတွင် အတက်ဘက်ဦးစားပေး (Bullish bias) ဖြစ်ပြီး resistance ကိုကျော်ပိတ်နိုင်ရင် ဆက်တိုးနိုင်ချေရှိ။",
-  "support": 68713,
-  "resistance": 70434,
+  "summary": "BTC သည် လက်ရှိ $68,340 ဝန်းကျင်တွင် အရောင်းအဝယ်ဖြစ်နေပြီး 24 နာရီအတွင်း -2.15% ပြောင်းလဲထားကာ $68,000 မှ $70,983 ကြား လှုပ်ရှားနေပါတယ်။ 24h volume သည် 22,242 BTC ဝန်းကျင်ရှိနေပြီး resistance နား price reaction က short-term direction ကိုဆုံးဖြတ်ပေးနိုင်ပါတယ်။ ထိပ်တန်း crypto headlines တွေက sentiment ကို အမြန်ပြောင်းလဲစေနိုင်လို့ entry/exit ကို discipline နဲ့ ဆောင်ရွက်သင့်ပါတယ်။",
+  "prediction": "ကာလတိုအတွင်း အကျဘက်ဖိအားပိုများနေပြီး support အနီးကို ပြန်လည်စမ်းသပ်နိုင်ချေရှိပါတယ်။",
+  "support": 68000,
+  "resistance": 70983,
   "news": [
     {
-      "tag": "ADOPTION",
-      "time": "2026-02-15 12:03 AM",
-      "text": "Elon Musk ၏ X platform က crypto နဲ့ stock trading ကို မကြာမီပေါင်းစည်းဖွင့်မယ်ဆိုတဲ့သတင်း ထွက်လာပြီး စျေးကွက် sentiment အပေါ် အပြုသဘောသက်ရောက်နိုင်ပါတယ်။"
+      "tag": "REGULATION",
+      "time": "2026-02-16 01:30 AM",
+      "text": "COINDESK မှ “Hong Kong is trying to build up its crypto regulations: State of Crypto” သတင်းထွက်လာပြီး crypto စျေးကွက် sentiment ကို တိုက်ရိုက်သက်ရောက်နိုင်တဲ့ headline တစ်ခုဖြစ်ပါတယ်။"
+    },
+    {
+      "tag": "BTC",
+      "time": "2026-02-16 01:25 AM",
+      "text": "COINTELEGRAPH မှ “Michael Saylor signals another Bitcoin buy amid market rout” သတင်းထွက်လာပြီး crypto စျေးကွက် sentiment ကို တိုက်ရိုက်သက်ရောက်နိုင်တဲ့ headline တစ်ခုဖြစ်ပါတယ်။"
     },
     {
       "tag": "MARKET",
-      "time": "2026-02-14 06:34 PM",
-      "text": "Inflation ဖိအားလျော့လာမှုနောက်ခံနဲ့ BTC က $70,000 တန်းကို ပြန်တက်စမ်းသပ်နိုင်ခဲ့ပြီး မကြာသေးခင် liquidation ဖိအားကနေ ပြန်လည်အားကောင်းလာတဲ့ သဘောပြနေပါတယ်။"
-    },
-    {
-      "tag": "ETF",
-      "time": "2026-02-14 03:15 AM",
-      "text": "Trump-linked Truth Social ဘက်က crypto ETF ၂ ခုအတွက် SEC ကို တင်သွင်းထားတာက institutional flow မျှော်လင့်ချက်ကို ထပ်မံမြှင့်တင်နိုင်တဲ့ သတင်းဖြစ်ပါတယ်။"
+      "time": "2026-02-16 12:30 AM",
+      "text": "COINDESK မှ “Prediction markets vs. insider trading: Founders admit blockchain transparency is the only defense” သတင်းထွက်လာပြီး crypto စျေးကွက် sentiment ကို တိုက်ရိုက်သက်ရောက်နိုင်တဲ့ headline တစ်ခုဖြစ်ပါတယ်။"
     }
   ]
 }
