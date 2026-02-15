@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-16T04:39:00+06:30",
+  "timestamp": "2026-02-16T05:39:00+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် $68,903 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း 1.38% ခန့် ကျဆင်းထားသည်။ လက်ရှိ 24h range သည် $68,000 မှ $70,983 အတွင်းဖြစ်ပြီး selling pressure ရှိနေသော်လည်း $68k support အပေါ်တွင် တည်ငြိမ်ရန် ကြိုးစားနေသည်။",
-  "prediction": "လတ်တလော trend သည် bearish bias ပါတဲ့ sideways ဖြစ်နိုင်ပြီး $68,000 ကို ထိန်းထားနိုင်လျှင် $70,000-$71,000 resistance zone ကို ပြန်တက်စမ်းနိုင်သည်။ $68,000 အောက် daily close ဖြစ်သွားပါက downside continuation အနေဖြင့် $66,500 ဝန်းကျင်ထိ ဆင်းနိုင်ခြေ တိုးမည်။",
-  "support": 68000,
-  "resistance": 70983,
+  "summary": "BTC လက်ရှိဈေးနှုန်းသည် $68,356 ဝန်းကျင်တွင်ရှိပြီး 24 နာရီအတွင်း -2.24% ပြောင်းလဲထားပါတယ်။ နေ့စဉ်အတွင်း လှုပ်ရှားမှုအကွာအဝေးက $68,096 မှ $70,898 အထိဖြစ်ပြီး trading volume က $40.09B အနီးပါးရှိနေပါတယ်။ ဈေးနှုန်းက range အောက်ပိုင်းနားကို ကပ်နေသဖြင့် ကာလတိုတွင် အောက်ဘက်ဖိအား ဆက်ရှိနိုင်ပါတယ်။",
+  "prediction": "$68,096 support ကိုထိန်းနိုင်ပါက sideways ပြန်တည်ငြိမ်နိုင်ပြီး၊ မထိန်းနိုင်လျှင် short-term အကျဘက်ဆက်ဖိနိုင်သည်။ အတက်ပြန်လှည့်ရန် $70,898 အပေါ်ကို ပြန်ဖောက်တက်ဖို့ လိုပါတယ်။",
+  "support": 68096,
+  "resistance": 70898,
   "news": [
     {
       "tag": "Institutional",
-      "time": "2026-02-16 03:29",
-      "text": "Wall Street ရဲ့ asset manager Apollo က Morpho token deal နဲ့ crypto exposure ကို ထပ်မံတိုးချဲ့လိုက်တာကြောင့် institutional demand ဆက်လက်တိုးနိုင်မယ့် မျှော်လင့်ချက် မြင့်တက်လာခဲ့သည်။"
+      "time": "2026-02-16 03:29 AM",
+      "text": "အဖွဲ့အစည်းကြီးတွေ ပါဝင်မှုတိုးလာတယ်ဆိုတဲ့ 'Wall Street giant Apollo deepens crypto push with Morpho token deal' သတင်းက ရင်းနှီးမြှုပ်နှံသူယုံကြည်မှုကို အားပေးနိုင်ပါတယ်။"
     },
     {
       "tag": "Regulation",
-      "time": "2026-02-16 01:30",
-      "text": "ဟောင်ကောင်ဘက်က crypto regulatory framework ကို ပိုမိုခိုင်မာအောင် တိုးချဲ့ပြင်ဆင်နေပြီး Asia regional market sentiment ကို ဆက်လက်ထောက်ပံ့နိုင်မယ့် signal ပေးထားသည်။"
+      "time": "2026-02-16 01:30 AM",
+      "text": "စည်းမျဉ်းပိုင်းဆိုင်ရာအခြေအနေကို အာရုံစိုက်ထားတဲ့ 'Hong Kong is trying to build up its crypto regulations: State of Crypto' သတင်းက crypto စျေးကွက်၏ မတည်ငြိမ်မှုကို သက်ရောက်စေနိုင်ပါတယ်။"
     },
     {
-      "tag": "Bitcoin",
-      "time": "2026-02-16 01:25",
-      "text": "Michael Saylor က စျေးကွက်ကျချိန်အတွင်း Bitcoin ထပ်ဝယ်မယ့် signal ပေးလိုက်တာကြောင့် dip-buying narrative ကို ပြန်လည်အားဖြည့်ပေးနေသည်။"
+      "tag": "Market",
+      "time": "2026-02-16 12:30 AM",
+      "text": "'Prediction markets vs. insider trading: Founders admit blockchain transparency is the only defense' သတင်းက လက်ရှိ crypto စျေးကွက် sentiment ကို ပြောင်းလဲစေနိုင်တဲ့ အရေးကြီးအချက်တစ်ခုဖြစ်ပါတယ်။"
     }
   ]
 }
