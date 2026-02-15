@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-16T02:11+06:30",
+  "timestamp": "2026-02-16T02:41:03+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် လက်ရှိ $68,340 ဝန်းကျင်တွင် အရောင်းအဝယ်ဖြစ်နေပြီး 24 နာရီအတွင်း -2.15% ပြောင်းလဲထားကာ $68,000 မှ $70,983 ကြား လှုပ်ရှားနေပါတယ်။ 24h volume သည် 22,242 BTC ဝန်းကျင်ရှိနေပြီး resistance နား price reaction က short-term direction ကိုဆုံးဖြတ်ပေးနိုင်ပါတယ်။ ထိပ်တန်း crypto headlines တွေက sentiment ကို အမြန်ပြောင်းလဲစေနိုင်လို့ entry/exit ကို discipline နဲ့ ဆောင်ရွက်သင့်ပါတယ်။",
-  "prediction": "ကာလတိုအတွင်း အကျဘက်ဖိအားပိုများနေပြီး support အနီးကို ပြန်လည်စမ်းသပ်နိုင်ချေရှိပါတယ်။",
+  "summary": "BTC စျေးနှုန်းသည် $68.3K ဝန်းကျင်တွင်ရှိပြီး 24 နာရီအတွင်း 2.34% ခန့် ကျဆင်းထားသည်။ $68K အနီး support ဇုန်ကို စမ်းသပ်နေပြီး leverage ဖိအားကြောင့် volatility မြင့်မားနေဆဲဖြစ်သည်။ Institutional အမြင်နှင့် macro-risk သတင်းများက short-term momentum ကို မတည်ငြိမ်အောင် ဆက်လက် သက်ရောက်နေသည်။",
+  "prediction": "လတ်တလောအလားအလာမှာ sideway-to-bearish ဖြစ်နိုင်ပြီး $68K အထက် ထိန်းနိုင်ပါက $70.9K resistance ကို ပြန်လည်စမ်းသပ်နိုင်သည်။ $68K ကျိုးပျက်သွားပါက $66K ဝန်းကျင်သို့ ဆုတ်ခွာနိုင်ခြေ မြင့်မားသည်။",
   "support": 68000,
-  "resistance": 70983,
+  "resistance": 70900,
   "news": [
     {
-      "tag": "REGULATION",
-      "time": "2026-02-16 01:30 AM",
-      "text": "COINDESK မှ “Hong Kong is trying to build up its crypto regulations: State of Crypto” သတင်းထွက်လာပြီး crypto စျေးကွက် sentiment ကို တိုက်ရိုက်သက်ရောက်နိုင်တဲ့ headline တစ်ခုဖြစ်ပါတယ်။"
+      "tag": "Market",
+      "time": "2026-02-16 01:25",
+      "text": "MicroStrategy အကြီးအကဲ Michael Saylor က စျေးကွက်ကျဆင်းနေချိန်တွင် Bitcoin ထပ်မံဝယ်ယူနိုင်ကြောင်း အချက်ပေးခဲ့သည်။"
     },
     {
-      "tag": "BTC",
-      "time": "2026-02-16 01:25 AM",
-      "text": "COINTELEGRAPH မှ “Michael Saylor signals another Bitcoin buy amid market rout” သတင်းထွက်လာပြီး crypto စျေးကွက် sentiment ကို တိုက်ရိုက်သက်ရောက်နိုင်တဲ့ headline တစ်ခုဖြစ်ပါတယ်။"
+      "tag": "Institutional",
+      "time": "2026-02-15 20:30",
+      "text": "BlackRock ၏ digital assets ခေါင်းဆောင်က leverage ကြောင့် ဖြစ်လာသော volatility သည် Bitcoin ၏ long-term narrative ကို ဖိအားပေးနိုင်ကြောင်း ပြောကြားခဲ့သည်။"
     },
     {
-      "tag": "MARKET",
-      "time": "2026-02-16 12:30 AM",
-      "text": "COINDESK မှ “Prediction markets vs. insider trading: Founders admit blockchain transparency is the only defense” သတင်းထွက်လာပြီး crypto စျေးကွက် sentiment ကို တိုက်ရိုက်သက်ရောက်နိုင်တဲ့ headline တစ်ခုဖြစ်ပါတယ်။"
+      "tag": "Security",
+      "time": "2026-02-15 22:47",
+      "text": "Bitcoin က quantum ခြိမ်းခြောက်မှုဆိုင်ရာ ကာကွယ်ရေးဘက်သို့ တစ်လှမ်းတိုးလာပြီး ကျွမ်းကျင်သူများအကြား အရေးပေါ်အဆင့်အပေါ် အမြင်မတူညီမှုများ ပေါ်ထွက်နေသည်။"
     }
   ]
 }
