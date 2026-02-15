@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-16T04:12:20+06:30",
+  "timestamp": "2026-02-16T04:39:00+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC သည် $68,783 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း 1.40% ခန့် ကျဆင်းထားသည်။ 24h အကွာအဝေးမှာ $68,000 မှ $70,983 အတွင်းဖြစ်ပြီး 4H RSI 50.7 နဲ့ SMA20/SMA50 ကြားညှိနှိုင်းနေသဖြင့် short-term volatility ဆက်လက်မြင့်နေတယ်။",
-  "prediction": "လတ်တလော trend သည် bearish bias ပါတဲ့ sideways ဖြစ်နိုင်ပြီး $68,000 support အောက် ချိုးကျပါက $66,000 ဝန်းကျင်ကို ပြန်စမ်းနိုင်သည်။ $70,983 resistance ကို volume နဲ့ ဖောက်တက်နိုင်ပါက short-term bullish rebound ပြန်ဖွင့်နိုင်သည်။",
+  "summary": "BTC သည် $68,903 ဝန်းကျင်တွင် ကုန်သွယ်နေပြီး 24 နာရီအတွင်း 1.38% ခန့် ကျဆင်းထားသည်။ လက်ရှိ 24h range သည် $68,000 မှ $70,983 အတွင်းဖြစ်ပြီး selling pressure ရှိနေသော်လည်း $68k support အပေါ်တွင် တည်ငြိမ်ရန် ကြိုးစားနေသည်။",
+  "prediction": "လတ်တလော trend သည် bearish bias ပါတဲ့ sideways ဖြစ်နိုင်ပြီး $68,000 ကို ထိန်းထားနိုင်လျှင် $70,000-$71,000 resistance zone ကို ပြန်တက်စမ်းနိုင်သည်။ $68,000 အောက် daily close ဖြစ်သွားပါက downside continuation အနေဖြင့် $66,500 ဝန်းကျင်ထိ ဆင်းနိုင်ခြေ တိုးမည်။",
   "support": 68000,
   "resistance": 70983,
   "news": [
     {
+      "tag": "Institutional",
+      "time": "2026-02-16 03:29",
+      "text": "Wall Street ရဲ့ asset manager Apollo က Morpho token deal နဲ့ crypto exposure ကို ထပ်မံတိုးချဲ့လိုက်တာကြောင့် institutional demand ဆက်လက်တိုးနိုင်မယ့် မျှော်လင့်ချက် မြင့်တက်လာခဲ့သည်။"
+    },
+    {
       "tag": "Regulation",
       "time": "2026-02-16 01:30",
-      "text": "ဟောင်ကောင်ဘက်က crypto စည်းမျဉ်းဘောင်ကို တိုးချဲ့ပြင်ဆင်နေပြီး digital asset policy roadmap ကို အရှိန်မြှင့်နေကြောင်း ဖော်ပြထားသည်။"
+      "text": "ဟောင်ကောင်ဘက်က crypto regulatory framework ကို ပိုမိုခိုင်မာအောင် တိုးချဲ့ပြင်ဆင်နေပြီး Asia regional market sentiment ကို ဆက်လက်ထောက်ပံ့နိုင်မယ့် signal ပေးထားသည်။"
     },
     {
-      "tag": "Institutional",
+      "tag": "Bitcoin",
       "time": "2026-02-16 01:25",
-      "text": "Michael Saylor က စျေးကွက်ကျချိန်အတွင်း Bitcoin ကို ထပ်မံဝယ်ယူနိုင်တဲ့ signal ပေးထားပြီး institution-side accumulation မျှော်လင့်ချက်ကို မြှင့်တင်ထားသည်။"
-    },
-    {
-      "tag": "Market Risk",
-      "time": "2026-02-15 20:30",
-      "text": "BlackRock digital assets ခေါင်းဆောင်က leverage-driven volatility မြင့်မားမှုကြောင့် Bitcoin ရဲ့ narrative အပေါ် ဖိအားရှိနိုင်ကြောင်း သတိပေးထားသည်။"
+      "text": "Michael Saylor က စျေးကွက်ကျချိန်အတွင်း Bitcoin ထပ်ဝယ်မယ့် signal ပေးလိုက်တာကြောင့် dip-buying narrative ကို ပြန်လည်အားဖြည့်ပေးနေသည်။"
     }
   ]
 }
