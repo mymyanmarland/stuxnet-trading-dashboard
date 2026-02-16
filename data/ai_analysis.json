@@ -1,25 +1,25 @@
 {
-  "timestamp": "2026-02-16T06:12:00+06:30",
+  "timestamp": "2026-02-17T06:18:00+06:30",
   "title": "Bitcoin (BTC) Market Overview",
-  "summary": "BTC လက်ရှိဈေးနှုန်းမှာ $68,584 (24h -1.81%) ဝန်းကျင်ရှိနေပါတယ်။ 24 နာရီအတွင်း $68,000 မှ $70,983 အထိ လှုပ်ရှားခဲ့ပြီး volume က $1.54B ခန့်ဖြစ်နေပါတယ်။ ဈေးနှုန်းသည် range အောက်ပိုင်း မှာရှိနေသဖြင့် breakout မဖြစ်ခင် ကာလတို volatility ကို သတိထားရမယ့်အခြေအနေပါ။",
-  "prediction": "Trend သည် အနည်းငယ်ကျဘက် bias ရှိနေပါတယ်။ $68,000 support အောက်ကို ချိုးသွားလျှင် အောက်ဆင်းဖိအား ပိုတိုးနိုင်ပြီး၊ ပြန်လည်တည်ငြိမ်ဖို့ $70,983 အနီး resistance ကို ပြန်ယူနိုင်မှုလိုအပ်ပါတယ်။",
-  "support": 68000,
-  "resistance": 70983,
+  "summary": "BTC သည် $68,761 ဝန်းကျင်တွင် trade နေပြီး 24h အတွင်း $67,382 မှ $69,999 အထိ လှုပ်ရှားထားပါတယ်။ 24 နာရီပြောင်းလဲမှု +0.14% သာရှိနေသဖြင့် momentum အားနည်းပြီး စျေးကွက်သည် consolidation phase ထဲမှာ ဆက်လက်လည်ပတ်နေပါတယ်။",
+  "prediction": "ကာလတို trend သည် sideway-to-bearish bias ရှိနေပြီး $67,382 support မကျိုးသရွေ့ $70,000 resistance ကို ထပ်စမ်းနိုင်ပါတယ်။ $67,382 အောက်သို့ ပိတ်သွားပါက အောက်ဘက် pullback ဖိအား ပိုတိုးနိုင်ပါတယ်။",
+  "support": 67382,
+  "resistance": 70000,
   "news": [
     {
-      "tag": "Institutional",
-      "time": "2026-02-16 03:29 AM",
-      "text": "CoinDesk ရဲ့ ‘Wall Street giant Apollo deepens crypto push with Morpho token deal’ သတင်းအရ အဖွဲ့အစည်းကြီးတွေ၏ crypto sector ထဲပါဝင်မှု တိုးလာနေပြီး စျေးကွက်ယုံကြည်မှုကို ထောက်ပံ့ပေးနိုင်ပါတယ်။"
+      "tag": "Regulation",
+      "time": "2026-02-17 02:37 AM",
+      "text": "Hong Kong စည်းမျဉ်းထိန်းချုပ်သူ SFC က Victory Fintech ကို 2025 ဇွန်နောက်ပိုင်း ပထမဆုံး crypto လိုင်စင်ပေးခဲ့ပြီး၊ အာရှဘက် regulation clarity တိုးလာမှုကို ပြသထားပါတယ်။"
     },
     {
-      "tag": "Market",
-      "time": "2026-02-16 01:25 AM",
-      "text": "Cointelegraph မှ ‘Michael Saylor signals another Bitcoin buy amid market rout’ headline က BTC စျေးကွက် sentiment ကို တိုက်ရိုက်သက်ရောက်စေနိုင်တဲ့ အရေးကြီးသတင်းတစ်ခုဖြစ်ပါတယ်။"
+      "tag": "Market Flows",
+      "time": "2026-02-16 10:08 PM",
+      "text": "CoinShares အချက်အလက်အရ အမေရိကန် crypto funds မှ $403M ထွက်ငွေဖြစ်ခဲ့ပြီး စျေးနှုန်းအင်အားနည်းချိန်တွင် risk-off sentiment ဆက်လက်ရှိနေတယ်ဆိုတာကို ပြသပါတယ်။"
     },
     {
-      "tag": "Security",
-      "time": "2026-02-15 10:47 PM",
-      "text": "Decrypt ရဲ့ ‘Bitcoin Takes Step Towards Quantum Fix as Experts Diverge on Urgency of Threat’ သတင်းက Bitcoin network လုံခြုံရေးနဲ့ ရေရှည် narrative အပေါ် စျေးကွက်အာရုံကို ပြောင်းရွှေ့စေနိုင်ပါတယ်။"
+      "tag": "Bitcoin Trend",
+      "time": "2026-02-17 01:40 AM",
+      "text": "Bitcoin သည် 2018 bear market နောက်ပိုင်း အရှည်ဆုံး လစဉ်ကျဆင်းမှုစီးရီးကို ထပ်မံရင်ဆိုင်နိုင်ကြောင်း သတင်းထွက်လာပြီး၊ ကာလတို bearish pressure အပေါ် စျေးကွက်အာရုံစိုက်နေပါတယ်။"
     }
   ]
 }
